@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>교육과정 | 센텀디지털캠프 평생교육원</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Pretendard,"Noto Sans KR",sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+ul{
+  list-style:none;
+}
+
+.container{
+  width:min(1200px,calc(100% - 40px));
+  margin:auto;
+}
+
+header{
+  background:white;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.header-inner{
+  height:85px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  color:#2563eb;
+  font-size:21px;
+  font-weight:900;
+}
+
+nav ul{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+nav a{
+  font-weight:700;
+  font-size:15px;
+}
+
+.consult{
+  background:#2563eb;
+  color:white;
+  padding:10px 17px;
+  border-radius:8px;
+}
+
+.page-title{
+  background:#0f172a;
+  color:white;
+  padding:80px 0;
+  text-align:center;
+}
+
+.page-title h1{
+  font-size:42px;
+}
+
+.page-title p{
+  color:#cbd5e1;
+  margin-top:8px;
+}
+
+.content{
+  padding:80px 0;
+}
+
+.filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-bottom:45px;
+}
+
+.filter button{
+  border:1px solid #cbd5e1;
+  background:white;
+  padding:10px 18px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.filter .active{
+  background:#2563eb;
+  color:white;
+  border-color:#2563eb;
+}
+
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.image{
+  height:170px;
+  padding:25px;
+  color:white;
+  display:flex;
+  align-items:flex-end;
+  font-size:25px;
+  font-weight:900;
+}
+
+.ai{background:linear-gradient(135deg,#312e81,#2563eb);}
+.shop{background:linear-gradient(135deg,#047857,#10b981);}
+.video{background:linear-gradient(135deg,#be123c,#fb7185);}
+.book{background:linear-gradient(135deg,#7c3aed,#c084fc);}
+.office{background:linear-gradient(135deg,#0369a1,#38bdf8);}
+.notion{background:linear-gradient(135deg,#334155,#64748b);}
+
+.body{
+  padding:25px;
+}
+
+.badge{
+  display:inline-block;
+  background:#dbeafe;
+  color:#1d4ed8;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:800;
+  border-radius:5px;
+  margin-bottom:12px;
+}
+
+.body h2{
+  font-size:19px;
+  min-height:56px;
+}
+
+.info{
+  margin-top:18px;
+  padding-top:15px;
+  border-top:1px solid #e2e8f0;
+  font-size:14px;
+  color:#64748b;
+  line-height:1.9;
+}
+
+.more{
+  display:block;
+  margin-top:18px;
+  text-align:center;
+  background:#0f172a;
+  color:white;
+  padding:12px;
+  border-radius:7px;
+  font-weight:800;
+}
+
+footer{
+  background:#111827;
+  color:#94a3b8;
+  padding:45px 0;
+  font-size:13px;
+}
+
+footer strong{
+  color:white;
+  font-size:18px;
+}
+
+@media(max-width:900px){
+  nav{display:none;}
+  .course-grid{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:600px){
+  .course-grid{grid-template-columns:1fr;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container header-inner">
+
+<a href="index.html" class="logo">
+센텀디지털캠프
+</a>
+
+<nav>
+<ul>
+<li><a href="about.html">교육원 소개</a></li>
+<li><a href="courses.html">교육과정</a></li>
+<li><a href="card.html">국민내일배움카드</a></li>
+<li><a href="notice.html">공지사항</a></li>
+<li><a href="contact.html">오시는 길</a></li>
+<li><a href="consult.html" class="consult">수강상담</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+
+<div class="page-title">
+
+<h1>교육과정</h1>
+
+<p>
+센텀디지털캠프에서 운영하는 다양한 교육과정을 만나보세요.
+</p>
+
+</div>
+
+
+<section class="content">
+
+<div class="container">
+
+<div class="filter">
+
+<button class="active">전체과정</button>
+<button>생성형 AI</button>
+<button>영상제작</button>
+<button>전자상거래</button>
+<button>전자책</button>
+<button>OA · ITQ</button>
+
+</div>
+
+
+<div class="course-grid">
+
+<div class="card">
+
+<div class="image ai">
+Generative AI
+</div>
+
+<div class="body">
+
+<span class="badge">
+국민내일배움카드
+</span>
+
+<h2>
+ChatGPT를 활용한 생성형 AI 실무
+</h2>
+
+<div class="info">
+교육분야 : 생성형 AI<br>
+교육방식 : 실습 중심<br>
+대상 : 구직자 · 재직자 · 일반인
+</div>
+
+<a href="course-ai.html" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image shop">
+Smart Store
+</div>
+
+<div class="body">
+
+<span class="badge">
+국민내일배움카드
+</span>
+
+<h2>
+스마트스토어 쇼핑몰 전자상거래
+</h2>
+
+<div class="info">
+교육분야 : 전자상거래<br>
+교육방식 : 쇼핑몰 구축 실습<br>
+대상 : 예비창업자 · 재직자
+</div>
+
+<a href="#" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image video">
+YouTube Creator
+</div>
+
+<div class="body">
+
+<span class="badge">
+국민내일배움카드
+</span>
+
+<h2>
+생성형 AI를 활용한 유튜브 영상편집
+</h2>
+
+<div class="info">
+교육분야 : 영상제작<br>
+교육방식 : 콘텐츠 제작 실습<br>
+대상 : 초보자 · 콘텐츠 제작자
+</div>
+
+<a href="#" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image book">
+E-BOOK
+</div>
+
+<div class="body">
+
+<span class="badge">
+디지털 콘텐츠
+</span>
+
+<h2>
+생성형 AI와 SIGIL 전자책 제작
+</h2>
+
+<div class="info">
+교육분야 : 전자책<br>
+교육방식 : 전자책 출판 실습<br>
+대상 : 작가 · 강사 · 일반인
+</div>
+
+<a href="#" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image office">
+ITQ · OA
+</div>
+
+<div class="body">
+
+<span class="badge">
+직무능력 향상
+</span>
+
+<h2>
+한글 · 엑셀 · 파워포인트 ITQ
+</h2>
+
+<div class="info">
+교육분야 : OA<br>
+교육방식 : 자격증 및 실무<br>
+대상 : 구직자 · 직장인
+</div>
+
+<a href="#" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image notion">
+Digital Work
+</div>
+
+<div class="body">
+
+<span class="badge">
+디지털 활용
+</span>
+
+<h2>
+노션과 AI를 활용한 스마트 업무관리
+</h2>
+
+<div class="info">
+교육분야 : 디지털 업무<br>
+교육방식 : 실습 중심<br>
+대상 : 직장인 · 교직원 · 강사
+</div>
+
+<a href="#" class="more">
+자세히 보기
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+<strong>
+센텀디지털캠프 평생교육원
+</strong><br>
+
+교육상담 : 051-710-0775<br>
+운영 : 주식회사 은누리디지털문화원
+
+</div>
+
+</footer>
+
+</body>
+</html>
