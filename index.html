@@ -2,1675 +2,1460 @@
 <html lang="ko">
 
 <head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>센텀디지털캠프 평생교육원</title>
 
-<title>센텀디지털캠프 평생교육원</title>
+  <style>
 
-<meta
-    name="description"
-    content="부산 센텀디지털캠프 평생교육원. 국민내일배움카드, 생성형 AI, 유튜브, 전자상거래, 전자책, ITQ 교육."
->
+    /* ==================================================
+       기본 설정
+    ================================================== */
 
-<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* =====================================================
-   기본 설정
-===================================================== */
+    html {
+      scroll-behavior: smooth;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family:
-        Pretendard,
+    body {
+      font-family:
+        "Pretendard",
         "Noto Sans KR",
         "Apple SD Gothic Neo",
         Arial,
         sans-serif;
 
-    color: #1e293b;
-    background: #ffffff;
-    line-height: 1.6;
-    word-break: keep-all;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-button {
-    font-family: inherit;
-}
-
-.container {
-    width: min(1380px, calc(100% - 40px));
-    margin: 0 auto;
-}
-
-
-/* =====================================================
-   상단 작은 바
-===================================================== */
-
-.top-bar {
-    height: 36px;
-    background: #2563eb;
-    color: white;
-}
-
-.top-bar-inner {
-    height: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-size: 12px;
-}
-
-.top-right {
-    display: flex;
-    gap: 18px;
-}
-
-.top-right a {
-    opacity: .9;
-}
-
-.top-right a:hover {
-    opacity: 1;
-}
-
-
-/* =====================================================
-   헤더
-===================================================== */
-
-header {
-    background: rgba(255,255,255,.98);
-
-    border-bottom: 1px solid #e2e8f0;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-}
-
-.header-inner {
-    height: 100px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-}
-
-
-/* =====================================================
-   실제 학원 로고
-===================================================== */
-
-.logo-area {
-    display: flex;
-    align-items: center;
-
-    flex-shrink: 0;
-}
-
-.main-logo {
-    display: block;
-
-    width: 330px;
-    max-width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-}
-
-
-/* =====================================================
-   PC 메뉴
-===================================================== */
-
-.main-nav {
-    margin-left: auto;
-}
-
-.main-nav > ul {
-    display: flex;
-    align-items: center;
-}
-
-.main-nav > ul > li {
-    position: relative;
-}
-
-.main-nav > ul > li > a {
-    height: 100px;
-
-    min-width: 100px;
-
-    padding: 0 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    color: #1e293b;
-
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.main-nav > ul > li > a::after {
-
-    content: "";
-
-    position: absolute;
-
-    bottom: 0;
-    left: 50%;
-
-    width: 0;
-    height: 3px;
-
-    background: #2563eb;
-
-    transform: translateX(-50%);
-
-    transition: .25s;
-}
-
-.main-nav > ul > li:hover > a {
-    color: #2563eb;
-}
-
-.main-nav > ul > li:hover > a::after {
-    width: 100%;
-}
-
-
-/* =====================================================
-   드롭다운
-===================================================== */
-
-.dropdown {
-
-    display: none;
-
-    position: absolute;
-
-    top: 100px;
-    left: 0;
-
-    width: 195px;
-
-    background: #2563eb;
-
-    box-shadow:
-        0 12px 30px rgba(15,23,42,.18);
-
-    z-index: 9999;
-}
-
-.main-nav li:hover > .dropdown {
-    display: block;
-}
-
-.dropdown li {
-
-    border-bottom:
-        1px solid rgba(255,255,255,.15);
-}
-
-.dropdown li:last-child {
-    border-bottom: none;
-}
-
-.dropdown a {
-
-    display: block;
-
-    padding: 14px 18px;
-
-    color: white;
-
-    font-size: 14px;
-
-    transition: .2s;
-}
-
-.dropdown a:hover {
-
-    background: #1d4ed8;
-
-    padding-left: 24px;
-}
-
-
-/* =====================================================
-   수강상담 버튼
-===================================================== */
-
-.header-consult {
-
-    height: 43px !important;
-
-    min-width: auto !important;
-
-    margin-left: 8px;
-
-    padding: 0 20px !important;
-
-    border-radius: 8px;
-
-    background: #2563eb;
-
-    color: white !important;
-}
-
-.header-consult::after {
-    display: none;
-}
-
-.header-consult:hover {
-    background: #1d4ed8;
-}
-
-
-/* =====================================================
-   모바일 메뉴
-===================================================== */
-
-.mobile-menu-button {
-
-    display: none;
-
-    border: 0;
-
-    background: transparent;
-
-    color: #0f172a;
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-.mobile-nav {
-
-    display: none;
-
-    background: white;
-
-    border-top: 1px solid #e2e8f0;
-}
-
-.mobile-nav.active {
-    display: block;
-}
-
-.mobile-nav > a {
-
-    display: block;
-
-    padding: 15px 20px;
-
-    border-bottom: 1px solid #f1f5f9;
-
-    font-weight: 800;
-}
-
-.mobile-sub {
-
-    padding-left: 18px;
-
-    background: #f8fafc;
-}
-
-.mobile-sub a {
-
-    display: block;
-
-    padding: 12px 20px;
-
-    border-bottom: 1px solid #e2e8f0;
-
-    color: #64748b;
-
-    font-size: 14px;
-}
-
-
-/* =====================================================
-   메인 비주얼
-===================================================== */
-
-.hero {
-
-    position: relative;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(56,189,248,.25),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 70% 80%,
-            rgba(99,102,241,.13),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            120deg,
-            #eff6ff 0%,
-            #f8fafc 55%,
-            #ffffff 100%
-        );
-}
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    right: -150px;
-    top: -200px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(37,99,235,.08);
-}
-
-.hero-inner {
-
-    min-height: 570px;
-
-    display: grid;
-
-    grid-template-columns:
-        1.15fr .85fr;
-
-    gap: 70px;
-
-    align-items: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.hero-label {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 8px 15px;
-
-    margin-bottom: 22px;
-
-    border-radius: 30px;
-
-    background: #dbeafe;
-
-    color: #1d4ed8;
-
-    font-size: 14px;
-    font-weight: 800;
-}
-
-.hero h1 {
-
-    margin-bottom: 22px;
-
-    color: #0f172a;
-
-    font-size:
-        clamp(
-            40px,
-            4vw,
-            58px
-        );
-
-    line-height: 1.22;
-
-    letter-spacing: -2.5px;
-}
-
-.hero h1 span {
-    color: #2563eb;
-}
-
-.hero-desc {
-
-    max-width: 650px;
-
-    margin-bottom: 31px;
-
-    color: #475569;
-
-    font-size: 18px;
-}
-
-.hero-buttons {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-}
-
-
-/* =====================================================
-   버튼
-===================================================== */
-
-.btn {
-
-    display: inline-block;
-
-    padding: 14px 24px;
-
-    border-radius: 9px;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    transition: .2s;
-}
-
-.btn-primary {
-
-    background: #2563eb;
-
-    color: white;
-
-    box-shadow:
-        0 8px 20px rgba(37,99,235,.20);
-}
-
-.btn-primary:hover {
-
-    background: #1d4ed8;
-
-    transform: translateY(-2px);
-}
-
-.btn-white {
-
-    background: white;
-
-    color: #1e3a8a;
-
-    border: 1px solid #cbd5e1;
-}
-
-.btn-white:hover {
-
-    color: #2563eb;
-
-    border-color: #2563eb;
-}
-
-
-/* =====================================================
-   메인 오른쪽 모집과정
-===================================================== */
-
-.hero-info {
-
-    padding: 34px;
-
-    border-radius: 22px;
-
-    background: rgba(255,255,255,.94);
-
-    border:
-        1px solid rgba(255,255,255,.8);
-
-    box-shadow:
-        0 25px 60px rgba(15,23,42,.10);
-}
-
-.hero-info-title {
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 20px;
-}
-
-.hero-info-title h3 {
-
-    color: #0f172a;
-
-    font-size: 23px;
-}
-
-.recruit-badge {
-
-    padding: 5px 9px;
-
-    border-radius: 5px;
-
-    background: #dcfce7;
-
-    color: #15803d;
-
-    font-size: 12px;
-
-    font-weight: 800;
-}
-
-.hero-course {
-
-    display: block;
-
-    padding: 17px 0;
-
-    border-bottom:
-        1px solid #e2e8f0;
-}
-
-.hero-course small {
-
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #2563eb;
-
-    font-weight: 800;
-}
-
-.hero-course strong {
-
-    color: #1e293b;
-
-    font-size: 16px;
-}
-
-.hero-course:hover strong {
-    color: #2563eb;
-}
-
-.hero-call {
-
-    display: block;
-
-    margin-top: 21px;
-
-    padding: 17px;
-
-    border-radius: 11px;
-
-    background: #0f172a;
-
-    color: white;
-
-    transition: .2s;
-}
-
-.hero-call:hover {
-    background: #1d4ed8;
-}
-
-.hero-call small {
-
-    display: block;
-
-    color: #94a3b8;
-}
-
-.hero-call strong {
-
-    display: block;
-
-    margin-top: 2px;
-
-    font-size: 25px;
-}
-
-
-/* =====================================================
-   빠른 메뉴
-===================================================== */
-
-.quick-wrap {
-
-    position: relative;
-
-    margin-top: -45px;
-
-    z-index: 20;
-}
-
-.quick-menu {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    overflow: hidden;
-
-    border-radius: 15px;
-
-    background: white;
-
-    box-shadow:
-        0 12px 35px rgba(15,23,42,.12);
-}
-
-.quick-item {
-
-    min-height: 125px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    border-right:
-        1px solid #e2e8f0;
-
-    transition: .25s;
-}
-
-.quick-item:last-child {
-    border-right: 0;
-}
-
-.quick-item:hover {
-
-    background: #eff6ff;
-
-    transform: translateY(-3px);
-}
-
-.quick-icon {
-
-    margin-bottom: 8px;
-
-    font-size: 28px;
-}
-
-.quick-item strong {
-
-    color: #1e293b;
-
-    font-size: 15px;
-}
-
-.quick-item span {
-
-    margin-top: 3px;
-
-    color: #94a3b8;
-
-    font-size: 12px;
-}
-
-
-/* =====================================================
-   공통 섹션
-===================================================== */
-
-.section {
-    padding: 100px 0;
-}
-
-.section.gray {
-    background: #f8fafc;
-}
-
-.section-head {
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: flex-end;
-
-    margin-bottom: 40px;
-}
-
-.section-eyebrow {
-
-    margin-bottom: 6px;
-
-    color: #2563eb;
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-.section-title {
-
-    color: #0f172a;
-
-    font-size: 35px;
-
-    letter-spacing: -1.5px;
-}
-
-.section-desc {
-
-    margin-top: 7px;
-
-    color: #64748b;
-}
-
-.more-link {
-
-    color: #475569;
-
-    font-size: 14px;
-
-    font-weight: 700;
-}
-
-.more-link:hover {
-    color: #2563eb;
-}
-
-
-/* =====================================================
-   교육과정 카드
-===================================================== */
-
-.course-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 24px;
-}
-
-.course-card {
-
-    overflow: hidden;
-
-    background: white;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius: 16px;
-
-    transition: .3s;
-}
-
-.course-card:hover {
-
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 18px 40px rgba(15,23,42,.09);
-}
-
-.course-visual {
-
-    height: 190px;
-
-    padding: 22px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    color: white;
-}
-
-.visual-ai {
-
-    background:
-        linear-gradient(
-            135deg,
-            #312e81,
-            #2563eb,
-            #38bdf8
-        );
-}
-
-.visual-shop {
-
-    background:
-        linear-gradient(
-            135deg,
-            #065f46,
-            #10b981,
-            #6ee7b7
-        );
-}
-
-.visual-video {
-
-    background:
-        linear-gradient(
-            135deg,
-            #7f1d1d,
-            #e11d48,
-            #fb7185
-        );
-}
-
-.course-visual-text {
-
-    font-size: 25px;
-
-    font-weight: 900;
-
-    line-height: 1.25;
-}
-
-.course-body {
-    padding: 25px;
-}
-
-.course-category {
-
-    display: inline-block;
-
-    padding: 5px 9px;
-
-    margin-bottom: 11px;
-
-    border-radius: 5px;
-
-    background: #eff6ff;
-
-    color: #2563eb;
-
-    font-size: 12px;
-
-    font-weight: 800;
-}
-
-.course-body h3 {
-
-    min-height: 58px;
-
-    margin-bottom: 15px;
-
-    color: #0f172a;
-
-    font-size: 20px;
-
-    line-height: 1.45;
-}
-
-.course-detail {
-
-    padding: 14px 0;
-
-    border-top:
-        1px solid #f1f5f9;
-
-    color: #64748b;
-
-    font-size: 14px;
-}
-
-.course-detail div {
-
-    display: flex;
-
-    margin: 5px 0;
-}
-
-.course-detail span {
-
-    min-width: 70px;
-
-    color: #334155;
-
-    font-weight: 700;
-}
-
-.course-button {
-
-    display: block;
-
-    margin-top: 15px;
-
-    padding: 12px;
-
-    border-radius: 7px;
-
-    background: #0f172a;
-
-    color: white;
-
-    text-align: center;
-
-    font-size: 14px;
-
-    font-weight: 800;
-}
-
-.course-button:hover {
-    background: #2563eb;
-}
-
-
-/* =====================================================
-   교육 분야
-===================================================== */
-
-.field-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 18px;
-}
-
-.field-card {
-
-    min-height: 220px;
-
-    padding: 28px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    background: white;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius: 14px;
-
-    transition: .3s;
-}
-
-.field-card:hover {
-
-    border-color: #93c5fd;
-
-    transform: translateY(-4px);
-}
-
-.field-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    right: -35px;
-    bottom: -35px;
-
-    border-radius: 50%;
-
-    background: #eff6ff;
-}
-
-.field-icon {
-
-    margin-bottom: 20px;
-
-    font-size: 32px;
-}
-
-.field-card h3 {
-
-    margin-bottom: 8px;
-
-    color: #0f172a;
-
-    font-size: 20px;
-}
-
-.field-card p {
-
-    color: #64748b;
-
-    font-size: 14px;
-}
-
-
-/* =====================================================
-   교육원 소개
-===================================================== */
-
-.about-section {
-
-    background: #0f172a;
-
-    color: white;
-}
-
-.about-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-.about-label {
-
-    margin-bottom: 10px;
-
-    color: #60a5fa;
-
-    font-weight: 800;
-}
-
-.about-grid h2 {
-
-    margin-bottom: 23px;
-
-    font-size: 38px;
-
-    line-height: 1.4;
-
-    letter-spacing: -1.8px;
-}
-
-.about-text {
-
-    color: #cbd5e1;
-
-    line-height: 1.9;
-}
-
-.about-points {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 15px;
-
-    margin-top: 25px;
-}
-
-.about-point {
-
-    padding: 16px;
-
-    background: #172033;
-
-    border: 1px solid #334155;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-}
-
-.about-panel {
-
-    padding: 35px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1d4ed8,
-            #0284c7
-        );
-}
-
-.about-panel h3 {
-
-    margin-bottom: 18px;
-
-    font-size: 24px;
-}
-
-.about-stat {
-
-    padding: 16px 0;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.2);
-}
-
-.about-stat:last-child {
-    border-bottom: 0;
-}
-
-.about-stat strong {
-
-    display: block;
-
-    font-size: 18px;
-}
-
-.about-stat span {
-
-    color: #dbeafe;
-
-    font-size: 13px;
-}
-
-
-/* =====================================================
-   내일배움카드 단계
-===================================================== */
-
-.step-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 18px;
-}
-
-.step-card {
-
-    padding: 28px;
-
-    background: white;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius: 14px;
-}
-
-.step-number {
-
-    width: 46px;
-    height: 46px;
-
-    margin-bottom: 17px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background: #2563eb;
-
-    color: white;
-
-    font-weight: 900;
-}
-
-.step-card h3 {
-
-    margin-bottom: 8px;
-
-    color: #0f172a;
-
-    font-size: 19px;
-}
-
-.step-card p {
-
-    color: #64748b;
-
-    font-size: 14px;
-}
-
-
-/* =====================================================
-   공지사항
-===================================================== */
-
-.board-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 30px;
-}
-
-.board {
-
-    padding: 30px;
-
-    background: white;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius: 14px;
-}
-
-.board-header {
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    padding-bottom: 17px;
-
-    border-bottom:
-        2px solid #0f172a;
-}
-
-.board-header h3 {
-
-    color: #0f172a;
-
-    font-size: 21px;
-}
-
-.board-header a {
-
-    color: #64748b;
-
-    font-size: 13px;
-}
-
-.board-list li {
-
-    border-bottom:
-        1px solid #f1f5f9;
-}
-
-.board-list a {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 14px 0;
-
-    font-size: 14px;
-}
-
-.board-list a:hover {
-    color: #2563eb;
-}
-
-.board-date {
-
-    flex-shrink: 0;
-
-    color: #94a3b8;
-
-    font-size: 12px;
-}
-
-
-/* =====================================================
-   상담 영역
-===================================================== */
-
-.consult-section {
-
-    padding: 65px 0;
-
-    background:
-        linear-gradient(
-            110deg,
-            #1d4ed8,
-            #0284c7
-        );
-
-    color: white;
-}
-
-.consult-inner {
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-}
-
-.consult-inner h2 {
-
-    margin-bottom: 8px;
-
-    font-size: 30px;
-}
-
-.consult-inner p {
-    color: #dbeafe;
-}
-
-.consult-right {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-}
-
-.consult-phone span {
-
-    display: block;
-
-    color: #dbeafe;
-
-    font-size: 13px;
-}
-
-.consult-phone strong {
-
-    display: block;
-
-    font-size: 31px;
-}
-
-.consult-link {
-
-    padding: 13px 20px;
-
-    border-radius: 8px;
-
-    background: white;
-
-    color: #1d4ed8;
-
-    font-weight: 800;
-}
-
-
-/* =====================================================
-   푸터
-===================================================== */
-
-footer {
-
-    padding: 50px 0;
-
-    background: #111827;
-
-    color: #94a3b8;
-}
-
-.footer-name {
-
-    margin-bottom: 15px;
-
-    color: white;
-
-    font-size: 20px;
-
-    font-weight: 900;
-}
-
-.footer-links {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
-
-    margin-bottom: 18px;
-}
-
-.footer-links a {
-
-    color: #cbd5e1;
-
-    font-size: 13px;
-}
-
-.footer-info {
-
-    font-size: 13px;
-
-    line-height: 1.9;
-}
-
-.copyright {
-
-    margin-top: 18px;
-
-    color: #64748b;
-
-    font-size: 12px;
-}
-
-
-/* =====================================================
-   반응형
-===================================================== */
-
-@media(max-width:1200px) {
-
-    .main-logo {
-        width: 270px;
+      color: #111827;
+      background: #ffffff;
+      line-height: 1.7;
+      word-break: keep-all;
     }
 
-    .main-nav > ul > li > a {
-
-        min-width: 90px;
-
-        padding-left: 8px;
-        padding-right: 8px;
-
-        font-size: 14px;
-    }
-}
-
-
-@media(max-width:1050px) {
-
-    .main-nav {
-        display: none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .mobile-menu-button {
-        display: block;
+    ul {
+      list-style: none;
     }
 
-    .hero-inner {
-
-        grid-template-columns: 1fr;
-
-        padding: 70px 0 100px;
+    button {
+      font-family: inherit;
     }
 
-    .course-grid {
 
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .field-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .step-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media(max-width:700px) {
+    /* ==================================================
+       최상단 투톤 안내띠
+       ★ 앞으로 모든 페이지 공통
+    ================================================== */
 
     .top-bar {
-        display: none;
+      height: 30px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2f6eea 0%,
+          #2f6eea 82%,
+          #f97316 82%,
+          #f97316 100%
+        );
+    }
+
+    .top-bar-inner {
+      max-width: 1280px;
+      height: 30px;
+
+      margin: 0 auto;
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-links a {
+      opacity: 0.95;
+    }
+
+    .top-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+
+    /* ==================================================
+       HEADER
+       ★ 앞으로 모든 페이지 동일
+    ================================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255, 255, 255, 0.98);
+
+      border-bottom: 1px solid #e5e7eb;
+
+      backdrop-filter: blur(12px);
     }
 
     .header-inner {
+      max-width: 1280px;
 
-        height: 75px;
+      height: 92px;
 
-        gap: 15px;
+      margin: 0 auto;
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .main-logo {
-        width: 245px;
+
+    /* ==================================================
+       로고
+    ================================================== */
+
+    .logo {
+      height: 92px;
+
+      display: flex;
+      align-items: center;
+
+      flex-shrink: 0;
     }
 
-    .hero h1 {
-
-        font-size: 38px;
-
-        letter-spacing: -1.8px;
+    .logo img {
+      height: 50px;
+      width: auto;
+      display: block;
     }
 
-    .hero-desc br {
-        display: none;
+
+    /* ==================================================
+       네비게이션
+    ================================================== */
+
+    .nav-menu {
+      height: 92px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 22px;
     }
+
+    .nav-item {
+      position: relative;
+
+      height: 92px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item > a {
+      position: relative;
+
+      height: 92px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #111827;
+
+      font-size: 14px;
+      font-weight: 750;
+
+      white-space: nowrap;
+
+      transition: 0.2s;
+    }
+
+    .nav-item > a:hover {
+      color: #2563eb;
+    }
+
+
+    /* 메뉴 밑 파란 선 */
+
+    .nav-item > a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: 16px;
+
+      width: 0;
+      height: 3px;
+
+      border-radius: 10px;
+
+      background: #2563eb;
+
+      transform: translateX(-50%);
+
+      transition: 0.25s;
+    }
+
+    .nav-item:hover > a::after {
+      width: 30px;
+    }
+
+
+    /* ==================================================
+       드롭다운
+    ================================================== */
+
+    .dropdown {
+      visibility: hidden;
+      opacity: 0;
+
+      position: absolute;
+
+      top: 82px;
+      left: 50%;
+
+      width: 205px;
+
+      padding: 10px 0;
+
+      transform:
+        translateX(-50%)
+        translateY(10px);
+
+      background: #ffffff;
+
+      border: 1px solid #e5e7eb;
+      border-radius: 13px;
+
+      box-shadow:
+        0 16px 40px
+        rgba(15, 23, 42, 0.14);
+
+      transition:
+        opacity 0.2s,
+        transform 0.2s,
+        visibility 0.2s;
+    }
+
+    .nav-item:hover .dropdown {
+      visibility: visible;
+      opacity: 1;
+
+      transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+    .dropdown a {
+      display: block;
+
+      padding: 11px 20px;
+
+      color: #4b5563;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition: 0.2s;
+    }
+
+    .dropdown a:hover {
+      padding-left: 25px;
+
+      color: #2563eb;
+
+      background: #eff6ff;
+    }
+
+
+    /* ==================================================
+       수강상담 버튼
+    ================================================== */
+
+    .nav-item > a.consult-btn {
+      height: 42px;
+
+      padding: 0 20px;
+
+      color: #ffffff !important;
+
+      border-radius: 9px;
+
+      background: #2563eb;
+
+      box-shadow:
+        0 8px 18px
+        rgba(37, 99, 235, 0.20);
+    }
+
+    .nav-item > a.consult-btn::after {
+      display: none;
+    }
+
+    .nav-item > a.consult-btn:hover {
+      background: #1d4ed8;
+    }
+
+
+    /* ==================================================
+       HERO
+       ★ 예전 메인페이지 스타일 복원
+    ================================================== */
+
+    .hero {
+      position: relative;
+
+      min-height: 525px;
+
+      padding: 70px 24px 105px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(56, 189, 248, 0.20),
+          transparent 26%
+        ),
+        radial-gradient(
+          circle at 70% 80%,
+          rgba(59, 130, 246, 0.09),
+          transparent 32%
+        ),
+        linear-gradient(
+          110deg,
+          #eef6ff 0%,
+          #f8fbff 50%,
+          #effbff 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -100px;
+      top: -210px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(37, 99, 235, 0.10);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      right: 30px;
+      top: -140px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(14, 165, 233, 0.08);
+    }
+
+
+    /* ==================================================
+       HERO 내부
+    ================================================== */
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      gap: 65px;
+
+      align-items: center;
+    }
+
+
+    /* ==================================================
+       HERO 왼쪽
+    ================================================== */
+
+    .hero-content {
+      padding-top: 12px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 7px;
+
+      margin-bottom: 22px;
+
+      padding: 8px 14px;
+
+      color: #1d4ed8;
+
+      background: #dbeafe;
+
+      border-radius: 50px;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 24px;
+
+      color: #111827;
+
+      font-size: 52px;
+      font-weight: 850;
+
+      line-height: 1.3;
+
+      letter-spacing: -2.6px;
+    }
+
+    .hero-content h1 span {
+      color: #2563eb;
+    }
+
+    .hero-content p {
+      max-width: 620px;
+
+      margin-bottom: 30px;
+
+      color: #475569;
+
+      font-size: 16px;
+
+      line-height: 1.9;
+    }
+
+
+    /* HERO 버튼 */
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .hero-primary,
+    .hero-secondary {
+      height: 50px;
+
+      padding: 0 22px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 9px;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      transition: 0.2s;
+    }
+
+    .hero-primary {
+      color: #ffffff;
+      background: #2563eb;
+
+      box-shadow:
+        0 8px 20px
+        rgba(37, 99, 235, 0.20);
+    }
+
+    .hero-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .hero-secondary {
+      color: #1e3a8a;
+
+      background: #ffffff;
+
+      border: 1px solid #cbd5e1;
+    }
+
+    .hero-secondary:hover {
+      border-color: #93c5fd;
+      color: #2563eb;
+    }
+
+
+    /* ==================================================
+       모집중 과정 카드
+    ================================================== */
+
+    .recruit-card {
+      position: relative;
+
+      padding: 34px 33px 28px;
+
+      background:
+        rgba(255, 255, 255, 0.95);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.85);
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 20px 55px
+        rgba(15, 23, 42, 0.10);
+    }
+
+    .recruit-heading {
+      margin-bottom: 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .recruit-heading h2 {
+      color: #111827;
+
+      font-size: 21px;
+      font-weight: 850;
+    }
+
+    .recruit-status {
+      padding: 6px 10px;
+
+      color: #15803d;
+
+      background: #dcfce7;
+
+      border-radius: 5px;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .course-row {
+      padding: 17px 0;
+
+      border-bottom:
+        1px solid #e2e8f0;
+    }
+
+    .course-row small {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #2563eb;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .course-row strong {
+      color: #111827;
+
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .phone-box {
+      margin-top: 20px;
+
+      padding: 17px 18px;
+
+      color: #ffffff;
+
+      background: #111827;
+
+      border-radius: 10px;
+    }
+
+    .phone-box small {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+    }
+
+    .phone-box strong {
+      font-size: 23px;
+      font-weight: 850;
+    }
+
+
+    /* ==================================================
+       메인 바로가기
+       ★ 예전 디자인 유지
+       ★ 새 메뉴 구조 반영
+    ================================================== */
 
     .quick-wrap {
-        margin-top: -30px;
+      position: relative;
+
+      z-index: 20;
+
+      max-width: 1320px;
+
+      margin: -42px auto 0;
+
+      padding: 0 20px;
     }
 
     .quick-menu {
+      display: grid;
 
-        grid-template-columns:
-            repeat(2,1fr);
+      grid-template-columns:
+        repeat(7, 1fr);
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border: 1px solid #eef2f7;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 20px 40px
+        rgba(15, 23, 42, 0.10);
     }
 
     .quick-item {
+      min-height: 115px;
 
-        min-height: 105px;
+      padding: 19px 10px;
 
-        border-bottom:
-            1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      border-right:
+        1px solid #e5e7eb;
+
+      transition: 0.2s;
     }
 
-    .course-grid {
-        grid-template-columns: 1fr;
+    .quick-item:last-child {
+      border-right: 0;
     }
 
-    .field-grid {
-        grid-template-columns: 1fr;
+    .quick-item:hover {
+      background: #f8fbff;
     }
 
-    .step-grid {
-        grid-template-columns: 1fr;
+    .quick-icon {
+      margin-bottom: 8px;
+
+      font-size: 25px;
     }
+
+    .quick-item strong {
+      margin-bottom: 2px;
+
+      color: #111827;
+
+      font-size: 13px;
+    }
+
+    .quick-item span {
+      color: #94a3b8;
+
+      font-size: 11px;
+    }
+
+
+    /* ==================================================
+       공통 SECTION
+    ================================================== */
 
     .section {
-        padding: 75px 0;
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding: 90px 24px;
     }
 
-    .section-head {
+    .section-label {
+      margin-bottom: 12px;
 
-        flex-direction: column;
+      color: #2563eb;
 
-        align-items: flex-start;
+      font-size: 12px;
+      font-weight: 900;
 
-        gap: 10px;
+      letter-spacing: 1.2px;
     }
 
-    .section-title {
-        font-size: 29px;
+    .section-heading {
+      margin-bottom: 42px;
     }
 
-    .about-grid h2 {
-        font-size: 30px;
+    .section-heading h2 {
+      margin-bottom: 10px;
+
+      color: #111827;
+
+      font-size: 34px;
+      font-weight: 850;
+
+      letter-spacing: -1.3px;
     }
 
-    .about-points {
-        grid-template-columns: 1fr;
+    .section-heading p {
+      color: #64748b;
+
+      font-size: 15px;
     }
 
-    .board-grid {
-        grid-template-columns: 1fr;
+
+    /* ==================================================
+       모집 과정
+    ================================================== */
+
+    .recruit-section-bg {
+      margin-top: -73px;
+
+      padding-top: 73px;
+
+      background: #f8fafc;
     }
 
-    .consult-inner {
+    .courses-grid {
+      display: grid;
 
-        flex-direction: column;
+      grid-template-columns:
+        repeat(3, 1fr);
 
-        align-items: flex-start;
+      gap: 20px;
+    }
+
+    .course-card {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 285px;
+
+      padding: 28px;
+
+      background: #ffffff;
+
+      border: 1px solid #e5e7eb;
+      border-radius: 17px;
+
+      transition: 0.3s;
+    }
+
+    .course-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2563eb,
+          #38bdf8
+        );
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 15px 30px
+        rgba(37, 99, 235, 0.08);
+    }
+
+    .course-type {
+      display: inline-block;
+
+      margin-bottom: 17px;
+
+      padding: 5px 9px;
+
+      color: #2563eb;
+
+      background: #eff6ff;
+
+      border-radius: 5px;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .course-card h3 {
+      margin-bottom: 13px;
+
+      color: #111827;
+
+      font-size: 19px;
+      font-weight: 800;
+
+      line-height: 1.5;
+    }
+
+    .course-card p {
+      margin-bottom: 23px;
+
+      color: #64748b;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+    .course-card a {
+      color: #2563eb;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    /* ==================================================
+       교육지원 제도
+    ================================================== */
+
+    .support-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 24px;
+    }
+
+    .support-card {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 285px;
+
+      padding: 40px;
+
+      border-radius: 20px;
+    }
+
+    .support-card.blue {
+      color: #ffffff;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(125, 211, 252, 0.28),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #1d4ed8,
+          #2563eb 60%,
+          #0284c7
+        );
+    }
+
+    .support-card.light {
+      color: #111827;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #ecfeff
+        );
+
+      border: 1px solid #bae6fd;
+    }
+
+    .support-card small {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-size: 11px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+    .support-card.blue small {
+      color: #bfdbfe;
+    }
+
+    .support-card.light small {
+      color: #0284c7;
+    }
+
+    .support-card h2 {
+      margin-bottom: 13px;
+
+      font-size: 27px;
+    }
+
+    .support-card p {
+      margin-bottom: 23px;
+
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .support-card.blue p {
+      color: #dbeafe;
+    }
+
+    .support-card.light p {
+      color: #475569;
+    }
+
+    .support-card a {
+      display: inline-flex;
+
+      padding: 10px 17px;
+
+      border-radius: 8px;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .support-card.blue a {
+      color: #1e40af;
+      background: #ffffff;
+    }
+
+    .support-card.light a {
+      color: #ffffff;
+      background: #2563eb;
+    }
+
+
+    /* ==================================================
+       커뮤니티
+    ================================================== */
+
+    .community-bg {
+      background: #f8fafc;
+    }
+
+    .community-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .community-card {
+      padding: 31px;
+
+      text-align: center;
+
+      background: #ffffff;
+
+      border: 1px solid #e5e7eb;
+      border-radius: 17px;
+
+      transition: 0.3s;
+    }
+
+    .community-card:hover {
+      transform: translateY(-5px);
+
+      border-color: #bfdbfe;
+
+      box-shadow:
+        0 12px 28px
+        rgba(37, 99, 235, 0.07);
+    }
+
+    .community-icon {
+      width: 58px;
+      height: 58px;
+
+      margin: 0 auto 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #ecfeff
+        );
+
+      font-size: 25px;
+    }
+
+    .community-card h3 {
+      margin-bottom: 8px;
+
+      font-size: 18px;
+    }
+
+    .community-card p {
+      color: #64748b;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+
+    /* ==================================================
+       상담 CTA
+    ================================================== */
+
+    .consult-cta {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 48px 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      color: #ffffff;
+
+      border-radius: 20px;
+
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(103, 232, 249, 0.25),
+          transparent 27%
+        ),
+        linear-gradient(
+          120deg,
+          #102a5c,
+          #2563eb 60%,
+          #0284c7
+        );
+    }
+
+    .consult-cta h2 {
+      margin-bottom: 7px;
+
+      font-size: 27px;
+    }
+
+    .consult-cta p {
+      color: #dbeafe;
+
+      font-size: 14px;
     }
 
     .consult-right {
+      flex-shrink: 0;
+
+      text-align: right;
+    }
+
+    .consult-phone {
+      margin-bottom: 9px;
+
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .consult-right a {
+      display: inline-flex;
+
+      padding: 10px 18px;
+
+      color: #1e40af;
+      background: #ffffff;
+
+      border-radius: 8px;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+      padding: 48px 20px;
+
+      color: #9ca3af;
+
+      background: #111827;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-name {
+      margin-bottom: 14px;
+
+      color: #ffffff;
+
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      margin-bottom: 17px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-info {
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      padding-top: 20px;
+
+      color: #64748b;
+
+      border-top: 1px solid #374151;
+
+      font-size: 12px;
+    }
+
+
+    /* ==================================================
+       모바일 메뉴
+    ================================================== */
+
+    .mobile-menu-button {
+      display: none;
+
+      border: 0;
+
+      background: transparent;
+
+      color: #111827;
+
+      font-size: 27px;
+
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+
+      background: #ffffff;
+
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav > a {
+      display: block;
+
+      padding: 15px 22px;
+
+      color: #111827;
+
+      border-bottom: 1px solid #e5e7eb;
+
+      font-size: 15px;
+      font-weight: 750;
+    }
+
+    .mobile-sub {
+      padding: 6px 0;
+
+      background: #f8fafc;
+
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .mobile-sub a {
+      display: block;
+
+      padding: 9px 35px;
+
+      color: #64748b;
+
+      font-size: 13px;
+    }
+
+
+    /* ==================================================
+       반응형
+    ================================================== */
+
+    @media (max-width: 1180px) {
+
+      .nav-menu {
+        gap: 14px;
+      }
+
+      .nav-item > a {
+        font-size: 13px;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+    }
+
+
+    @media (max-width: 1000px) {
+
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .recruit-card {
+        max-width: 650px;
+        margin: 20px auto 0;
+      }
+
+      .quick-menu {
+        grid-template-columns:
+          repeat(4, 1fr);
+      }
+
+      .quick-item:nth-child(4) {
+        border-right: 0;
+      }
+
+      .courses-grid,
+      .community-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .top-bar {
+        height: 26px;
+      }
+
+      .top-bar-inner {
+        height: 26px;
+        padding: 0 15px;
+      }
+
+      .top-bar-inner > span {
+        font-size: 10px;
+      }
+
+      .top-links {
+        display: none;
+      }
+
+      .header-inner {
+        height: 70px;
+        padding: 0 17px;
+      }
+
+      .logo {
+        height: 70px;
+      }
+
+      .logo img {
+        height: 42px;
+      }
+
+
+      .hero {
+        min-height: auto;
+
+        padding:
+          55px 20px 100px;
+      }
+
+      .hero-content h1 {
+        font-size: 35px;
+        letter-spacing: -1.5px;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-primary,
+      .hero-secondary {
+        width: 100%;
+      }
+
+      .recruit-card {
+        padding: 27px 22px;
+      }
+
+
+      .quick-wrap {
+        margin-top: -45px;
+      }
+
+      .quick-menu {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .quick-item {
+        min-height: 100px;
+
+        border-bottom:
+          1px solid #e5e7eb;
+      }
+
+      .quick-item:nth-child(even) {
+        border-right: 0;
+      }
+
+
+      .section {
+        padding:
+          65px 20px;
+      }
+
+      .section-heading h2 {
+        font-size: 27px;
+      }
+
+      .courses-grid,
+      .support-grid,
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .support-card {
+        min-height: auto;
+
+        padding: 32px 27px;
+      }
+
+
+      .consult-cta {
+        padding: 37px 27px;
 
         flex-direction: column;
-
         align-items: flex-start;
-    }
-}
+      }
 
-
-@media(max-width:450px) {
-
-    .container {
-
-        width:
-            calc(100% - 28px);
+      .consult-right {
+        text-align: left;
+      }
     }
 
-    .main-logo {
-        width: 205px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-}
-
-</style>
+  </style>
 
 </head>
 
@@ -1678,1578 +1463,1228 @@ footer {
 <body>
 
 
-<!-- =====================================================
-     상단 작은 바
-===================================================== -->
+  <!-- ==================================================
+       최상단 투톤 바
+  ================================================== -->
 
-<div class="top-bar">
+  <div class="top-bar">
 
-<div class="container top-bar-inner">
-
-    <div>
-        센텀디지털캠프 평생교육원
-    </div>
-
-    <div class="top-right">
-
-        <a href="notice.html">
-            공지사항
-        </a>
-
-        <a href="consult.html">
-            수강상담
-        </a>
-
-        <a href="교육원소개/contact.html">
-            오시는 길
-        </a>
-
-    </div>
-
-</div>
-
-</div>
+  </div>
 
 
-<!-- =====================================================
-     헤더
-===================================================== -->
 
-<header>
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
 
-<div class="container header-inner">
+  <header>
+
+    <div class="header-inner">
 
 
-    <!-- 실제 학원 로고 -->
+      <!-- 로고 -->
 
-    <a href="index.html" class="logo-area">
+      <a
+        href="index.html"
+        class="logo"
+      >
 
         <img
-            src="images/log.png"
-            alt="센텀디지털캠프 평생교육원"
-            class="main-logo"
+          src="images/log.png"
+          alt="센텀디지털캠프 평생교육원"
         >
 
-    </a>
+      </a>
 
 
-    <!-- =================================================
-         PC 메뉴
-    ================================================= -->
 
-    <nav class="main-nav">
+      <!-- PC 메뉴 -->
 
-    <ul>
+      <nav>
+
+        <ul class="nav-menu">
 
 
-        <!-- 교육원 소개 -->
+          <!-- 1. 교육원소개 -->
 
-        <li>
+          <li class="nav-item">
 
             <a href="교육원소개/about.html">
+              교육원소개
+            </a>
+
+            <div class="dropdown">
+
+              <a href="교육원소개/about.html">
                 교육원 소개
-            </a>
+              </a>
 
-            <ul class="dropdown">
+              <a href="교육원소개/greeting.html">
+                원장 인사말
+              </a>
 
-                <li>
-                    <a href="교육원소개/about.html">
-                        교육원 소개
-                    </a>
-                </li>
+              <a href="교육원소개/organization.html">
+                조직도
+              </a>
 
-                <li>
-                    <a href="교육원소개/greeting.html">
-                        인사말
-                    </a>
-                </li>
+              <a href="교육원소개/history.html">
+                연혁
+              </a>
 
-                <li>
-                    <a href="교육원소개/organization.html">
-                        조직도
-                    </a>
-                </li>
+              <a href="교육원소개/facilities.html">
+                시설 안내
+              </a>
 
-                <li>
-                    <a href="교육원소개/history.html">
-                        연혁
-                    </a>
-                </li>
+              <a href="교육원소개/contact.html">
+                오시는 길
+              </a>
 
-                <li>
-                    <a href="교육원소개/facilities.html">
-                        시설안내
-                    </a>
-                </li>
+            </div>
 
-                <li>
-                    <a href="교육원소개/contact.html">
-                        오시는 길
-                    </a>
-                </li>
-
-            </ul>
-
-        </li>
+          </li>
 
 
-        <!-- 교육과정 -->
 
-        <li>
+          <!-- 2. 국민내일배움카드 -->
 
-            <a href="courses.html">
-                교육과정
-            </a>
-
-            <ul class="dropdown">
-
-                <li>
-                    <a href="courses.html">
-                        전체 교육과정
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        모집중인 과정
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        생성형 AI
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        전자상거래
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        유튜브 · 영상
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        전자책
-                    </a>
-                </li>
-
-                <li>
-                    <a href="courses.html">
-                        ITQ · OA
-                    </a>
-                </li>
-
-            </ul>
-
-        </li>
-
-
-        <!-- 내일배움카드 -->
-
-        <li>
+          <li class="nav-item">
 
             <a href="card.html">
-                내일배움카드
+              국민내일배움카드
             </a>
 
-            <ul class="dropdown">
+            <div class="dropdown">
 
-                <li>
-                    <a href="card.html">
-                        국민내일배움카드란?
-                    </a>
-                </li>
+              <a href="card.html">
+                국민내일배움카드 안내
+              </a>
 
-                <li>
-                    <a href="card.html">
-                        수강신청 방법
-                    </a>
-                </li>
+              <a href="card-target.html">
+                지원대상
+              </a>
 
-                <li>
-                    <a href="card.html">
-                        훈련생 유의사항
-                    </a>
-                </li>
+              <a href="card-issue.html">
+                카드 발급방법
+              </a>
 
-            </ul>
+              <a href="card-courses.html">
+                훈련과정 안내
+              </a>
 
-        </li>
+              <a href="card-apply.html">
+                수강신청 방법
+              </a>
+
+              <a href="card-faq.html">
+                자주 묻는 질문
+              </a>
+
+            </div>
+
+          </li>
 
 
-        <!-- 커뮤니티 -->
 
-        <li>
+          <!-- 3. 평생교육이용권 -->
+
+          <li class="nav-item">
+
+            <a href="voucher.html">
+              평생교육이용권
+            </a>
+
+            <div class="dropdown">
+
+              <a href="voucher.html">
+                평생교육이용권 안내
+              </a>
+
+              <a href="voucher-target.html">
+                신청대상
+              </a>
+
+              <a href="voucher-apply.html">
+                신청방법
+              </a>
+
+              <a href="voucher-use.html">
+                이용방법
+              </a>
+
+              <a href="voucher-courses.html">
+                수강가능 과정
+              </a>
+
+              <a href="voucher-faq.html">
+                자주 묻는 질문
+              </a>
+
+            </div>
+
+          </li>
+
+
+
+          <!-- 4. 공지사항 -->
+
+          <li class="nav-item">
 
             <a href="notice.html">
-                커뮤니티
+              공지사항
             </a>
 
-            <ul class="dropdown">
+            <div class="dropdown">
 
-                <li>
-                    <a href="notice.html">
-                        공지사항
-                    </a>
-                </li>
+              <a href="notice.html">
+                전체 공지
+              </a>
 
-                <li>
-                    <a href="notice.html">
-                        교육원 소식
-                    </a>
-                </li>
+              <a href="notice-open.html">
+                개강 안내
+              </a>
 
-                <li>
-                    <a href="notice.html">
-                        교육갤러리
-                    </a>
-                </li>
+              <a href="notice-recruit.html">
+                모집중인 과정
+              </a>
 
-                <li>
-                    <a href="notice.html">
-                        수강후기
-                    </a>
-                </li>
+              <a href="notice-schedule.html">
+                교육 일정
+              </a>
 
-            </ul>
+              <a href="notice-data.html">
+                자료실
+              </a>
 
-        </li>
+            </div>
+
+          </li>
 
 
-        <!-- 오시는 길 -->
 
-        <li>
+          <!-- 5. 커뮤니티 -->
+
+          <li class="nav-item">
+
+            <a href="community.html">
+              커뮤니티
+            </a>
+
+            <div class="dropdown">
+
+              <a href="community-review.html">
+                수강생 후기
+              </a>
+
+              <a href="community-work.html">
+                수강생 작품
+              </a>
+
+              <a href="community-job.html">
+                취업 · 창업 이야기
+              </a>
+
+              <a href="community-gallery.html">
+                포토갤러리
+              </a>
+
+              <a href="community-qna.html">
+                질문과 답변
+              </a>
+
+            </div>
+
+          </li>
+
+
+
+          <!-- 6. 오시는길 -->
+
+          <li class="nav-item">
 
             <a href="교육원소개/contact.html">
-                오시는 길
+              오시는길
             </a>
 
-        </li>
+            <div class="dropdown">
+
+              <a href="교육원소개/contact.html">
+                위치 안내
+              </a>
+
+              <a href="교육원소개/contact.html#transport">
+                대중교통 안내
+              </a>
+
+              <a href="교육원소개/contact.html#parking">
+                주차 안내
+              </a>
+
+            </div>
+
+          </li>
 
 
-        <!-- 수강상담 -->
 
-        <li>
+          <!-- 7. 수강상담 -->
+
+          <li class="nav-item">
 
             <a
-                href="consult.html"
-                class="header-consult"
+              href="consult.html"
+              class="consult-btn"
             >
-                수강상담
+              수강상담
             </a>
 
-        </li>
+            <div class="dropdown">
+
+              <a href="consult.html">
+                온라인 수강상담
+              </a>
+
+              <a href="consult-course.html">
+                나에게 맞는 과정 찾기
+              </a>
+
+              <a href="consult-phone.html">
+                전화상담 안내
+              </a>
+
+              <a href="consult-visit.html">
+                방문상담 안내
+              </a>
+
+            </div>
+
+          </li>
 
 
-    </ul>
+        </ul>
 
-    </nav>
+      </nav>
 
 
-    <!-- 모바일 메뉴 버튼 -->
 
-    <button
+      <!-- 모바일 메뉴 -->
+
+      <button
         class="mobile-menu-button"
         onclick="toggleMenu()"
         aria-label="메뉴 열기"
-    >
+      >
         ☰
-    </button>
+      </button>
 
-
-</div>
-
-
-<!-- =====================================================
-     모바일 메뉴
-===================================================== -->
-
-<div
-    class="mobile-nav"
-    id="mobileNav"
->
-
-    <a href="교육원소개/about.html">
-        교육원 소개
-    </a>
-
-    <div class="mobile-sub">
-
-        <a href="교육원소개/about.html">
-            └ 교육원 소개
-        </a>
-
-        <a href="교육원소개/greeting.html">
-            └ 인사말
-        </a>
-
-        <a href="교육원소개/organization.html">
-            └ 조직도
-        </a>
-
-        <a href="교육원소개/history.html">
-            └ 연혁
-        </a>
-
-        <a href="교육원소개/facilities.html">
-            └ 시설안내
-        </a>
-
-        <a href="교육원소개/contact.html">
-            └ 오시는 길
-        </a>
 
     </div>
 
 
-    <a href="courses.html">
-        교육과정
-    </a>
 
-    <a href="card.html">
+    <!-- ==================================================
+         모바일 메뉴
+    ================================================== -->
+
+    <div
+      class="mobile-nav"
+      id="mobileNav"
+    >
+
+
+      <a href="교육원소개/about.html">
+        교육원소개
+      </a>
+
+      <div class="mobile-sub">
+
+        <a href="교육원소개/about.html">
+          교육원 소개
+        </a>
+
+        <a href="교육원소개/greeting.html">
+          원장 인사말
+        </a>
+
+        <a href="교육원소개/organization.html">
+          조직도
+        </a>
+
+        <a href="교육원소개/history.html">
+          연혁
+        </a>
+
+        <a href="교육원소개/facilities.html">
+          시설 안내
+        </a>
+
+        <a href="교육원소개/contact.html">
+          오시는 길
+        </a>
+
+      </div>
+
+
+      <a href="card.html">
         국민내일배움카드
-    </a>
+      </a>
 
-    <a href="notice.html">
+      <div class="mobile-sub">
+
+        <a href="card.html">
+          제도 안내
+        </a>
+
+        <a href="card-target.html">
+          지원대상
+        </a>
+
+        <a href="card-issue.html">
+          카드 발급방법
+        </a>
+
+        <a href="card-courses.html">
+          훈련과정 안내
+        </a>
+
+      </div>
+
+
+      <a href="voucher.html">
+        평생교육이용권
+      </a>
+
+      <div class="mobile-sub">
+
+        <a href="voucher.html">
+          이용권 안내
+        </a>
+
+        <a href="voucher-target.html">
+          신청대상
+        </a>
+
+        <a href="voucher-apply.html">
+          신청방법
+        </a>
+
+        <a href="voucher-use.html">
+          이용방법
+        </a>
+
+      </div>
+
+
+      <a href="notice.html">
+        공지사항
+      </a>
+
+
+      <a href="community.html">
         커뮤니티
-    </a>
+      </a>
 
-    <a href="consult.html">
+
+      <a href="교육원소개/contact.html">
+        오시는길
+      </a>
+
+
+      <a href="consult.html">
         수강상담
-    </a>
-
-</div>
-
-</header>
+      </a>
 
 
-<!-- =====================================================
-     메인
-===================================================== -->
+    </div>
 
-<main>
+  </header>
 
 
-<!-- =====================================================
-     메인 비주얼
-===================================================== -->
 
-<section class="hero">
+  <!-- ==================================================
+       HERO
+  ================================================== -->
 
-<div class="container hero-inner">
+  <section class="hero">
 
 
-    <div>
+    <div class="hero-inner">
 
-        <div class="hero-label">
-            🎓 국민내일배움카드 훈련기관
+
+      <!-- 왼쪽 -->
+
+      <div class="hero-content">
+
+
+        <div class="hero-badge">
+          🎓 국민내일배움카드 훈련기관
         </div>
 
 
         <h1>
 
-            새로운 기술을 배우고<br>
+          새로운 기술을 배우고<br>
 
-            <span>
-                새로운 가능성을 만나다
-            </span>
+          <span>
+            새로운 가능성을 만나다
+          </span>
 
         </h1>
 
 
-        <p class="hero-desc">
+        <p>
 
-            생성형 AI부터 유튜브, 전자상거래,
-            전자책, ITQ까지.<br>
+          생성형 AI부터 유튜브, 전자상거래,
+          전자책, ITQ까지.<br>
 
-            센텀디지털캠프 평생교육원에서
-            실무에 바로 활용할 수 있는
-            디지털 역량을 키워보세요.
+          센텀디지털캠프 평생교육원에서
+          실무에 바로 활용할 수 있는
+          디지털 역량을 키워보세요.
 
         </p>
 
 
         <div class="hero-buttons">
 
-            <a
-                href="courses.html"
-                class="btn btn-primary"
-            >
-                모집중인 과정 보기
-            </a>
+          <a
+            href="card-courses.html"
+            class="hero-primary"
+          >
+            모집중인 과정 보기
+          </a>
 
-            <a
-                href="consult.html"
-                class="btn btn-white"
-            >
-                수강상담 신청
-            </a>
+          <a
+            href="consult.html"
+            class="hero-secondary"
+          >
+            수강상담 신청
+          </a>
 
         </div>
+
+
+      </div>
+
+
+
+      <!-- 오른쪽 -->
+
+      <div class="recruit-card">
+
+
+        <div class="recruit-heading">
+
+          <h2>
+            현재 모집중인 과정
+          </h2>
+
+          <span class="recruit-status">
+            모집중
+          </span>
+
+        </div>
+
+
+
+        <div class="course-row">
+
+          <small>
+            국민내일배움카드
+          </small>
+
+          <strong>
+            생성형 AI · ChatGPT 활용 실무
+          </strong>
+
+        </div>
+
+
+
+        <div class="course-row">
+
+          <small>
+            국민내일배움카드
+          </small>
+
+          <strong>
+            스마트스토어 · 전자상거래 실무
+          </strong>
+
+        </div>
+
+
+
+        <div class="course-row">
+
+          <small>
+            국민내일배움카드
+          </small>
+
+          <strong>
+            생성형 AI를 활용한 유튜브 영상편집
+          </strong>
+
+        </div>
+
+
+
+        <div class="phone-box">
+
+          <small>
+            수강 및 국민내일배움카드 문의
+          </small>
+
+          <strong>
+            051-710-0775
+          </strong>
+
+        </div>
+
+
+      </div>
+
 
     </div>
 
-
-    <!-- 오른쪽 모집 과정 -->
-
-    <div class="hero-info">
+  </section>
 
 
-        <div class="hero-info-title">
 
-            <h3>
-                현재 모집중인 과정
-            </h3>
+  <!-- ==================================================
+       빠른 메뉴
+  ================================================== -->
 
-            <span class="recruit-badge">
-                모집중
-            </span>
-
-        </div>
+  <div class="quick-wrap">
 
 
-        <a href="courses.html" class="hero-course">
-
-            <small>
-                국민내일배움카드
-            </small>
-
-            <strong>
-                생성형 AI · ChatGPT 활용 실무
-            </strong>
-
-        </a>
+    <div class="quick-menu">
 
 
-        <a href="courses.html" class="hero-course">
-
-            <small>
-                국민내일배움카드
-            </small>
-
-            <strong>
-                스마트스토어 · 전자상거래 실무
-            </strong>
-
-        </a>
-
-
-        <a href="courses.html" class="hero-course">
-
-            <small>
-                국민내일배움카드
-            </small>
-
-            <strong>
-                생성형 AI를 활용한 유튜브 영상편집
-            </strong>
-
-        </a>
-
-
-        <a href="consult.html" class="hero-call">
-
-            <small>
-                수강 및 국민내일배움카드 문의
-            </small>
-
-            <strong>
-                051-710-0775
-            </strong>
-
-        </a>
-
-
-    </div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     빠른 메뉴
-===================================================== -->
-
-<div class="quick-wrap">
-
-<div class="container">
-
-<div class="quick-menu">
-
-
-    <a href="courses.html" class="quick-item">
+      <a
+        href="교육원소개/about.html"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
-            📚
+          🏫
         </div>
 
         <strong>
-            모집중인 과정
+          교육원소개
         </strong>
 
         <span>
-            현재 교육과정 확인
+          교육원 안내
         </span>
 
-    </a>
+      </a>
 
 
-    <a href="card.html" class="quick-item">
+
+      <a
+        href="card.html"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
-            💳
+          💳
         </div>
 
         <strong>
-            내일배움카드
+          국민내일배움카드
         </strong>
 
         <span>
-            신청방법 안내
+          지원제도 안내
         </span>
 
-    </a>
+      </a>
 
 
-    <a href="consult.html" class="quick-item">
+
+      <a
+        href="voucher.html"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
-            📝
+          🎫
         </div>
 
         <strong>
-            온라인 수강상담
+          평생교육이용권
         </strong>
 
         <span>
-            과정 상담 및 접수
+          이용권 안내
         </span>
 
-    </a>
+      </a>
 
 
-    <a href="notice.html" class="quick-item">
+
+      <a
+        href="notice.html"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
-            📢
+          📢
         </div>
 
         <strong>
-            공지사항
+          공지사항
         </strong>
 
         <span>
-            교육원 소식
+          교육원 소식
         </span>
 
-    </a>
+      </a>
 
 
-    <a
+
+      <a
+        href="community.html"
+        class="quick-item"
+      >
+
+        <div class="quick-icon">
+          💬
+        </div>
+
+        <strong>
+          커뮤니티
+        </strong>
+
+        <span>
+          수강생 이야기
+        </span>
+
+      </a>
+
+
+
+      <a
         href="교육원소개/contact.html"
         class="quick-item"
-    >
+      >
 
         <div class="quick-icon">
-            📍
+          📍
         </div>
 
         <strong>
-            오시는 길
+          오시는길
         </strong>
 
         <span>
-            교육장 위치 안내
+          교육장 위치
         </span>
 
-    </a>
+      </a>
 
 
-</div>
 
-</div>
+      <a
+        href="consult.html"
+        class="quick-item"
+      >
 
-</div>
-
-
-<!-- =====================================================
-     현재 모집중인 교육과정
-===================================================== -->
-
-<section class="section gray">
-
-<div class="container">
-
-
-<div class="section-head">
-
-    <div>
-
-        <div class="section-eyebrow">
-            RECRUITING COURSES
+        <div class="quick-icon">
+          📝
         </div>
 
-        <h2 class="section-title">
-            현재 모집중인 교육과정
-        </h2>
+        <strong>
+          수강상담
+        </strong>
 
-        <p class="section-desc">
-            국민내일배움카드로
-            디지털 실무 역량을 키워보세요.
-        </p>
+        <span>
+          과정 상담
+        </span>
+
+      </a>
+
 
     </div>
 
 
-    <a href="courses.html" class="more-link">
-        전체 과정 보기 →
-    </a>
+  </div>
 
-</div>
 
 
-<div class="course-grid">
+  <!-- ==================================================
+       모집중인 교육과정
+  ================================================== -->
 
+  <div class="recruit-section-bg">
 
-    <!-- AI -->
 
-    <article class="course-card">
+    <section class="section">
 
-        <div class="course-visual visual-ai">
 
-            <div class="course-visual-text">
-                Generative AI<br>
-                & ChatGPT
-            </div>
+      <div class="section-heading">
 
-        </div>
 
-        <div class="course-body">
-
-            <span class="course-category">
-                국민내일배움카드
-            </span>
-
-            <h3>
-                ChatGPT를 활용한
-                생성형 AI 실무
-            </h3>
-
-            <div class="course-detail">
-
-                <div>
-                    <span>교육분야</span>
-                    생성형 AI
-                </div>
-
-                <div>
-                    <span>교육방식</span>
-                    실습 중심
-                </div>
-
-                <div>
-                    <span>교육대상</span>
-                    구직자 · 재직자 · 일반인
-                </div>
-
-            </div>
-
-            <a
-                href="courses.html"
-                class="course-button"
-            >
-                과정 자세히 보기
-            </a>
-
-        </div>
-
-    </article>
-
-
-    <!-- 전자상거래 -->
-
-    <article class="course-card">
-
-        <div class="course-visual visual-shop">
-
-            <div class="course-visual-text">
-                Smart Store<br>
-                E-Commerce
-            </div>
-
-        </div>
-
-        <div class="course-body">
-
-            <span class="course-category">
-                국민내일배움카드
-            </span>
-
-            <h3>
-                스마트스토어 쇼핑몰 ·
-                전자상거래 과정
-            </h3>
-
-            <div class="course-detail">
-
-                <div>
-                    <span>교육분야</span>
-                    전자상거래
-                </div>
-
-                <div>
-                    <span>교육방식</span>
-                    쇼핑몰 제작 실습
-                </div>
-
-                <div>
-                    <span>교육대상</span>
-                    예비창업자 · 재직자
-                </div>
-
-            </div>
-
-            <a
-                href="courses.html"
-                class="course-button"
-            >
-                과정 자세히 보기
-            </a>
-
-        </div>
-
-    </article>
-
-
-    <!-- 유튜브 -->
-
-    <article class="course-card">
-
-        <div class="course-visual visual-video">
-
-            <div class="course-visual-text">
-                YouTube<br>
-                Video Creator
-            </div>
-
-        </div>
-
-        <div class="course-body">
-
-            <span class="course-category">
-                국민내일배움카드
-            </span>
-
-            <h3>
-                생성형 AI를 활용한
-                유튜브 영상편집
-            </h3>
-
-            <div class="course-detail">
-
-                <div>
-                    <span>교육분야</span>
-                    영상 콘텐츠
-                </div>
-
-                <div>
-                    <span>교육방식</span>
-                    제작 실습
-                </div>
-
-                <div>
-                    <span>교육대상</span>
-                    초보자 · 콘텐츠 제작자
-                </div>
-
-            </div>
-
-            <a
-                href="courses.html"
-                class="course-button"
-            >
-                과정 자세히 보기
-            </a>
-
-        </div>
-
-    </article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     교육 분야
-===================================================== -->
-
-<section class="section">
-
-<div class="container">
-
-
-<div class="section-head">
-
-    <div>
-
-        <div class="section-eyebrow">
-            DIGITAL EDUCATION
-        </div>
-
-        <h2 class="section-title">
-            센텀디지털캠프 교육분야
-        </h2>
-
-        <p class="section-desc">
-            배우는 것에서 끝나지 않고
-            직접 만들어보는 실습형 교육입니다.
-        </p>
-
-    </div>
-
-
-    <a href="courses.html" class="more-link">
-        전체 교육과정 →
-    </a>
-
-</div>
-
-
-<div class="field-grid">
-
-
-    <a href="courses.html" class="field-card">
-
-        <div class="field-icon">
-            🤖
-        </div>
-
-        <h3>
-            생성형 AI
-        </h3>
-
-        <p>
-            ChatGPT, Gemini 등 최신 AI 도구를
-            업무와 콘텐츠 제작에 활용합니다.
-        </p>
-
-    </a>
-
-
-    <a href="courses.html" class="field-card">
-
-        <div class="field-icon">
-            🎬
-        </div>
-
-        <h3>
-            유튜브 · 영상
-        </h3>
-
-        <p>
-            영상 기획부터 촬영과 편집,
-            AI 콘텐츠 제작까지 배웁니다.
-        </p>
-
-    </a>
-
-
-    <a href="courses.html" class="field-card">
-
-        <div class="field-icon">
-            🛒
-        </div>
-
-        <h3>
-            전자상거래
-        </h3>
-
-        <p>
-            스마트스토어 개설, 상품등록,
-            상세페이지와 온라인 판매를 실습합니다.
-        </p>
-
-    </a>
-
-
-    <a href="courses.html" class="field-card">
-
-        <div class="field-icon">
-            📘
-        </div>
-
-        <h3>
-            전자책 · OA
-        </h3>
-
-        <p>
-            전자책 제작과 한글, 엑셀,
-            파워포인트 등 디지털 실무를 배웁니다.
-        </p>
-
-    </a>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     교육원 소개
-===================================================== -->
-
-<section class="section about-section">
-
-<div class="container about-grid">
-
-
-    <div>
-
-        <div class="about-label">
-            CENTUM DIGITAL CAMP
+        <div class="section-label">
+          RECRUITING COURSES
         </div>
 
 
         <h2>
-
-            디지털 기술을<br>
-            누구나 쉽게 배우고<br>
-            바로 활용할 수 있도록
-
+          현재 모집중인 교육과정
         </h2>
 
 
-        <p class="about-text">
-
-            센텀디지털캠프 평생교육원은
-            빠르게 변화하는 디지털 환경에 맞춰
-            생성형 AI, 콘텐츠 제작, 전자상거래,
-            전자책, OA 분야의
-            실무 중심 교육을 제공합니다.
-
-        </p>
-
-
-        <div class="about-points">
-
-            <div class="about-point">
-                ✓ 국민내일배움카드 훈련과정
-            </div>
-
-            <div class="about-point">
-                ✓ 실습 중심 디지털교육
-            </div>
-
-            <div class="about-point">
-                ✓ 취업 · 직무역량 향상
-            </div>
-
-            <div class="about-point">
-                ✓ 초보자 맞춤형 교육
-            </div>
-
-        </div>
-
-
-        <div style="margin-top:30px;">
-
-            <a
-                href="교육원소개/about.html"
-                class="btn btn-white"
-            >
-                교육원 자세히 보기 →
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="about-panel">
-
-        <h3>
-            이런 교육을 만날 수 있습니다.
-        </h3>
-
-
-        <div class="about-stat">
-
-            <strong>
-                AI & Digital
-            </strong>
-
-            <span>
-                생성형 AI 활용 교육
-            </span>
-
-        </div>
-
-
-        <div class="about-stat">
-
-            <strong>
-                Contents
-            </strong>
-
-            <span>
-                유튜브 · 영상 · 전자책 콘텐츠 제작
-            </span>
-
-        </div>
-
-
-        <div class="about-stat">
-
-            <strong>
-                Business
-            </strong>
-
-            <span>
-                스마트스토어 · 전자상거래 실무
-            </span>
-
-        </div>
-
-
-        <div class="about-stat">
-
-            <strong>
-                Office
-            </strong>
-
-            <span>
-                ITQ · OA · 디지털 실무
-            </span>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     국민내일배움카드
-===================================================== -->
-
-<section class="section gray">
-
-<div class="container">
-
-
-<div class="section-head">
-
-    <div>
-
-        <div class="section-eyebrow">
-            NATIONAL TOMORROW LEARNING CARD
-        </div>
-
-        <h2 class="section-title">
-            국민내일배움카드 안내
-        </h2>
-
-        <p class="section-desc">
-            국민내일배움카드를 활용하여
-            직업능력개발 훈련에 참여할 수 있습니다.
-        </p>
-
-    </div>
-
-
-    <a href="card.html" class="more-link">
-        자세히 알아보기 →
-    </a>
-
-</div>
-
-
-<div class="step-grid">
-
-
-    <div class="step-card">
-
-        <div class="step-number">
-            01
-        </div>
-
-        <h3>
-            카드 발급
-        </h3>
-
         <p>
-            고용24에서 국민내일배움카드
-            발급 대상 여부를 확인하고 신청합니다.
+          새로운 디지털 기술을 배우고
+          실무 역량을 키워보세요.
         </p>
 
-    </div>
+
+      </div>
 
 
-    <div class="step-card">
 
-        <div class="step-number">
-            02
-        </div>
-
-        <h3>
-            과정 상담
-        </h3>
-
-        <p>
-            센텀디지털캠프에서
-            원하는 교육과정을 확인하고 상담합니다.
-        </p>
-
-    </div>
+      <div class="courses-grid">
 
 
-    <div class="step-card">
+        <div class="course-card">
 
-        <div class="step-number">
-            03
-        </div>
+          <span class="course-type">
+            국민내일배움카드
+          </span>
 
-        <h3>
-            수강 신청
-        </h3>
+          <h3>
+            생성형 AI · ChatGPT 활용 실무
+          </h3>
 
-        <p>
-            고용24에서 훈련일정과
-            지원내용을 확인하고 신청합니다.
-        </p>
+          <p>
+            ChatGPT와 생성형 AI를 활용해
+            문서 작성, 콘텐츠 제작,
+            업무 활용 능력을 배웁니다.
+          </p>
 
-    </div>
-
-
-    <div class="step-card">
-
-        <div class="step-number">
-            04
-        </div>
-
-        <h3>
-            교육 참여
-        </h3>
-
-        <p>
-            실습 중심 교육에 참여하여
-            새로운 디지털 역량을 습득합니다.
-        </p>
-
-    </div>
-
-
-</div>
-
-
-<div style="text-align:center; margin-top:35px;">
-
-    <a
-        href="card.html"
-        class="btn btn-primary"
-    >
-        국민내일배움카드 자세히 보기
-    </a>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     공지사항
-===================================================== -->
-
-<section class="section">
-
-<div class="container">
-
-
-<div class="section-head">
-
-    <div>
-
-        <div class="section-eyebrow">
-            NEWS & NOTICE
-        </div>
-
-        <h2 class="section-title">
-            센텀디지털캠프 소식
-        </h2>
-
-    </div>
-
-</div>
-
-
-<div class="board-grid">
-
-
-    <!-- 공지사항 -->
-
-    <div class="board">
-
-        <div class="board-header">
-
-            <h3>
-                공지사항
-            </h3>
-
-            <a href="notice.html">
-                더보기 +
-            </a>
+          <a href="card-courses.html">
+            자세히 보기 →
+          </a>
 
         </div>
 
 
-        <ul class="board-list">
 
-            <li>
+        <div class="course-card">
 
-                <a href="notice.html">
+          <span class="course-type">
+            국민내일배움카드
+          </span>
 
-                    <span>
-                        국민내일배움카드 훈련과정 수강생 모집 안내
-                    </span>
+          <h3>
+            스마트스토어 · 전자상거래 실무
+          </h3>
 
-                    <span class="board-date">
-                        2026.08
-                    </span>
+          <p>
+            상품 등록부터 상세페이지 제작,
+            온라인 판매와 스마트스토어 운영까지
+            실습 중심으로 배웁니다.
+          </p>
 
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="notice.html">
-
-                    <span>
-                        생성형 AI 교육과정 모집 안내
-                    </span>
-
-                    <span class="board-date">
-                        2026.08
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="notice.html">
-
-                    <span>
-                        교육상담 및 수강신청 안내
-                    </span>
-
-                    <span class="board-date">
-                        2026.08
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="notice.html">
-
-                    <span>
-                        센텀디지털캠프 평생교육원 이용 안내
-                    </span>
-
-                    <span class="board-date">
-                        2026.08
-                    </span>
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </div>
-
-
-    <!-- 자주찾는 메뉴 -->
-
-    <div class="board">
-
-        <div class="board-header">
-
-            <h3>
-                자주 찾는 메뉴
-            </h3>
+          <a href="card-courses.html">
+            자세히 보기 →
+          </a>
 
         </div>
 
 
-        <ul class="board-list">
+
+        <div class="course-card">
+
+          <span class="course-type">
+            국민내일배움카드
+          </span>
+
+          <h3>
+            생성형 AI를 활용한 유튜브 영상편집
+          </h3>
+
+          <p>
+            생성형 AI와 영상편집 도구를 활용해
+            직접 콘텐츠를 기획하고
+            유튜브 영상을 제작합니다.
+          </p>
+
+          <a href="card-courses.html">
+            자세히 보기 →
+          </a>
+
+        </div>
 
 
-            <li>
-
-                <a href="courses.html">
-
-                    <span>
-                        📚 현재 모집중인 교육과정
-                    </span>
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
-            </li>
+      </div>
 
 
-            <li>
-
-                <a href="card.html">
-
-                    <span>
-                        💳 국민내일배움카드 안내
-                    </span>
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
-            </li>
+    </section>
 
 
-            <li>
-
-                <a href="consult.html">
-
-                    <span>
-                        📝 온라인 수강상담
-                    </span>
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
-            </li>
+  </div>
 
 
-            <li>
 
-                <a href="교육원소개/contact.html">
+  <!-- ==================================================
+       교육지원 제도
+  ================================================== -->
 
-                    <span>
-                        📍 교육원 오시는 길
-                    </span>
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
-            </li>
+  <section class="section">
 
 
-        </ul>
+    <div class="section-heading">
+
+
+      <div class="section-label">
+        EDUCATION SUPPORT
+      </div>
+
+
+      <h2>
+        나에게 맞는 교육지원 제도
+      </h2>
+
+
+      <p>
+        교육비 부담을 줄이고
+        새로운 배움을 시작해보세요.
+      </p>
+
 
     </div>
 
 
-</div>
 
-</div>
-
-</section>
+    <div class="support-grid">
 
 
-<!-- =====================================================
-     상담
-===================================================== -->
-
-<section class="consult-section">
-
-<div class="container consult-inner">
+      <div class="support-card blue">
 
 
-    <div>
+        <small>
+          NATIONAL LEARNING CARD
+        </small>
+
 
         <h2>
-            어떤 과정을 들어야 할지 고민되시나요?
+          국민내일배움카드
         </h2>
 
+
         <p>
-            국민내일배움카드부터
-            과정 선택까지 친절하게 안내해드립니다.
+          취업, 이직, 직무역량 향상을 위해
+          필요한 직업훈련을 지원받을 수 있는
+          제도입니다.
         </p>
-
-    </div>
-
-
-    <div class="consult-right">
-
-        <div class="consult-phone">
-
-            <span>
-                교육상담
-            </span>
-
-            <strong>
-                051-710-0775
-            </strong>
-
-        </div>
-
-
-        <a
-            href="consult.html"
-            class="consult-link"
-        >
-            상담 신청
-        </a>
-
-    </div>
-
-
-</div>
-
-</section>
-
-
-</main>
-
-
-<!-- =====================================================
-     푸터
-===================================================== -->
-
-<footer>
-
-<div class="container">
-
-
-    <div class="footer-name">
-        센텀디지털캠프 평생교육원
-    </div>
-
-
-    <div class="footer-links">
-
-
-        <a href="교육원소개/about.html">
-            교육원 소개
-        </a>
-
-
-        <a href="courses.html">
-            교육과정
-        </a>
 
 
         <a href="card.html">
-            국민내일배움카드
+          자세히 알아보기 →
         </a>
 
 
-        <a href="notice.html">
-            공지사항
+      </div>
+
+
+
+      <div class="support-card light">
+
+
+        <small>
+          LIFELONG EDUCATION VOUCHER
+        </small>
+
+
+        <h2>
+          평생교육이용권
+        </h2>
+
+
+        <p>
+          평생교육 참여 기회를 확대하고
+          학습자가 원하는 교육과정을
+          이용할 수 있도록 지원하는 제도입니다.
+        </p>
+
+
+        <a href="voucher.html">
+          자세히 알아보기 →
         </a>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ==================================================
+       커뮤니티
+  ================================================== -->
+
+  <div class="community-bg">
+
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+
+        <div class="section-label">
+          COMMUNITY
+        </div>
+
+
+        <h2>
+          센텀디지털캠프 이야기
+        </h2>
+
+
+        <p>
+          배우고 만들고 성장하는
+          수강생들의 이야기를 만나보세요.
+        </p>
+
+
+      </div>
+
+
+
+      <div class="community-grid">
+
+
+        <a
+          href="community-review.html"
+          class="community-card"
+        >
+
+          <div class="community-icon">
+            💬
+          </div>
+
+          <h3>
+            수강생 후기
+          </h3>
+
+          <p>
+            실제 교육에 참여한
+            수강생들의 생생한 후기를 소개합니다.
+          </p>
+
+        </a>
+
+
+
+        <a
+          href="community-work.html"
+          class="community-card"
+        >
+
+          <div class="community-icon">
+            🎨
+          </div>
+
+          <h3>
+            수강생 작품
+          </h3>
+
+          <p>
+            교육과정에서 직접 완성한
+            다양한 디지털 결과물을 소개합니다.
+          </p>
+
+        </a>
+
+
+
+        <a
+          href="community-gallery.html"
+          class="community-card"
+        >
+
+          <div class="community-icon">
+            📷
+          </div>
+
+          <h3>
+            포토갤러리
+          </h3>
+
+          <p>
+            센텀디지털캠프의
+            교육 현장과 다양한 활동을 만나보세요.
+          </p>
+
+        </a>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+
+  <!-- ==================================================
+       수강상담
+  ================================================== -->
+
+  <section class="section">
+
+
+    <div class="consult-cta">
+
+
+      <div>
+
+        <h2>
+          어떤 교육과정이 나에게 맞을까요?
+        </h2>
+
+        <p>
+          국민내일배움카드, 평생교육이용권,
+          교육과정에 대해 친절하게 안내해드립니다.
+        </p>
+
+      </div>
+
+
+
+      <div class="consult-right">
+
+
+        <div class="consult-phone">
+          051-710-0775
+        </div>
 
 
         <a href="consult.html">
-            수강상담
+          수강상담 신청 →
         </a>
 
 
-        <a href="교육원소개/contact.html">
-            오시는 길
-        </a>
-
-
-        <a href="#">
-            개인정보처리방침
-        </a>
+      </div>
 
 
     </div>
 
 
-    <div class="footer-info">
+  </section>
+
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer>
+
+
+    <div class="footer-inner">
+
+
+      <div class="footer-name">
+        센텀디지털캠프 평생교육원
+      </div>
+
+
+
+      <div class="footer-links">
+
+        <a href="교육원소개/about.html">
+          교육원소개
+        </a>
+
+        <a href="card.html">
+          국민내일배움카드
+        </a>
+
+        <a href="voucher.html">
+          평생교육이용권
+        </a>
+
+        <a href="notice.html">
+          공지사항
+        </a>
+
+        <a href="community.html">
+          커뮤니티
+        </a>
+
+        <a href="교육원소개/contact.html">
+          오시는길
+        </a>
+
+        <a href="consult.html">
+          수강상담
+        </a>
+
+      </div>
+
+
+
+      <div class="footer-info">
 
         운영 : 주식회사 은누리디지털문화원
+
         <br>
 
         부설기관 : 센텀디지털캠프 평생교육원
+
         <br>
 
-        교육상담 : 051-710-0775
+        교육 및 수강문의 : 051-710-0775
+
         <br>
 
-        소재지 : 부산광역시 해운대구 센텀시티
+        부산광역시 해운대구 센텀2로 20
 
-    </div>
+      </div>
 
 
-    <div class="copyright">
 
+      <div class="copyright">
         Copyright © 2026 Centum Digital Camp.
         All Rights Reserved.
+      </div>
+
 
     </div>
 
 
-</div>
-
-</footer>
+  </footer>
 
 
-<!-- =====================================================
-     모바일 메뉴
-===================================================== -->
 
-<script>
+  <!-- ==================================================
+       SCRIPT
+  ================================================== -->
 
-function toggleMenu() {
+  <script>
 
-    const menu =
+    function toggleMenu() {
+
+      const menu =
         document.getElementById("mobileNav");
 
-    menu.classList.toggle("active");
+      menu.classList.toggle("active");
 
-}
+    }
 
-</script>
+  </script>
 
 
 </body>
+
 </html>

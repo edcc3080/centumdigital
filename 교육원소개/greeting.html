@@ -11,7 +11,7 @@
   >
 
   <title>
-    교육원 소개 | 센텀디지털캠프 평생교육원
+    원장 인사말 | 센텀디지털캠프 평생교육원
   </title>
 
 
@@ -63,13 +63,11 @@
 
     /* ==================================================
        최상단 투톤 띠
-       ★ 메인페이지와 동일
+       ★ 모든 페이지 공통
     ================================================== */
 
     .top-bar {
       height: 30px;
-
-      color: #ffffff;
 
       background:
         linear-gradient(
@@ -85,7 +83,7 @@
 
     /* ==================================================
        HEADER
-       ★ 메인페이지와 동일
+       ★ 모든 페이지 공통
     ================================================== */
 
     header {
@@ -95,7 +93,7 @@
       z-index: 1000;
 
       background:
-        rgba(255, 255, 255, 0.98);
+        rgba(255,255,255,0.98);
 
       border-bottom:
         1px solid #e5e7eb;
@@ -111,10 +109,14 @@
       height: 92px;
 
       margin: 0 auto;
-      padding: 0 24px;
+
+      padding:
+        0 24px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
     }
 
@@ -128,6 +130,7 @@
       height: 92px;
 
       display: flex;
+
       align-items: center;
 
       flex-shrink: 0;
@@ -136,6 +139,7 @@
 
     .logo img {
       height: 50px;
+
       width: auto;
 
       display: block;
@@ -151,6 +155,7 @@
       height: 92px;
 
       display: flex;
+
       align-items: center;
 
       gap: 22px;
@@ -163,6 +168,7 @@
       height: 92px;
 
       display: flex;
+
       align-items: center;
     }
 
@@ -173,12 +179,15 @@
       height: 92px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       color: #111827;
 
       font-size: 14px;
+
       font-weight: 750;
 
       white-space: nowrap;
@@ -194,7 +203,7 @@
 
 
 
-    /* 메뉴 아래 파란 선 */
+    /* 메뉴 아래 파란선 */
 
     .nav-item > a::after {
       content: "";
@@ -202,16 +211,19 @@
       position: absolute;
 
       left: 50%;
+
       bottom: 16px;
 
       width: 0;
+
       height: 3px;
 
       border-radius: 10px;
 
       background: #2563eb;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
       transition: 0.25s;
     }
@@ -230,16 +242,19 @@
 
     .dropdown {
       visibility: hidden;
+
       opacity: 0;
 
       position: absolute;
 
       top: 82px;
+
       left: 50%;
 
       width: 205px;
 
-      padding: 10px 0;
+      padding:
+        10px 0;
 
       transform:
         translateX(-50%)
@@ -254,7 +269,7 @@
 
       box-shadow:
         0 16px 40px
-        rgba(15, 23, 42, 0.14);
+        rgba(15,23,42,0.14);
 
       transition:
         opacity 0.2s,
@@ -265,6 +280,7 @@
 
     .nav-item:hover .dropdown {
       visibility: visible;
+
       opacity: 1;
 
       transform:
@@ -276,11 +292,13 @@
     .dropdown a {
       display: block;
 
-      padding: 11px 20px;
+      padding:
+        11px 20px;
 
       color: #4b5563;
 
       font-size: 13px;
+
       font-weight: 600;
 
       transition: 0.2s;
@@ -313,7 +331,8 @@
     .nav-item > a.consult-btn {
       height: 42px;
 
-      padding: 0 20px;
+      padding:
+        0 20px;
 
       color: #ffffff !important;
 
@@ -323,7 +342,7 @@
 
       box-shadow:
         0 8px 18px
-        rgba(37, 99, 235, 0.20);
+        rgba(37,99,235,0.20);
     }
 
 
@@ -380,7 +399,8 @@
     .mobile-nav > a {
       display: block;
 
-      padding: 15px 22px;
+      padding:
+        15px 22px;
 
       color: #111827;
 
@@ -388,12 +408,14 @@
         1px solid #e5e7eb;
 
       font-size: 15px;
+
       font-weight: 750;
     }
 
 
     .mobile-sub {
-      padding: 6px 0;
+      padding:
+        6px 0;
 
       background: #f8fafc;
 
@@ -405,7 +427,8 @@
     .mobile-sub a {
       display: block;
 
-      padding: 9px 35px;
+      padding:
+        9px 35px;
 
       color: #64748b;
 
@@ -415,8 +438,8 @@
 
 
     /* ==================================================
-       밝은 AI 홀로그램 HERO
-       ★ 360px 고정
+       밝은 홀로그램 HERO
+       ★ 400px 고정
     ================================================== */
 
     .sub-hero {
@@ -427,13 +450,17 @@
       width: 100%;
 
       height: 400px;
+
       min-height: 400px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding:
+        0 24px;
 
-      padding: 0 24px;
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
       text-align: center;
 
@@ -442,19 +469,19 @@
 
         radial-gradient(
           circle at 15% 25%,
-          rgba(59, 130, 246, 0.12),
+          rgba(59,130,246,0.12),
           transparent 30%
         ),
 
         radial-gradient(
           circle at 85% 20%,
-          rgba(56, 189, 248, 0.18),
+          rgba(56,189,248,0.18),
           transparent 28%
         ),
 
         radial-gradient(
           circle at 50% 105%,
-          rgba(37, 99, 235, 0.08),
+          rgba(37,99,235,0.08),
           transparent 38%
         ),
 
@@ -468,9 +495,7 @@
 
 
 
-    /* ==================================================
-       아주 얇은 디지털 그리드
-    ================================================== */
+    /* 얇은 디지털 그리드 */
 
     .sub-hero::before {
       content: "";
@@ -514,20 +539,22 @@
       position: absolute;
 
       left: 50%;
+
       top: 50%;
 
-      width: 630px;
-      height: 630px;
+      width: 680px;
+
+      height: 680px;
 
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(56,189,248,0.10) 0%,
+          rgba(56,189,248,0.11) 0%,
           rgba(59,130,246,0.06) 38%,
           rgba(255,255,255,0) 70%
         );
@@ -542,26 +569,28 @@
 
 
     /* ==================================================
-       홀로그램 원
+       홀로그램 링
     ================================================== */
 
     .holo-ring {
       position: absolute;
 
       left: 50%;
+
       top: 50%;
 
-      width: 360px;
-      height: 360px;
+      width: 390px;
+
+      height: 390px;
 
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
 
       border-radius: 50%;
 
       border:
         1px solid
-        rgba(37, 99, 235, 0.10);
+        rgba(37,99,235,0.10);
 
       animation:
         ringRotate
@@ -576,7 +605,7 @@
 
       position: absolute;
 
-      inset: 35px;
+      inset: 38px;
 
       border-radius: 50%;
 
@@ -597,7 +626,7 @@
 
       position: absolute;
 
-      inset: 72px;
+      inset: 78px;
 
       border-radius: 50%;
 
@@ -609,13 +638,14 @@
 
 
     /* ==================================================
-       작은 움직이는 점
+       움직이는 점
     ================================================== */
 
     .particle {
       position: absolute;
 
       width: 6px;
+
       height: 6px;
 
       border-radius: 50%;
@@ -630,6 +660,7 @@
 
     .particle.p1 {
       left: 13%;
+
       top: 28%;
 
       animation:
@@ -642,9 +673,11 @@
 
     .particle.p2 {
       left: 27%;
+
       bottom: 23%;
 
       width: 4px;
+
       height: 4px;
 
       background: #2563eb;
@@ -659,9 +692,11 @@
 
     .particle.p3 {
       right: 16%;
+
       top: 22%;
 
       width: 5px;
+
       height: 5px;
 
       animation:
@@ -674,9 +709,11 @@
 
     .particle.p4 {
       right: 26%;
+
       bottom: 24%;
 
       width: 7px;
+
       height: 7px;
 
       background: #60a5fa;
@@ -691,9 +728,11 @@
 
     .particle.p5 {
       left: 7%;
+
       bottom: 36%;
 
       width: 3px;
+
       height: 3px;
 
       background: #0ea5e9;
@@ -708,9 +747,11 @@
 
     .particle.p6 {
       right: 8%;
+
       top: 50%;
 
       width: 4px;
+
       height: 4px;
 
       background: #2563eb;
@@ -746,9 +787,10 @@
 
       gap: 8px;
 
-      margin-bottom: 16px;
+      margin-bottom: 17px;
 
-      padding: 7px 15px;
+      padding:
+        7px 15px;
 
       color: #2563eb;
 
@@ -762,6 +804,7 @@
       border-radius: 50px;
 
       font-size: 11px;
+
       font-weight: 900;
 
       letter-spacing: 1.3px;
@@ -779,6 +822,7 @@
       content: "";
 
       width: 6px;
+
       height: 6px;
 
       border-radius: 50%;
@@ -797,6 +841,7 @@
       color: #111827;
 
       font-size: 42px;
+
       font-weight: 850;
 
       line-height: 1.35;
@@ -825,7 +870,7 @@
 
 
     /* ==================================================
-       애니메이션
+       홀로그램 애니메이션
     ================================================== */
 
     @keyframes gridMove {
@@ -854,7 +899,7 @@
         opacity: 0.65;
 
         transform:
-          translate(-50%, -50%)
+          translate(-50%,-50%)
           scale(0.95);
       }
 
@@ -862,7 +907,7 @@
         opacity: 1;
 
         transform:
-          translate(-50%, -50%)
+          translate(-50%,-50%)
           scale(1.05);
       }
 
@@ -870,7 +915,7 @@
         opacity: 0.65;
 
         transform:
-          translate(-50%, -50%)
+          translate(-50%,-50%)
           scale(0.95);
       }
 
@@ -881,13 +926,13 @@
 
       from {
         transform:
-          translate(-50%, -50%)
+          translate(-50%,-50%)
           rotate(0deg);
       }
 
       to {
         transform:
-          translate(-50%, -50%)
+          translate(-50%,-50%)
           rotate(360deg);
       }
 
@@ -1015,7 +1060,8 @@
 
 
     .breadcrumb span {
-      margin: 0 8px;
+      margin:
+        0 8px;
 
       color: #cbd5e1;
     }
@@ -1067,6 +1113,7 @@
         1px solid #f1f5f9;
 
       font-size: 14px;
+
       font-weight: 650;
 
       transition: 0.2s;
@@ -1117,7 +1164,7 @@
 
 
     /* ==================================================
-       제목
+       본문 제목
     ================================================== */
 
     .title-area {
@@ -1142,6 +1189,7 @@
       border-radius: 50px;
 
       font-size: 12px;
+
       font-weight: 900;
 
       letter-spacing: 1px;
@@ -1154,6 +1202,7 @@
       color: #111827;
 
       font-size: 35px;
+
       font-weight: 850;
 
       letter-spacing: -1.4px;
@@ -1169,279 +1218,32 @@
 
 
     /* ==================================================
-       교육원 소개
+       원장 인사말
     ================================================== */
 
-    .intro-grid {
+    .greeting-section {
       display: grid;
 
       grid-template-columns:
-        0.92fr 1.08fr;
+        360px 1fr;
 
-      gap: 65px;
+      gap: 68px;
 
-      align-items: center;
-    }
-
-
-
-    /* 왼쪽 이미지형 디자인 */
-
-    .intro-visual {
-      position: relative;
-
-      overflow: hidden;
-
-      min-height: 445px;
-
-      padding: 42px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      color: #ffffff;
-
-      border-radius: 22px;
-
-      background:
-
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(103,232,249,0.28),
-          transparent 30%
-        ),
-
-        linear-gradient(
-          145deg,
-          #173d91,
-          #2563eb 55%,
-          #0891b2
-        );
-
-      box-shadow:
-        0 20px 45px
-        rgba(37,99,235,0.15);
-    }
-
-
-    .intro-visual::before {
-      content: "";
-
-      position: absolute;
-
-      width: 310px;
-      height: 310px;
-
-      right: -90px;
-      top: -115px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.18);
-    }
-
-
-    .intro-visual::after {
-      content: "";
-
-      position: absolute;
-
-      width: 210px;
-      height: 210px;
-
-      right: -15px;
-      top: -45px;
-
-      border-radius: 50%;
-
-      border:
-        1px dashed
-        rgba(255,255,255,0.20);
-
-      animation:
-        introRotate
-        18s
-        linear
-        infinite;
-    }
-
-
-    @keyframes introRotate {
-
-      from {
-        transform:
-          rotate(0deg);
-      }
-
-      to {
-        transform:
-          rotate(360deg);
-      }
-
-    }
-
-
-    .intro-small {
-      position: relative;
-
-      z-index: 2;
-
-      margin-bottom: 9px;
-
-      color: #dbeafe;
-
-      font-size: 12px;
-      font-weight: 800;
-
-      letter-spacing: 1.2px;
-    }
-
-
-    .intro-visual strong {
-      position: relative;
-
-      z-index: 2;
-
-      font-size: 34px;
-
-      line-height: 1.45;
-
-      letter-spacing: -1.2px;
-    }
-
-
-
-    /* 오른쪽 */
-
-    .intro-text .label {
-      margin-bottom: 9px;
-
-      color: #2563eb;
-
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-
-    .intro-text h2 {
-      margin-bottom: 23px;
-
-      color: #111827;
-
-      font-size: 34px;
-
-      line-height: 1.45;
-
-      letter-spacing: -1.3px;
-    }
-
-
-    .intro-text h2 span {
-      color: #2563eb;
-    }
-
-
-    .intro-text p {
-      margin-bottom: 17px;
-
-      color: #4b5563;
-
-      font-size: 15px;
-
-      line-height: 1.9;
+      align-items: start;
     }
 
 
 
     /* ==================================================
-       핵심 포인트
+       원장 프로필 카드
     ================================================== */
 
-    .point-list {
-      margin-top: 27px;
+    .director-card {
+      position: sticky;
 
-      display: grid;
+      top: 120px;
 
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 11px;
-    }
-
-
-    .point {
-      padding:
-        13px 14px;
-
-      color: #374151;
-
-      background: #f8fafc;
-
-      border:
-        1px solid #e5e7eb;
-
-      border-radius: 10px;
-
-      font-size: 13px;
-      font-weight: 700;
-
-      transition: 0.2s;
-    }
-
-
-    .point:hover {
-      color: #2563eb;
-
-      background: #eff6ff;
-
-      border-color: #bfdbfe;
-
-      transform:
-        translateY(-2px);
-    }
-
-
-    .point::before {
-      content: "✓";
-
-      width: 20px;
-      height: 20px;
-
-      margin-right: 7px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      color: #ffffff;
-
-      background:
-        linear-gradient(
-          135deg,
-          #2563eb,
-          #0ea5e9
-        );
-
-      border-radius: 50%;
-
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-
-
-    /* ==================================================
-       교육 가치
-    ================================================== */
-
-    .feature-section {
-      margin-top: 90px;
-
-      padding:
-        60px 40px;
+      padding: 28px;
 
       background:
         linear-gradient(
@@ -1451,61 +1253,248 @@
         );
 
       border:
-        1px solid #e0ecff;
+        1px solid #dbeafe;
 
-      border-radius: 24px;
+      border-radius: 22px;
+
+      box-shadow:
+        0 15px 40px
+        rgba(15,23,42,0.07);
     }
 
 
-    .feature-title {
-      margin-bottom: 39px;
+    .director-image {
+      position: relative;
 
+      overflow: hidden;
+
+      width: 100%;
+
+      height: 330px;
+
+      margin-bottom: 23px;
+
+      background: #e5e7eb;
+
+      border-radius: 16px;
+    }
+
+
+    .director-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(15,23,42,0.09),
+          transparent 35%
+        );
+    }
+
+
+    .director-image img {
+      width: 100%;
+
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      object-position:
+        center top;
+    }
+
+
+
+    /* ==================================================
+       원장 정보
+    ================================================== */
+
+    .director-info {
       text-align: center;
     }
 
 
-    .feature-title small {
-      color: #0ea5e9;
+    .director-info .position {
+      margin-bottom: 4px;
 
-      font-size: 11px;
-      font-weight: 900;
+      color: #64748b;
 
-      letter-spacing: 1.3px;
+      font-size: 13px;
+
+      font-weight: 650;
     }
 
 
-    .feature-title h2 {
+    .director-info h3 {
+      color: #111827;
+
+      font-size: 24px;
+
+      font-weight: 850;
+    }
+
+
+    .director-line {
+      width: 36px;
+
+      height: 3px;
+
       margin:
-        7px 0 9px;
+        14px auto;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2563eb,
+          #38bdf8
+        );
+    }
+
+
+    .director-info p {
+      color: #64748b;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+
+    /* ==================================================
+       인사말 본문
+    ================================================== */
+
+    .greeting-content {
+      padding-top: 5px;
+    }
+
+
+    .greeting-content .headline {
+      margin-bottom: 30px;
 
       color: #111827;
 
-      font-size: 30px;
+      font-size: 29px;
+
+      line-height: 1.55;
+
+      letter-spacing: -1.1px;
     }
 
 
-    .feature-title p {
-      color: #64748b;
-
-      font-size: 14px;
+    .greeting-content .headline strong {
+      color: #2563eb;
     }
 
 
-    .feature-grid {
+    .greeting-content p {
+      margin-bottom: 21px;
+
+      color: #4b5563;
+
+      font-size: 15px;
+
+      line-height: 1.95;
+    }
+
+
+
+    /* ==================================================
+       강조 박스
+    ================================================== */
+
+    .highlight-box {
+      position: relative;
+
+      overflow: hidden;
+
+      margin:
+        34px 0;
+
+      padding:
+        27px 29px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f0f7ff,
+          #effcff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius: 16px;
+    }
+
+
+    .highlight-box::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      top: 0;
+
+      width: 5px;
+
+      height: 100%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #2563eb,
+          #38bdf8
+        );
+    }
+
+
+    .highlight-box p {
+      margin: 0;
+
+      color: #1e3a8a;
+
+      font-size: 16px;
+
+      font-weight: 750;
+
+      line-height: 1.9;
+    }
+
+
+
+    /* ==================================================
+       가치 카드
+    ================================================== */
+
+    .values {
+      margin:
+        38px 0;
+
       display: grid;
 
       grid-template-columns:
-        repeat(4,1fr);
+        repeat(3,1fr);
 
-      gap: 17px;
+      gap: 14px;
     }
 
 
-    .feature-card {
-      min-height: 220px;
-
+    .value-card {
       padding:
-        27px 18px;
+        24px 15px;
 
       text-align: center;
 
@@ -1520,28 +1509,33 @@
     }
 
 
-    .feature-card:hover {
+    .value-card:hover {
       transform:
-        translateY(-6px);
+        translateY(-5px);
 
       border-color: #bfdbfe;
 
       box-shadow:
-        0 14px 32px
+        0 12px 28px
         rgba(37,99,235,0.08);
     }
 
 
-    .feature-icon {
-      width: 56px;
-      height: 56px;
+    .value-icon {
+      width: 52px;
+
+      height: 52px;
 
       margin:
-        0 auto 16px;
+        0 auto 13px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
+      border-radius: 16px;
 
       background:
         linear-gradient(
@@ -1550,14 +1544,12 @@
           #ecfeff
         );
 
-      border-radius: 16px;
-
-      font-size: 25px;
+      font-size: 24px;
     }
 
 
-    .feature-card h3 {
-      margin-bottom: 8px;
+    .value-card h4 {
+      margin-bottom: 7px;
 
       color: #111827;
 
@@ -1565,135 +1557,58 @@
     }
 
 
-    .feature-card p {
+    .value-card p {
+      margin: 0;
+
       color: #64748b;
 
       font-size: 13px;
 
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
 
 
     /* ==================================================
-       교육 방향
+       서명
     ================================================== */
 
-    .direction-section {
-      margin-top: 90px;
-    }
+    .signature {
+      margin-top: 46px;
 
+      padding-top: 27px;
 
-    .direction-title {
-      margin-bottom: 37px;
+      text-align: right;
 
-      text-align: center;
-    }
-
-
-    .direction-title small {
-      color: #2563eb;
-
-      font-size: 11px;
-      font-weight: 900;
-
-      letter-spacing: 1.3px;
-    }
-
-
-    .direction-title h2 {
-      margin-top: 7px;
-
-      color: #111827;
-
-      font-size: 30px;
-    }
-
-
-    .direction-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 19px;
-    }
-
-
-    .direction-card {
-      position: relative;
-
-      overflow: hidden;
-
-      min-height: 220px;
-
-      padding: 29px;
-
-      background: #ffffff;
-
-      border:
+      border-top:
         1px solid #e5e7eb;
-
-      border-radius: 18px;
     }
 
 
-    .direction-card::before {
-      content: "";
+    .signature span {
+      margin-right: 10px;
 
-      position: absolute;
-
-      left: 0;
-      top: 0;
-
-      width: 100%;
-      height: 5px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #2563eb,
-          #38bdf8
-        );
-    }
-
-
-    .direction-number {
-      margin-bottom: 17px;
-
-      color: #bfdbfe;
-
-      font-size: 35px;
-      font-weight: 900;
-
-      line-height: 1;
-    }
-
-
-    .direction-card h3 {
-      margin-bottom: 10px;
-
-      color: #111827;
-
-      font-size: 18px;
-    }
-
-
-    .direction-card p {
       color: #64748b;
 
-      font-size: 13px;
+      font-size: 14px;
+    }
 
-      line-height: 1.85;
+
+    .signature strong {
+      color: #111827;
+
+      font-size: 23px;
+
+      font-weight: 850;
     }
 
 
 
     /* ==================================================
-       원장 인사말 CTA
+       하단 상담 CTA
     ================================================== */
 
-    .message-section {
+    .bottom-cta {
       position: relative;
 
       overflow: hidden;
@@ -1702,6 +1617,14 @@
 
       padding:
         46px 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 35px;
 
       color: #ffffff;
 
@@ -1724,45 +1647,32 @@
     }
 
 
-    .message-inner {
+    .bottom-cta-text {
       position: relative;
 
       z-index: 2;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 40px;
     }
 
 
-    .message-text small {
-      color: #bfdbfe;
+    .bottom-cta h3 {
+      margin-bottom: 7px;
 
-      font-size: 11px;
-      font-weight: 900;
-
-      letter-spacing: 1.2px;
+      font-size: 25px;
     }
 
 
-    .message-text h2 {
-      margin:
-        7px 0 10px;
-
-      font-size: 26px;
-    }
-
-
-    .message-text p {
+    .bottom-cta p {
       color: #dbeafe;
 
       font-size: 14px;
     }
 
 
-    .message-link {
+    .bottom-cta a {
+      position: relative;
+
+      z-index: 2;
+
       flex-shrink: 0;
 
       padding:
@@ -1775,6 +1685,7 @@
       border-radius: 9px;
 
       font-size: 13px;
+
       font-weight: 800;
     }
 
@@ -1807,6 +1718,7 @@
       color: #ffffff;
 
       font-size: 19px;
+
       font-weight: 800;
     }
 
@@ -1815,6 +1727,7 @@
       margin-bottom: 17px;
 
       display: flex;
+
       flex-wrap: wrap;
 
       gap: 18px;
@@ -1837,6 +1750,7 @@
 
     .copyright {
       margin-top: 20px;
+
       padding-top: 20px;
 
       color: #64748b;
@@ -1863,10 +1777,6 @@
         font-size: 13px;
       }
 
-      .logo img {
-        height: 50px;
-      }
-
     }
 
 
@@ -1876,31 +1786,35 @@
         display: none;
       }
 
+
       .mobile-menu-button {
         display: block;
       }
 
-      .intro-grid {
+
+      .greeting-section {
         grid-template-columns:
           1fr;
       }
 
-      .feature-grid {
-        grid-template-columns:
-          repeat(2,1fr);
+
+      .director-card {
+        position: static;
+
+        width: 360px;
+
+        margin:
+          0 auto;
       }
 
-      .direction-grid {
-        grid-template-columns:
-          1fr;
-      }
 
       .category-inner {
         grid-template-columns:
           repeat(3,1fr);
       }
 
-      .message-inner {
+
+      .bottom-cta {
         flex-direction: column;
 
         align-items: flex-start;
@@ -1939,9 +1853,13 @@
       }
 
 
+
+      /* 홀로그램 영역도 400px 유지 */
+
       .sub-hero {
-        height: 360px;
-        min-height: 360px;
+        height: 400px;
+
+        min-height: 400px;
 
         padding:
           0 20px;
@@ -1961,8 +1879,9 @@
 
 
       .holo-ring {
-        width: 260px;
-        height: 260px;
+        width: 270px;
+
+        height: 270px;
       }
 
 
@@ -1983,42 +1902,43 @@
       }
 
 
-      .intro-visual {
-        min-height: 340px;
+      .director-card {
+        width: 100%;
 
-        padding: 30px;
+        max-width: 360px;
       }
 
 
-      .intro-visual strong {
-        font-size: 27px;
+      .director-image {
+        height: 330px;
       }
 
 
-      .intro-text h2 {
-        font-size: 27px;
+      .greeting-content .headline {
+        font-size: 25px;
       }
 
 
-      .point-list {
+      .greeting-content p {
+        font-size: 15px;
+      }
+
+
+      .values {
         grid-template-columns:
           1fr;
       }
 
 
-      .feature-section {
-        padding:
-          45px 20px;
+      .signature span {
+        display: block;
+
+        margin:
+          0 0 3px;
       }
 
 
-      .feature-grid {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .message-section {
+      .bottom-cta {
         padding:
           36px 27px;
       }
@@ -2045,7 +1965,6 @@
 
   <!-- ==================================================
        HEADER
-       ★ 메인과 동일
   ================================================== -->
 
   <header>
@@ -2070,7 +1989,9 @@
 
 
 
-      <!-- PC 메뉴 -->
+      <!-- ==================================================
+           PC 메뉴
+      ================================================== -->
 
       <nav>
 
@@ -2078,7 +1999,7 @@
         <ul class="nav-menu">
 
 
-          <!-- 1. 교육원소개 -->
+          <!-- 교육원소개 -->
 
           <li class="nav-item active">
 
@@ -2091,15 +2012,15 @@
             <div class="dropdown">
 
 
-              <a
-                href="about.html"
-                class="current"
-              >
+              <a href="about.html">
                 교육원 소개
               </a>
 
 
-              <a href="greeting.html">
+              <a
+                href="greeting.html"
+                class="current"
+              >
                 원장 인사말
               </a>
 
@@ -2131,7 +2052,7 @@
 
 
 
-          <!-- 2. 국민내일배움카드 -->
+          <!-- 국민내일배움카드 -->
 
           <li class="nav-item">
 
@@ -2181,7 +2102,7 @@
 
 
 
-          <!-- 3. 평생교육이용권 -->
+          <!-- 평생교육이용권 -->
 
           <li class="nav-item">
 
@@ -2231,7 +2152,7 @@
 
 
 
-          <!-- 4. 공지사항 -->
+          <!-- 공지사항 -->
 
           <li class="nav-item">
 
@@ -2276,7 +2197,7 @@
 
 
 
-          <!-- 5. 커뮤니티 -->
+          <!-- 커뮤니티 -->
 
           <li class="nav-item">
 
@@ -2321,7 +2242,7 @@
 
 
 
-          <!-- 6. 오시는길 -->
+          <!-- 오시는길 -->
 
           <li class="nav-item">
 
@@ -2356,7 +2277,7 @@
 
 
 
-          <!-- 7. 수강상담 -->
+          <!-- 수강상담 -->
 
           <li class="nav-item">
 
@@ -2405,7 +2326,7 @@
 
 
 
-      <!-- 모바일 메뉴 -->
+      <!-- 모바일 버튼 -->
 
       <button
         class="mobile-menu-button"
@@ -2502,8 +2423,8 @@
 
 
   <!-- ==================================================
-       밝은 AI 홀로그램 HERO
-       ★ 360px
+       밝은 홀로그램 HERO
+       ★ 400px
   ================================================== -->
 
   <section class="sub-hero">
@@ -2536,16 +2457,16 @@
 
 
       <div class="sub-hero-badge">
-        CENTUM DIGITAL CAMP
+        DIRECTOR'S MESSAGE
       </div>
 
 
       <h1>
 
-        배우고, 만들고, 성장하는<br>
+        배움이 새로운 가능성이 되는 곳,<br>
 
         <span>
-          디지털 평생교육의 새로운 공간
+          센텀디지털캠프
         </span>
 
       </h1>
@@ -2553,9 +2474,9 @@
 
       <p>
 
-        변화하는 시대에 필요한 디지털 역량을
-        누구나 쉽고 체계적으로 배우고,
-        실제 업무와 삶에 활용할 수 있도록 함께합니다.
+        누구나 디지털 기술을 쉽고 즐겁게 배우고,
+        새로운 도전과 성장으로 이어갈 수 있도록
+        함께하겠습니다.
 
       </p>
 
@@ -2594,7 +2515,7 @@
 
 
       <strong>
-        교육원 소개
+        원장 인사말
       </strong>
 
 
@@ -2615,15 +2536,15 @@
     <div class="category-inner">
 
 
-      <a
-        href="about.html"
-        class="active"
-      >
+      <a href="about.html">
         교육원 소개
       </a>
 
 
-      <a href="greeting.html">
+      <a
+        href="greeting.html"
+        class="active"
+      >
         원장 인사말
       </a>
 
@@ -2663,24 +2584,24 @@
 
 
 
-    <!-- 제목 -->
+    <!-- 본문 제목 -->
 
     <div class="title-area">
 
 
       <div class="eyebrow">
-        ABOUT CENTUM DIGITAL CAMP
+        GREETING
       </div>
 
 
       <h2>
-        센텀디지털캠프 평생교육원
+        센텀디지털캠프에 오신 것을 환영합니다.
       </h2>
 
 
       <p>
-        변화하는 시대에 필요한
-        디지털 실무 역량을 키워갑니다.
+        디지털 기술을 배우고 새로운 가능성을 발견하는
+        여러분의 도전을 함께하겠습니다.
       </p>
 
 
@@ -2689,109 +2610,243 @@
 
 
     <!-- ==================================================
-         교육원 소개
+         원장 인사말
     ================================================== -->
 
-    <section class="intro-grid">
+    <section class="greeting-section">
 
 
-      <div class="intro-visual">
+
+      <!-- 원장 프로필 -->
+
+      <aside class="director-card">
 
 
-        <div class="intro-small">
-          DIGITAL EDUCATION
+        <div class="director-image">
+
+
+          <img
+            src="../images/원장님.jpg"
+            alt="센텀디지털캠프 평생교육원 원장"
+          >
+
+
         </div>
 
 
-        <strong>
 
-          배우고<br>
-
-          직접 만들고<br>
-
-          현장에서 활용하다
-
-        </strong>
+        <div class="director-info">
 
 
-      </div>
+          <div class="position">
+            센텀디지털캠프 평생교육원 원장
+          </div>
 
 
+          <h3>
+            박원옥
+          </h3>
 
-      <div class="intro-text">
+
+          <div class="director-line"></div>
 
 
-        <div class="label">
-          센텀디지털캠프 평생교육원
+          <p>
+            디지털 역량과 평생학습을 통해<br>
+            더 나은 내일을 만들어갑니다.
+          </p>
+
+
         </div>
 
 
-        <h2>
+      </aside>
 
-          배움에서 실무까지,<br>
 
-          <span>
-            디지털 미래를 함께합니다.
-          </span>
 
-        </h2>
+      <!-- 인사말 -->
+
+      <article class="greeting-content">
+
+
+        <h3 class="headline">
+
+          “배움에는 나이가 없습니다.<br>
+
+          <strong>
+            디지털 교육으로 새로운 가능성
+          </strong>
+
+          을 열어드리겠습니다.”
+
+        </h3>
+
+
+
+        <p>
+          안녕하십니까.<br>
+          센텀디지털캠프 평생교육원 원장 박원옥입니다.
+        </p>
+
+
+
+        <p>
+          빠르게 변화하는 디지털 시대에는
+          새로운 기술을 배우고 활용하는 능력이
+          우리의 일과 생활을 더욱 풍요롭게 만들어 줍니다.
+        </p>
+
 
 
         <p>
           센텀디지털캠프 평생교육원은
-          빠르게 변화하는 디지털 환경 속에서
-          필요한 기술을 누구나 쉽고 체계적으로
-          배울 수 있도록 다양한 교육과정을
-          운영하고 있습니다.
+          누구나 디지털 기술을 쉽고 재미있게 배우고,
+          배운 내용을 실제 업무와 일상에 활용할 수 있도록
+          실무 중심의 교육을 제공하고 있습니다.
         </p>
+
+
+
+        <!-- 강조 -->
+
+        <div class="highlight-box">
+
+
+          <p>
+            단순히 기술을 배우는 곳을 넘어,
+            배움이 새로운 일자리와 새로운 도전,
+            새로운 삶의 기회로 이어지는 교육원을
+            만들어가겠습니다.
+          </p>
+
+
+        </div>
+
 
 
         <p>
-          생성형 AI, 유튜브 영상 제작,
-          전자상거래, 전자책 제작,
-          ITQ와 OA 등 직무와 실생활에
-          바로 활용할 수 있는
-          실습 중심의 교육을 제공합니다.
-        </p>
-
-
-        <p>
-          단순히 프로그램의 기능을 익히는 것에서
-          끝나는 것이 아니라,
-          학습자가 직접 결과물을 만들고
-          업무와 취업, 창업에 활용할 수 있는
-          교육을 지향합니다.
+          생성형 AI, ChatGPT, 유튜브 영상 제작,
+          전자상거래, 전자책 제작, OA 등
+          다양한 디지털 교육과정을 통해
+          학습자 한 분 한 분이 자신의 가능성을
+          발견할 수 있도록 함께하겠습니다.
         </p>
 
 
 
-        <div class="point-list">
+        <!-- 핵심 가치 -->
+
+        <div class="values">
 
 
-          <div class="point">
-            국민내일배움카드 훈련과정
+          <div class="value-card">
+
+
+            <div class="value-icon">
+              🎓
+            </div>
+
+
+            <h4>
+              배움
+            </h4>
+
+
+            <p>
+              누구나 쉽게 시작할 수 있는
+              실무 중심의 디지털 교육
+            </p>
+
+
           </div>
 
 
-          <div class="point">
-            생성형 AI 활용교육
+
+          <div class="value-card">
+
+
+            <div class="value-icon">
+              🌱
+            </div>
+
+
+            <h4>
+              성장
+            </h4>
+
+
+            <p>
+              개인의 역량과 가능성을
+              함께 키워가는 교육
+            </p>
+
+
           </div>
 
 
-          <div class="point">
-            실습 중심 디지털교육
-          </div>
+
+          <div class="value-card">
 
 
-          <div class="point">
-            취업 · 직무역량 강화
+            <div class="value-icon">
+              🚀
+            </div>
+
+
+            <h4>
+              도전
+            </h4>
+
+
+            <p>
+              배운 기술을 새로운 기회로
+              연결하는 교육
+            </p>
+
+
           </div>
 
 
         </div>
 
 
-      </div>
+
+        <p>
+          처음 시작하는 분에게는 친절한 안내자가 되고,
+          새로운 도전을 준비하는 분에게는
+          든든한 동반자가 되겠습니다.
+        </p>
+
+
+
+        <p>
+          센텀디지털캠프 평생교육원에서
+          배움의 즐거움을 발견하고,
+          여러분의 새로운 가능성을
+          마음껏 펼쳐보시기 바랍니다.
+        </p>
+
+
+
+        <!-- 서명 -->
+
+        <div class="signature">
+
+
+          <span>
+            센텀디지털캠프 평생교육원 원장
+          </span>
+
+
+          <strong>
+            박원옥
+          </strong>
+
+
+        </div>
+
+
+      </article>
 
 
     </section>
@@ -2799,28 +2854,23 @@
 
 
     <!-- ==================================================
-         교육 가치
+         하단 상담
     ================================================== -->
 
-    <section class="feature-section">
+    <section class="bottom-cta">
 
 
-      <div class="feature-title">
+      <div class="bottom-cta-text">
 
 
-        <small>
-          OUR EDUCATION VALUE
-        </small>
-
-
-        <h2>
-          센텀디지털캠프의 교육 가치
-        </h2>
+        <h3>
+          새로운 배움, 어디서부터 시작할까요?
+        </h3>
 
 
         <p>
-          배우는 것을 넘어
-          실제로 활용할 수 있는 교육을 만들어갑니다.
+          나에게 맞는 교육과정을 찾고 있다면
+          센텀디지털캠프가 친절하게 안내해드립니다.
         </p>
 
 
@@ -2828,259 +2878,9 @@
 
 
 
-      <div class="feature-grid">
-
-
-        <div class="feature-card">
-
-
-          <div class="feature-icon">
-            🤖
-          </div>
-
-
-          <h3>
-            최신 디지털 교육
-          </h3>
-
-
-          <p>
-            생성형 AI와 최신 디지털 기술을
-            교육과정에 빠르게 반영합니다.
-          </p>
-
-
-        </div>
-
-
-
-        <div class="feature-card">
-
-
-          <div class="feature-icon">
-            💻
-          </div>
-
-
-          <h3>
-            실습 중심 교육
-          </h3>
-
-
-          <p>
-            직접 만들고 실행하면서
-            현장에서 활용할 수 있는
-            실무 능력을 기릅니다.
-          </p>
-
-
-        </div>
-
-
-
-        <div class="feature-card">
-
-
-          <div class="feature-icon">
-            🌱
-          </div>
-
-
-          <h3>
-            단계별 교육
-          </h3>
-
-
-          <p>
-            디지털 초보자부터
-            실무 활용을 원하는 학습자까지
-            단계적으로 교육합니다.
-          </p>
-
-
-        </div>
-
-
-
-        <div class="feature-card">
-
-
-          <div class="feature-icon">
-            🎯
-          </div>
-
-
-          <h3>
-            직무역량 향상
-          </h3>
-
-
-          <p>
-            배운 내용을 업무와 취업,
-            창업에 활용할 수 있도록
-            교육합니다.
-          </p>
-
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- ==================================================
-         교육 방향
-    ================================================== -->
-
-    <section class="direction-section">
-
-
-      <div class="direction-title">
-
-
-        <small>
-          OUR DIRECTION
-        </small>
-
-
-        <h2>
-          배움이 실제 변화로 이어지는 교육
-        </h2>
-
-
-      </div>
-
-
-
-      <div class="direction-grid">
-
-
-        <div class="direction-card">
-
-
-          <div class="direction-number">
-            01
-          </div>
-
-
-          <h3>
-            쉽게 배우는 교육
-          </h3>
-
-
-          <p>
-            디지털 기술이 익숙하지 않은 분도
-            기초부터 차근차근 배울 수 있도록
-            학습자의 수준에 맞춰 교육합니다.
-          </p>
-
-
-        </div>
-
-
-
-        <div class="direction-card">
-
-
-          <div class="direction-number">
-            02
-          </div>
-
-
-          <h3>
-            직접 해보는 교육
-          </h3>
-
-
-          <p>
-            단순한 이론 설명보다
-            학습자가 직접 만들고 실행하며
-            결과물을 완성하는 실습을 중요하게 생각합니다.
-          </p>
-
-
-        </div>
-
-
-
-        <div class="direction-card">
-
-
-          <div class="direction-number">
-            03
-          </div>
-
-
-          <h3>
-            미래로 연결되는 교육
-          </h3>
-
-
-          <p>
-            배운 디지털 기술이
-            업무와 취업, 창업,
-            새로운 도전으로 이어질 수 있도록 함께합니다.
-          </p>
-
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- ==================================================
-         원장 인사말 연결
-    ================================================== -->
-
-    <section class="message-section">
-
-
-      <div class="message-inner">
-
-
-        <div class="message-text">
-
-
-          <small>
-            DIRECTOR'S MESSAGE
-          </small>
-
-
-          <h2>
-            디지털 기술이 새로운 기회가 되도록
-          </h2>
-
-
-          <p>
-            누구에게나 배움의 기회가 열려 있고,
-            새로운 디지털 기술을 통해
-            자신의 가능성을 넓혀갈 수 있도록
-            센텀디지털캠프가 함께하겠습니다.
-          </p>
-
-
-        </div>
-
-
-
-        <a
-          href="greeting.html"
-          class="message-link"
-        >
-          원장 인사말 보기 →
-        </a>
-
-
-      </div>
+      <a href="../consult.html">
+        수강상담 신청 →
+      </a>
 
 
     </section>
