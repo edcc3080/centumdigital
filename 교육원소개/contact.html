@@ -1820,16 +1820,13 @@
 
 
     /* ==================================================
-       네이버 지도 표시 영역
+       지도 이미지 표시 영역
     ================================================== */
 
-    #naverMap {
+    .map-image-wrap {
       position: relative;
 
       z-index: 2;
-
-      width: 100%;
-      height: 430px;
 
       overflow: hidden;
 
@@ -1838,8 +1835,18 @@
 
       border-radius: 18px;
 
+      background: #ffffff;
+
       box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.5);
+        0 8px 24px rgba(15,23,42,0.05);
+    }
+
+
+    .map-image-wrap img {
+      display: block;
+
+      width: 100%;
+      height: auto;
     }
 
 
@@ -1852,7 +1859,7 @@
       padding:
         16px 18px;
 
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.78);
 
       border:
         1px solid #dbeafe;
@@ -1879,30 +1886,6 @@
       color: #64748b;
 
       font-size: 13px;
-
-      line-height: 1.75;
-    }
-
-
-    .map-api-guide {
-      position: relative;
-      z-index: 2;
-
-      margin-top: 14px;
-
-      padding:
-        14px 16px;
-
-      color: #475569;
-
-      background: #f8fbff;
-
-      border:
-        1px dashed #bfdbfe;
-
-      border-radius: 12px;
-
-      font-size: 12px;
 
       line-height: 1.75;
     }
@@ -3108,7 +3091,12 @@
 
       <div class="map-box">
 
-        <div id="naverMap" aria-label="센텀디지털캠프 평생교육원 네이버 지도"></div>
+        <div class="map-image-wrap">
+          <img
+            src="../images/naver-map.png"
+            alt="센텀디지털캠프 평생교육원 네이버 지도"
+          >
+        </div>
 
         <div class="map-caption">
           <strong>
@@ -3139,12 +3127,6 @@
             카카오맵에서 보기
           </a>
 
-        </div>
-
-        <div class="map-api-guide">
-          ※ 네이버 지도 API를 사용하려면 아래 스크립트의
-          <strong>YOUR_NCP_CLIENT_ID</strong> 부분을
-          네이버클라우드에서 발급받은 실제 <strong>ncpKeyId</strong>로 바꿔주세요.
         </div>
 
       </div>
@@ -3463,65 +3445,6 @@
   </script>
 
 
-
-
-  <!-- ==================================================
-       NAVER MAP API
-       ※ YOUR_NCP_CLIENT_ID 를 실제 ncpKeyId 로 교체하세요.
-  ================================================== -->
-  <script
-    type="text/javascript"
-    src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_NCP_CLIENT_ID"
-  ></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (typeof naver === "undefined" || !naver.maps) {
-        console.warn("네이버 지도 API가 로드되지 않았습니다. ncpKeyId를 확인해주세요.");
-        return;
-      }
-
-      var center = new naver.maps.LatLng(35.169336, 129.132166);
-
-      var map = new naver.maps.Map("naverMap", {
-        center: center,
-        zoom: 17,
-        minZoom: 10,
-        zoomControl: true,
-        zoomControlOptions: {
-          position: naver.maps.Position.TOP_RIGHT
-        },
-        mapDataControl: false,
-        scaleControl: true,
-        logoControl: false
-      });
-
-      var marker = new naver.maps.Marker({
-        position: center,
-        map: map,
-        title: "센텀디지털캠프평생교육원"
-      });
-
-      var infoWindow = new naver.maps.InfoWindow({
-        content: [
-          '<div style="padding:14px 16px; min-width:220px; font-family:Pretendard, Noto Sans KR, sans-serif;">',
-          '  <div style="font-size:16px; font-weight:800; color:#111827; margin-bottom:4px;">센텀디지털캠프평생교육원</div>',
-          '  <div style="font-size:13px; line-height:1.65; color:#475569;">부산광역시 해운대구 센텀2로 20 센텀타워메디컬 1302호</div>',
-          '</div>'
-        ].join("")
-      });
-
-      infoWindow.open(map, marker);
-
-      naver.maps.Event.addListener(marker, "click", function () {
-        if (infoWindow.getMap()) {
-          infoWindow.close();
-        } else {
-          infoWindow.open(map, marker);
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
