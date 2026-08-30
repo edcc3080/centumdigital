@@ -11,7 +11,7 @@
   >
 
   <title>
-    조직도 | 센텀디지털캠프 평생교육원
+    연혁 | 센텀디지털캠프 평생교육원
   </title>
 
 
@@ -1218,20 +1218,121 @@
 
 
     /* ==================================================
-       조직도 영역
+       연혁 요약
     ================================================== */
 
-    .org-section {
+    .history-summary {
+      margin-bottom: 54px;
+
+      display: grid;
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 16px;
+    }
+
+
+    .summary-card {
       position: relative;
 
+      overflow: hidden;
+
+      min-height: 145px;
+
       padding:
-        55px 40px 65px;
+        28px 26px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f7fbff
+        );
+
+      border:
+        1px solid #dbeafe;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 10px 28px
+        rgba(15,23,42,0.05);
+    }
+
+
+    .summary-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 5px;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #2563eb,
+          #38bdf8
+        );
+    }
+
+
+    .summary-card small {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: #2563eb;
+
+      font-size: 12px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+
+    .summary-card strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #111827;
+
+      font-size: 24px;
+      font-weight: 850;
+    }
+
+
+    .summary-card p {
+      color: #64748b;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+
+
+    /* ==================================================
+       연혁 타임라인
+    ================================================== */
+
+    .history-section {
+      position: relative;
+
+      overflow: hidden;
+
+      padding:
+        54px 46px 58px;
 
       background:
         linear-gradient(
           180deg,
-          #f8fbff,
-          #ffffff
+          #f8fbff 0%,
+          #ffffff 100%
         );
 
       border:
@@ -1241,208 +1342,190 @@
     }
 
 
-    /* ==================================================
-       원장
-    ================================================== */
+    .history-section::before {
+      content: "";
 
-    .director-node {
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      right: -95px;
+      top: -110px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(56,189,248,0.12),
+          transparent 70%
+        );
+    }
+
+
+    .history-timeline {
       position: relative;
 
-      width: 270px;
-
-      margin: 0 auto;
-
-      padding: 25px 20px;
-
-      text-align: center;
-
-      color: #ffffff;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #1d4ed8,
-          #2563eb 55%,
-          #0891b2
-        );
-
-      box-shadow:
-        0 15px 35px
-        rgba(37,99,235,0.20);
-
-      z-index: 3;
-    }
-
-    .director-node .icon {
-      width: 50px;
-      height: 50px;
-
-      margin: 0 auto 10px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 15px;
-
-      background:
-        rgba(255,255,255,0.14);
-
-      font-size: 24px;
-    }
-
-    .director-node small {
-      display: block;
-
-      margin-bottom: 2px;
-
-      color: #bfdbfe;
-
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .director-node h3 {
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .director-node p {
-      margin-top: 5px;
-
-      color: #dbeafe;
-
-      font-size: 13px;
+      z-index: 2;
     }
 
 
-    /* ==================================================
-       연결선
-    ================================================== */
-
-    .vertical-line {
-      width: 2px;
-      height: 48px;
-
-      margin: 0 auto;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #2563eb,
-          #7dd3fc
-        );
-    }
-
-    .horizontal-line {
-      position: relative;
-
-      width: 75%;
-      height: 2px;
-
-      margin: 0 auto;
-
-      background:
-        linear-gradient(
-          90deg,
-          #bae6fd,
-          #2563eb,
-          #bae6fd
-        );
-    }
-
-
-    /* ==================================================
-       부서 조직
-    ================================================== */
-
-    .department-grid {
+    .history-year-row {
       position: relative;
 
       display: grid;
 
       grid-template-columns:
-        repeat(4, 1fr);
+        120px 1fr;
 
-      gap: 18px;
+      gap: 34px;
 
-      margin-top: 0;
+      padding-bottom: 42px;
     }
 
-    .department-wrap {
+
+    .history-year-row:last-child {
+      padding-bottom: 0;
+    }
+
+
+    .history-year {
       position: relative;
 
-      padding-top: 40px;
+      padding-top: 5px;
+
+      text-align: right;
     }
 
-    .department-wrap::before {
+
+    .history-year span {
+      display: inline-block;
+
+      color: #1d4ed8;
+
+      font-size: 31px;
+      font-weight: 900;
+
+      letter-spacing: -1px;
+    }
+
+
+    .history-year small {
+      display: block;
+
+      margin-top: 1px;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 1.2px;
+    }
+
+
+    .history-events {
+      position: relative;
+
+      padding:
+        6px 0 6px 35px;
+
+      border-left:
+        2px solid #dbeafe;
+    }
+
+
+    .history-events::before {
       content: "";
 
       position: absolute;
 
-      left: 50%;
-      top: 0;
+      left: -7px;
+      top: 13px;
 
-      width: 2px;
-      height: 40px;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #7dd3fc,
-          #dbeafe
-        );
-
-      transform:
-        translateX(-50%);
-    }
-
-    .department-card {
-      height: 100%;
-
-      min-height: 245px;
-
-      padding: 27px 20px;
-
-      text-align: center;
-
-      background: #ffffff;
+      width: 12px;
+      height: 12px;
 
       border:
-        1px solid #dbeafe;
+        3px solid #ffffff;
 
-      border-radius: 17px;
+      border-radius: 50%;
 
-      box-shadow:
-        0 8px 24px
-        rgba(15,23,42,0.05);
-
-      transition: 0.3s;
-    }
-
-    .department-card:hover {
-      transform: translateY(-6px);
-
-      border-color: #93c5fd;
+      background: #2563eb;
 
       box-shadow:
-        0 15px 32px
-        rgba(37,99,235,0.10);
+        0 0 0 3px
+        rgba(37,99,235,0.12);
     }
 
-    .department-icon {
-      width: 54px;
-      height: 54px;
 
-      margin: 0 auto 14px;
+    .history-event {
+      display: grid;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      grid-template-columns:
+        72px 1fr;
 
-      border-radius: 16px;
+      gap: 17px;
+
+      padding:
+        15px 18px;
+
+      border-bottom:
+        1px solid #e8eef7;
+    }
+
+
+    .history-event:first-child {
+      padding-top: 4px;
+    }
+
+
+    .history-event:last-child {
+      border-bottom: 0;
+    }
+
+
+    .history-date {
+      padding-top: 2px;
+
+      color: #0ea5e9;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      white-space: nowrap;
+    }
+
+
+    .history-text {
+      color: #334155;
+
+      font-size: 15px;
+
+      line-height: 1.75;
+    }
+
+
+    .history-text strong {
+      color: #111827;
+
+      font-weight: 750;
+    }
+
+
+
+    /* ==================================================
+       연혁 하단 메시지
+    ================================================== */
+
+    .history-message {
+      margin-top: 72px;
+
+      padding:
+        36px 38px;
+
+      text-align: center;
 
       background:
         linear-gradient(
@@ -1451,66 +1534,18 @@
           #ecfeff
         );
 
-      font-size: 25px;
-    }
+      border:
+        1px solid #bae6fd;
 
-    .department-card h3 {
-      margin-bottom: 13px;
-
-      color: #111827;
-
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .department-card ul {
-      color: #64748b;
-
-      font-size: 13px;
-
-      line-height: 1.9;
-    }
-
-    .department-card li {
-      position: relative;
-
-      padding-left: 12px;
-
-      text-align: left;
-    }
-
-    .department-card li::before {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      top: 11px;
-
-      width: 4px;
-      height: 4px;
-
-      border-radius: 50%;
-
-      background: #38bdf8;
+      border-radius: 20px;
     }
 
 
-    /* ==================================================
-       운영 체계 안내
-    ================================================== */
+    .history-message small {
+      display: block;
 
-    .system-section {
-      margin-top: 80px;
-    }
+      margin-bottom: 8px;
 
-    .section-heading {
-      margin-bottom: 35px;
-
-      text-align: center;
-    }
-
-    .section-heading small {
       color: #2563eb;
 
       font-size: 12px;
@@ -1519,93 +1554,24 @@
       letter-spacing: 1.4px;
     }
 
-    .section-heading h2 {
-      margin-top: 6px;
+
+    .history-message h3 {
+      margin-bottom: 8px;
 
       color: #111827;
 
-      font-size: 30px;
-    }
-
-    .section-heading p {
-      margin-top: 8px;
-
-      color: #6b7280;
-
-      font-size: 15px;
+      font-size: 25px;
+      font-weight: 850;
     }
 
 
-    .system-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 18px;
-    }
-
-    .system-card {
-      position: relative;
-
-      overflow: hidden;
-
-      padding: 30px;
-
-      background: #ffffff;
-
-      border:
-        1px solid #e5e7eb;
-
-      border-radius: 18px;
-    }
-
-    .system-card::before {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      top: 0;
-
-      width: 100%;
-      height: 5px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #2563eb,
-          #06b6d4
-        );
-    }
-
-    .system-number {
-      margin-bottom: 16px;
-
-      color: #bfdbfe;
-
-      font-size: 35px;
-      font-weight: 900;
-
-      line-height: 1;
-    }
-
-    .system-card h3 {
-      margin-bottom: 10px;
-
-      color: #111827;
-
-      font-size: 19px;
-    }
-
-    .system-card p {
+    .history-message p {
       color: #64748b;
 
       font-size: 14px;
 
       line-height: 1.8;
     }
-
 
 
 
@@ -1984,6 +1950,93 @@
     }
 
 
+    /* ==================================================
+       연혁 반응형 추가
+    ================================================== */
+
+    @media (max-width: 1000px) {
+
+      .history-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .history-section {
+        padding:
+          46px 32px 50px;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .history-summary {
+        margin-bottom: 42px;
+      }
+
+      .summary-card {
+        min-height: auto;
+
+        padding:
+          24px 22px;
+      }
+
+      .history-section {
+        padding:
+          40px 20px 42px;
+      }
+
+      .history-year-row {
+        display: block;
+
+        padding-bottom: 46px;
+      }
+
+      .history-year {
+        margin-bottom: 15px;
+
+        text-align: left;
+      }
+
+      .history-year span {
+        font-size: 28px;
+      }
+
+      .history-events {
+        padding-left: 25px;
+      }
+
+      .history-event {
+        grid-template-columns: 1fr;
+
+        gap: 3px;
+
+        padding:
+          13px 12px;
+      }
+
+      .history-date {
+        font-size: 12px;
+      }
+
+      .history-text {
+        font-size: 14px;
+      }
+
+      .history-message {
+        margin-top: 55px;
+
+        padding:
+          31px 22px;
+      }
+
+      .history-message h3 {
+        font-size: 22px;
+      }
+
+    }
+
+
   </style>
 
 </head>
@@ -2060,17 +2113,10 @@
               </a>
 
 
-              <a
-                href="organization.html"
-                class="current"
-              >
-                조직도
-              </a>
+              <a href="organization.html">조직도</a>
 
 
-              <a href="history.html">
-                연혁
-              </a>
+              <a href="history.html" class="current">연혁</a>
 
 
               <a href="facilities.html">
@@ -2495,16 +2541,16 @@
 
 
       <div class="sub-hero-badge">
-        ORGANIZATION
+        HISTORY
       </div>
 
 
       <h1>
 
-        함께 성장하는 교육,<br>
+        배움의 변화와 함께,<br>
 
         <span>
-          체계적인 운영으로 만들어갑니다
+          디지털 교육의 길을 걸어왔습니다
         </span>
 
       </h1>
@@ -2512,8 +2558,8 @@
 
       <p>
 
-        학습자 중심의 교육 운영과 체계적인 훈련 행정을 통해
-        더 나은 교육환경을 만들어갑니다.
+        2009년 은누리디지털문화원 설립을 시작으로
+        디지털 교육과 평생학습의 새로운 가능성을 만들어왔습니다.
 
       </p>
 
@@ -2552,7 +2598,7 @@
 
 
       <strong>
-        조직도
+        연혁
       </strong>
 
 
@@ -2583,15 +2629,10 @@
       </a>
 
 
-      <a
-        href="organization.html"
-        class="active"
-      >
-        조직도
-      </a>
+      <a href="organization.html">조직도</a>
 
 
-      <a href="history.html">
+      <a href="history.html" class="active">
         연혁
       </a>
 
@@ -2624,367 +2665,494 @@
 
     <div class="title-area">
 
+
       <div class="eyebrow">
 
-        ORGANIZATION
+        HISTORY
 
       </div>
 
+
       <h2>
 
-        센텀디지털캠프 조직도
+        센텀디지털캠프 연혁
 
       </h2>
 
+
       <p>
 
-        교육의 품질과 학습자의 성장을 위해
-        각 분야가 유기적으로 협력합니다.
+        디지털 교육과 평생학습의 현장에서
+        차근차근 쌓아온 센텀디지털캠프의 발자취입니다.
 
       </p>
+
 
     </div>
 
 
+
     <!-- ==================================================
-         조직도
+         주요 이정표
     ================================================== -->
 
-    <section class="org-section">
+    <section class="history-summary">
 
 
-      <!-- 원장 -->
-
-      <div class="director-node">
-
-        <div class="icon">
-
-          👩‍💼
-
-        </div>
+      <div class="summary-card">
 
         <small>
-
-          DIRECTOR
-
+          FOUNDATION
         </small>
 
-        <h3>
-
-          원장
-
-        </h3>
+        <strong>
+          2009
+        </strong>
 
         <p>
-
-          교육원 운영 총괄
-
+          주식회사 은누리디지털문화원 설립
         </p>
 
       </div>
 
 
-      <!-- 연결선 -->
-
-      <div class="vertical-line"></div>
-
-      <div class="horizontal-line"></div>
-
-
-      <!-- 부서 -->
-
-      <div class="department-grid">
-
-
-        <!-- 운영지원 -->
-
-        <div class="department-wrap">
-
-          <div class="department-card">
-
-            <div class="department-icon">
-
-              🗂️
-
-            </div>
-
-            <h3>
-
-              운영지원
-
-            </h3>
-
-            <ul>
-
-              <li>
-                교육원 행정 및 운영
-              </li>
-
-              <li>
-                훈련과정 행정관리
-              </li>
-
-              <li>
-                수강생 등록 및 상담
-              </li>
-
-              <li>
-                각종 행정서류 관리
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <!-- 교육운영 -->
-
-        <div class="department-wrap">
-
-          <div class="department-card">
-
-            <div class="department-icon">
-
-              🎓
-
-            </div>
-
-            <h3>
-
-              교육운영
-
-            </h3>
-
-            <ul>
-
-              <li>
-                교육과정 기획 및 운영
-              </li>
-
-              <li>
-                강사 및 수업 관리
-              </li>
-
-              <li>
-                교육자료 및 교안 관리
-              </li>
-
-              <li>
-                학습자 교육지원
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <!-- 훈련생 관리 -->
-
-        <div class="department-wrap">
-
-          <div class="department-card">
-
-            <div class="department-icon">
-
-              👥
-
-            </div>
-
-            <h3>
-
-              훈련생 관리
-
-            </h3>
-
-            <ul>
-
-              <li>
-                출결 및 수료 관리
-              </li>
-
-              <li>
-                훈련생 상담 관리
-              </li>
-
-              <li>
-                과정 참여 이력 관리
-              </li>
-
-              <li>
-                수료생 사후관리
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <!-- 취·창업 지원 -->
-
-        <div class="department-wrap">
-
-          <div class="department-card">
-
-            <div class="department-icon">
-
-              🚀
-
-            </div>
-
-            <h3>
-
-              취·창업 지원
-
-            </h3>
-
-            <ul>
-
-              <li>
-                취업 상담 및 관리
-              </li>
-
-              <li>
-                취업·창업 실적 관리
-              </li>
-
-              <li>
-                수료생 사후 모니터링
-              </li>
-
-              <li>
-                진로 및 경력 지원
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         운영 체계
-    ================================================== -->
-
-    <section class="system-section">
-
-
-      <div class="section-heading">
+      <div class="summary-card">
 
         <small>
-
-          OPERATING SYSTEM
-
+          OPENING
         </small>
 
-        <h2>
-
-          교육과 운영이 연결되는 체계
-
-        </h2>
+        <strong>
+          2020
+        </strong>
 
         <p>
-
-          교육 전 과정이 유기적으로 연결될 수 있도록
-          체계적으로 관리합니다.
-
+          센텀디지털캠프 평생교육원 등록 및 개원
         </p>
 
       </div>
 
 
-      <div class="system-grid">
+      <div class="summary-card">
+
+        <small>
+          GROWTH
+        </small>
+
+        <strong>
+          2024
+        </strong>
+
+        <p>
+          평생교육사 실습기관 인증
+        </p>
+
+      </div>
 
 
-        <div class="system-card">
+    </section>
 
-          <div class="system-number">
 
-            01
+
+    <!-- ==================================================
+         연혁 타임라인
+    ================================================== -->
+
+    <section class="history-section">
+
+
+      <div class="history-timeline">
+
+
+        <!-- 2024 -->
+
+        <div class="history-year-row">
+
+
+          <div class="history-year">
+
+            <span>
+              2024
+            </span>
+
+            <small>
+              GROWTH
+            </small>
 
           </div>
 
-          <h3>
 
-            교육과정 운영
+          <div class="history-events">
 
-          </h3>
 
-          <p>
+            <div class="history-event">
 
-            과정 기획부터 강의 운영,
-            학습자 관리까지 실무 중심의
-            교육과정을 체계적으로 운영합니다.
+              <div class="history-date">
+                11.29
+              </div>
 
-          </p>
+              <div class="history-text">
+                <strong>
+                  평생교육사 실습기관 인증
+                </strong>
+              </div>
+
+            </div>
+
+
+          </div>
+
 
         </div>
 
 
-        <div class="system-card">
 
-          <div class="system-number">
+        <!-- 2022 -->
 
-            02
+        <div class="history-year-row">
+
+
+          <div class="history-year">
+
+            <span>
+              2022
+            </span>
+
+            <small>
+              CHALLENGE
+            </small>
 
           </div>
 
-          <h3>
 
-            훈련생 관리
+          <div class="history-events">
 
-          </h3>
 
-          <p>
+            <div class="history-event">
 
-            상담, 등록, 출결, 수료 등
-            학습자가 교육에 참여하는 전 과정을
-            지속적으로 관리합니다.
+              <div class="history-date">
+                01.19
+              </div>
 
-          </p>
+              <div class="history-text">
+                2022 메타버스 서울 제야의 종 페스티벌
+                <strong>전국 1등 수상</strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                05.23
+              </div>
+
+              <div class="history-text">
+                서울국제노인영화제
+                <strong>대상 수상</strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                05.26
+              </div>
+
+              <div class="history-text">
+                부산지하철 2호선 전면 광고
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                05.27
+              </div>
+
+              <div class="history-text">
+                <strong>
+                  1차 전자책 출간하고 작가되어보기
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                07.08
+              </div>
+
+              <div class="history-text">
+                OTT미디어 창업·강사 전문과정 ON·OFF
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                07.27
+              </div>
+
+              <div class="history-text">
+                <strong>
+                  2차 전자책 출간하고 작가되기
+                </strong>
+              </div>
+
+            </div>
+
+
+          </div>
+
 
         </div>
 
 
-        <div class="system-card">
 
-          <div class="system-number">
+        <!-- 2021 -->
 
-            03
+        <div class="history-year-row">
+
+
+          <div class="history-year">
+
+            <span>
+              2021
+            </span>
+
+            <small>
+              EXPANSION
+            </small>
 
           </div>
 
-          <h3>
 
-            사후관리
+          <div class="history-events">
 
-          </h3>
 
-          <p>
+            <div class="history-event">
 
-            교육 수료 이후에도 취업과 창업,
-            직무 활용 등 교육 성과가 이어질 수 있도록
-            지속적인 사후관리를 진행합니다.
+              <div class="history-date">
+                01.28
+              </div>
 
-          </p>
+              <div class="history-text">
+                <strong>
+                  평생교육바우처 평가인증기관 등록
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                11.03
+              </div>
+
+              <div class="history-text">
+                구서동 은누리 컴퓨터학원
+                센텀디지털캠프와 합병
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                11.10
+              </div>
+
+              <div class="history-text">
+                <strong>
+                  민간자격등록증 인증기관 등록
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                12.18
+              </div>
+
+              <div class="history-text">
+                「NFT의 미래!」
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- 2020 -->
+
+        <div class="history-year-row">
+
+
+          <div class="history-year">
+
+            <span>
+              2020
+            </span>
+
+            <small>
+              OPENING
+            </small>
+
+          </div>
+
+
+          <div class="history-events">
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                07.28
+              </div>
+
+              <div class="history-text">
+                <strong>
+                  센텀디지털캠프 평생교육원 등록 및 개원
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                10.28
+              </div>
+
+              <div class="history-text">
+                어르신들과 함께 하는 인문학 생방송 진행
+              </div>
+
+            </div>
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                11.02
+              </div>
+
+              <div class="history-text">
+                「야만의 회기 유튜브 실체와 전망!」 북 콘서트
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- 2009 -->
+
+        <div class="history-year-row">
+
+
+          <div class="history-year">
+
+            <span>
+              2009
+            </span>
+
+            <small>
+              FOUNDATION
+            </small>
+
+          </div>
+
+
+          <div class="history-events">
+
+
+            <div class="history-event">
+
+              <div class="history-date">
+                06.03
+              </div>
+
+              <div class="history-text">
+                <strong>
+                  주식회사 은누리디지털문화원 설립
+                </strong>
+              </div>
+
+            </div>
+
+
+          </div>
+
 
         </div>
 
 
       </div>
 
+
     </section>
+
+
+
+    <!-- ==================================================
+         연혁 메시지
+    ================================================== -->
+
+    <section class="history-message">
+
+
+      <small>
+        OUR JOURNEY
+      </small>
+
+
+      <h3>
+
+        변화하는 시대와 함께,
+        배움의 가능성을 넓혀갑니다
+
+      </h3>
+
+
+      <p>
+
+        센텀디지털캠프 평생교육원은
+        디지털 기술과 평생학습을 연결하며
+        실무에 도움이 되는 교육을 꾸준히 만들어가겠습니다.
+
+      </p>
+
+
+    </section>
+
 
 
     <!-- ==================================================
@@ -2998,7 +3166,7 @@
 
         <h3>
 
-          배움이 실무로 이어지는 교육
+          배움이 새로운 기회가 되는 곳
 
         </h3>
 
@@ -3012,9 +3180,9 @@
       </div>
 
 
-      <a href="../courses.html">
+      <a href="../card-courses.html">
 
-        교육과정 보기 →
+        모집중인 과정 보기 →
 
       </a>
 
