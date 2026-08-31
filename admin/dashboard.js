@@ -48,38 +48,3 @@ ${suggestions.map(s => `<a class="suggestion-item" href="suggestions.html?id=${s
   <p>${fmtDate(s.created_at, true)}</p>
 </a>`).join("")}
 </div>` : '<div class="empty">접수된 건의가 없습니다.</div>';
-
-
-document.getElementById("statNewConsultations").textContent =
-  await count("consultations", q => q.eq("status", "new"));
-
-const { data: consultations } = await supabase
-  .from("consultations")
-  .select("id,name,phone,interest,status,created_at")
-  .order("created_at", { ascending: false })
-  .limit(5);
-
-document.getElementById("recentConsultations").innerHTML =
-  consultations?.length ? `
-  <table class="admin-table">
-    <tbody>
-      ${consultations.map(c => `<tr>
-        <td><span class="badge purple">${esc(c.interest)}</span></td>
-        <td class="title-cell">
-          <a href="consultations.html?id=${c.id}">
-            ${esc(c.name)} · ${esc(c.phone)}
-          </a>
-        </td>
-        <td>
-          ${
-            c.status === "done"
-            ? '<span class="badge green">완료</span>'
-            : c.status === "contacting"
-            ? '<span class="badge orange">상담 중</span>'
-            : '<span class="badge">새 상담</span>'
-          }
-        </td>
-      </tr>`).join("")}
-    </tbody>
-  </table>`
-  : '<div class="empty">접수된 수강상담이 없습니다.</div>';

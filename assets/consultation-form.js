@@ -1,13 +1,13 @@
 import { supabase, isSupabaseConfigured } from "./supabase-config.js";
 
 const form = document.getElementById("consultationForm");
-const resultBox = document.getElementById("consultationMessage");
+const messageBox = document.getElementById("consultationMessage");
 
 function showMessage(text, type = "info") {
-  if (!resultBox) return;
-  resultBox.textContent = text;
-  resultBox.dataset.type = type;
-  resultBox.hidden = false;
+  if (!messageBox) return;
+  messageBox.textContent = text;
+  messageBox.dataset.type = type;
+  messageBox.hidden = false;
 }
 
 function normalizePhone(value = "") {
@@ -23,9 +23,7 @@ if (form) {
       return;
     }
 
-    // 봇 방지용 숨김 필드
-    const website = form.querySelector('[name="website"]')?.value || "";
-    if (website) return;
+    if (form.querySelector('[name="website"]')?.value) return;
 
     const name = document.getElementById("consultName").value.trim();
     const phone = normalizePhone(document.getElementById("consultPhone").value);
@@ -44,31 +42,24 @@ if (form) {
       return;
     }
 
-    if (message.length > 3000) {
-      showMessage("상담 내용은 3,000자 이내로 작성해 주세요.", "error");
-      return;
-    }
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = "접수 중...";
 
-    const submit = form.querySelector('button[type="submit"]');
-    submit.disabled = true;
-    submit.textContent = "접수 중...";
+    const { error } = await supabase.from("consultations").insert({
+      name,
+      phone,
+      interest,
+      contact_method: contactMethod || "전화 상담",
+      message: message || null
+    });
 
-    const { error } = await supabase
-      .from("consultations")
-      .insert({
-        name,
-        phone,
-        interest,
-        contact_method: contactMethod || "전화 상담",
-        message: message || null
-      });
-
-    submit.disabled = false;
-    submit.textContent = "상담 신청하기";
+    button.disabled = false;
+    button.textContent = "상담 신청하기";
 
     if (error) {
       console.error(error);
-      showMessage("상담 접수 중 오류가 발생했습니다. 전화 051-710-0775로 문의해 주세요.", "error");
+      showMessage("상담 접수 중 오류가 발생했습니다. 051-710-0775로 문의해 주세요.", "error");
       return;
     }
 

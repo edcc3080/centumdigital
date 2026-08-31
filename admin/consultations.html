@@ -1,93 +1,15 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>수강상담 관리 | 센텀디지털캠프 관리자</title>
-<link rel="stylesheet" href="admin.css">
-</head>
-<body>
-<div class="admin-shell">
-  <aside class="admin-sidebar">
-    <a class="admin-brand" href="index.html">센텀디지털캠프<small>ADMINISTRATION</small></a>
-
-    <nav class="admin-nav">
-      <a href="index.html">▦ 대시보드</a>
-      <a href="posts.html">📝 게시글 관리</a>
-      <a href="write.html">✏️ 새 글 작성</a>
-      <a href="suggestions.html">💡 건의함 관리</a>
-      <a href="consultations.html" class="active">☎ 수강상담 관리</a>
-    </nav>
-
-    <div class="admin-sidebar-bottom">
-      <button class="a-btn a-neutral" style="width:100%" data-logout>로그아웃</button>
-    </div>
-  </aside>
-
-  <section class="admin-main">
-    <div class="mobile-admin-menu">
-      <a href="index.html">▦ 대시보드</a>
-      <a href="posts.html">📝 게시글</a>
-      <a href="write.html">✏️ 글 작성</a>
-      <a href="suggestions.html">💡 건의함</a>
-      <a href="consultations.html">☎ 수강상담</a>
-    </div>
-
-    <div class="admin-top">
-      <h1>수강상담 관리</h1>
-      <div class="admin-user">관리자 <strong data-admin-name>-</strong></div>
-    </div>
-
-    <div class="admin-content">
-
-      <div class="admin-page-head">
-        <div>
-          <h2>수강상담 접수</h2>
-          <p>홈페이지에서 접수된 상담을 확인하고 상담 진행 상태를 관리합니다.</p>
-        </div>
-      </div>
-
-      <div class="stat-grid">
-        <div class="stat-card"><small>전체 상담</small><strong id="consultAll">-</strong></div>
-        <div class="stat-card"><small>새 상담</small><strong id="consultNew">-</strong></div>
-        <div class="stat-card"><small>상담 중</small><strong id="consultContacting">-</strong></div>
-        <div class="stat-card"><small>상담 완료</small><strong id="consultDone">-</strong></div>
-      </div>
-
-      <div class="toolbar">
-        <input id="consultSearch" type="search" placeholder="이름, 연락처, 관심 분야 검색">
-        <select id="consultStatus">
-          <option value="">전체 상태</option>
-          <option value="new">새 상담</option>
-          <option value="contacting">상담 중</option>
-          <option value="done">상담 완료</option>
-        </select>
-      </div>
-
-      <div class="admin-grid-2">
-
-        <div class="panel">
-          <div class="panel-head"><h3>상담 목록</h3></div>
-          <div class="panel-body">
-            <div id="consultList" class="suggestion-list">
-              <div class="empty">불러오는 중...</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-head"><h3>상담 상세</h3></div>
-          <div class="panel-body">
-            <div id="consultDetail" class="empty">왼쪽에서 상담을 선택해 주세요.</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-</div>
-
-<script type="module" src="consultations.js"></script>
-</body>
-</html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수강상담 관리 | 센텀디지털캠프 관리자</title><link rel="stylesheet" href="admin.css"></head>
+<body><div class="admin-shell">
+<aside class="admin-sidebar"><a class="admin-brand" href="index.html">센텀디지털캠프<small>ADMINISTRATION</small></a>
+<nav class="admin-nav"><a href="index.html">▦ 대시보드</a><a href="posts.html">📝 게시글 관리</a><a href="write.html">✏️ 새 글 작성</a><a href="suggestions.html">💡 건의함 관리</a><a href="consultations.html" class="active">☎ 수강상담 관리</a></nav>
+<div class="admin-sidebar-bottom"><button class="a-btn a-neutral" style="width:100%" data-logout>로그아웃</button></div></aside>
+<section class="admin-main"><div class="mobile-admin-menu"><a href="index.html">▦ 대시보드</a><a href="posts.html">📝 게시글</a><a href="write.html">✏️ 글 작성</a><a href="suggestions.html">💡 건의함</a><a href="consultations.html">☎ 수강상담</a></div>
+<div class="admin-top"><h1>수강상담 관리</h1><div class="admin-user">관리자 <strong data-admin-name>-</strong></div></div>
+<div class="admin-content"><div class="admin-page-head"><div><h2>수강상담 접수</h2><p>홈페이지에서 들어온 수강상담을 확인하고 진행 상태를 관리합니다.</p></div></div>
+<div class="stat-grid"><div class="stat-card"><small>전체 상담</small><strong id="consultAll">-</strong></div><div class="stat-card"><small>새 상담</small><strong id="consultNew">-</strong></div><div class="stat-card"><small>상담 중</small><strong id="consultContacting">-</strong></div><div class="stat-card"><small>상담 완료</small><strong id="consultDone">-</strong></div></div>
+<div class="toolbar"><input id="consultSearch" type="search" placeholder="이름, 연락처, 관심 분야 검색"><select id="consultStatus"><option value="">전체 상태</option><option value="new">새 상담</option><option value="contacting">상담 중</option><option value="done">상담 완료</option></select></div>
+<div class="admin-grid-2"><div class="panel"><div class="panel-head"><h3>상담 목록</h3></div><div class="panel-body"><div id="consultList" class="suggestion-list"><div class="empty">불러오는 중...</div></div></div></div>
+<div class="panel"><div class="panel-head"><h3>상담 상세</h3></div><div class="panel-body"><div id="consultDetail" class="empty">왼쪽에서 상담을 선택해 주세요.</div></div></div></div></div></section></div>
+<script type="module" src="consultations.js"></script></body></html>
