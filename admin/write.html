@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>글 작성 | 센텀디지털캠프 관리자</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="index.html">센텀디지털캠프<small>ADMINISTRATION</small></a>
+    <nav class="admin-nav"><a href="index.html" class="">▦ 대시보드</a>
+<a href="posts.html" class="">📝 게시글 관리</a>
+<a href="write.html" class="active">✏️ 새 글 작성</a>
+<a href="suggestions.html" class="">💡 건의함 관리</a></nav>
+    <div class="admin-sidebar-bottom">
+      <button class="a-btn a-neutral" style="width:100%" data-logout>로그아웃</button>
+    </div>
+  </aside>
+  <section class="admin-main">
+    <div class="mobile-admin-menu"><a href="index.html">▦ 대시보드</a>
+<a href="posts.html">📝 게시글 관리</a>
+<a href="write.html">✏️ 새 글 작성</a>
+<a href="suggestions.html">💡 건의함 관리</a></div>
+    <div class="admin-top">
+      <h1>글 작성</h1>
+      <div class="admin-user">관리자 <strong data-admin-name>-</strong></div>
+    </div>
+    <div class="admin-content">
+<div class="admin-page-head">
+  <div><h2 id="writeHeading">새 글 작성</h2><p>카테고리를 선택하면 해당 홈페이지 메뉴에 자동으로 표시됩니다.</p></div>
+  <a class="a-btn a-neutral" href="posts.html">← 목록</a>
+</div>
+<form class="form-panel" id="postForm">
+  <div class="form-grid">
+    <div class="form-field">
+      <label for="category">카테고리 *</label>
+      <select id="category" required><option value="">선택해 주세요</option></select>
+    </div>
+    <div class="form-field">
+      <label for="publishedAt">게시일</label>
+      <input id="publishedAt" type="datetime-local">
+      <div class="form-help">비워두고 공개하면 현재 시간으로 게시됩니다.</div>
+    </div>
+    <div class="form-field full">
+      <label for="title">제목 *</label>
+      <input id="title" maxlength="150" required placeholder="게시글 제목">
+    </div>
+    <div class="form-field full">
+      <label for="excerpt">한 줄 설명</label>
+      <input id="excerpt" maxlength="300" placeholder="목록에 표시할 짧은 설명">
+    </div>
+    <div class="form-field full">
+      <label for="content">본문 *</label>
+      <textarea id="content" required placeholder="블로그 글처럼 내용을 자유롭게 작성하세요. 줄바꿈도 그대로 표시됩니다."></textarea>
+      <div class="form-help">현재 버전은 안전하고 관리하기 쉬운 일반 텍스트 방식입니다. 줄바꿈은 게시글에 그대로 반영됩니다.</div>
+    </div>
+    <div class="form-field full">
+      <label for="coverFile">대표 사진</label>
+      <input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+      <div class="form-help">JPG, PNG, WEBP, GIF · 권장 8MB 이하</div>
+      <img id="coverPreview" class="preview-image" hidden alt="대표 사진 미리보기">
+    </div>
+    <div class="form-field full">
+      <label for="galleryFiles">추가 사진</label>
+      <input id="galleryFiles" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif">
+      <div class="form-help">한 글에 여러 장을 올릴 수 있습니다. 추가 사진은 본문 아래 갤러리로 표시됩니다.</div>
+      <div id="existingImages" class="image-chip-list"></div>
+    </div>
+    <div class="form-field full">
+      <label style="display:flex;align-items:center;gap:9px">
+        <input id="isPublished" type="checkbox" checked style="width:auto">
+        홈페이지에 공개
+      </label>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button class="a-btn a-primary" id="saveBtn" type="submit">게시글 저장</button>
+    <a class="a-btn a-neutral" href="posts.html">취소</a>
+  </div>
+</form>
+</div>
+  </section>
+</div>
+<script type="module" src="write.js"></script>
+</body>
+</html>

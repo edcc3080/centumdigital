@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>건의함 | 센텀디지털캠프 평생교육원</title>
+<link rel="stylesheet" href="../assets/site.css">
+
+</head>
+<body data-base="../" data-active="community" data-theme="community">
+<div id="siteHeader"></div>
+
+<section class="sub-hero">
+  <div class="hero-glow"></div>
+  <div class="holo-ring"></div>
+  <span class="particle p1"></span><span class="particle p2"></span><span class="particle p3"></span>
+  <span class="particle p4"></span><span class="particle p5"></span><span class="particle p6"></span>
+  <div class="sub-hero-content">
+    <div class="sub-hero-badge">CENTUM COMMUNITY</div>
+    <h1>배움의 과정과 이야기를<br><span>함께 나누는 공간</span></h1>
+    <p>수강생 후기와 작품, 취업·창업 이야기, 포토갤러리, 질문과 건의사항을 함께 나눕니다.</p>
+  </div>
+</section>
+
+<div class="breadcrumb-wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">홈</a><span>›</span>
+    <a href="community.html">커뮤니티</a><span>›</span>
+    <strong>건의함</strong>
+  </div>
+</div>
+
+<div class="sub-category"><div class="category-inner"><a href="community.html" class="">커뮤니티 홈</a>
+<a href="review.html" class="">수강생 후기</a>
+<a href="work.html" class="">수강생 작품</a>
+<a href="job.html" class="">취업 · 창업 이야기</a>
+<a href="gallery.html" class="">포토갤러리</a>
+<a href="qna.html" class="">질문과 답변</a>
+<a href="suggestion.html" class="active">건의함</a></div></div>
+
+<main>
+  <div class="title-area">
+    <div class="eyebrow">SUGGESTION BOX</div>
+    <h2>건의함</h2>
+    <p>익명 또는 실명으로 교육환경과 과정에 대한 의견을 남길 수 있도록 준비한 공간입니다.</p>
+  </div>
+  
+<form class="form-card" id="suggestionForm">
+  <div class="form-grid">
+    <div class="form-field full"><label>작성 방식</label><div class="choice-row">
+      <label><input type="radio" name="identity" value="익명" checked> 익명으로 작성</label>
+      <label><input type="radio" name="identity" value="실명"> 실명으로 작성</label>
+    </div></div>
+    <div class="form-field"><label for="suggestCat">건의 분야</label><select id="suggestCat" required>
+      <option value="">선택해 주세요</option><option>시설 · 환경</option><option>국민내일배움카드 과정</option>
+      <option>강사 · 수업</option><option>교육과정 제안</option><option>행정 · 상담</option><option>홈페이지</option><option>기타</option>
+    </select></div>
+    <div class="form-field"><label for="suggestName">이름 <span style="color:#94a3b8;font-weight:500">(실명 작성 시)</span></label><input id="suggestName" placeholder="익명인 경우 비워두셔도 됩니다"></div>
+    <div class="form-field full"><label for="suggestTitle">제목</label><input id="suggestTitle" required placeholder="건의사항의 제목을 입력해 주세요"></div>
+    <div class="form-field full"><label for="suggestText">건의 내용</label><textarea id="suggestText" required placeholder="더 나은 교육환경을 위해 의견을 자유롭게 남겨주세요."></textarea></div>
+    <div class="form-field full"><label for="suggestContact">연락처 <span style="color:#94a3b8;font-weight:500">(선택)</span></label><input id="suggestContact" placeholder="답변을 원하실 경우에만 입력해 주세요"></div>
+  </div>
+  <div style="position:absolute;left:-9999px" aria-hidden="true">
+      <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <div class="form-note">익명 또는 실명으로 의견을 남길 수 있습니다. 연락처는 답변을 원하는 경우에만 입력해 주세요.</div>
+    <div id="suggestionMessage" hidden></div>
+  <div class="action-row"><button class="btn btn-primary" type="submit">건의사항 제출하기</button></div>
+</form>
+</main>
+
+<div id="siteFooter"></div>
+<script src="../assets/site.js"></script>
+
+<script type="module" src="../assets/suggestion-form.js"></script>
+</body>
+</html>

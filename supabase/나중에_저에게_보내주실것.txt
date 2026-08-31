@@ -1,0 +1,14 @@
+Supabase 프로젝트를 만든 뒤 저에게 아래 2개만 보내주시면
+assets/supabase-config.js를 제가 정확히 완성해드릴 수 있습니다.
+
+1. Project URL
+   예: https://abcdefgh.supabase.co
+
+2. Publishable key 또는 anon key
+
+주의:
+- service_role key는 보내지 마세요.
+- 관리자 비밀번호도 보내지 마세요.
+
+관리자 이메일 주소는 코드에 넣을 필요가 없습니다.
+Supabase Authentication에서 직접 생성하면 됩니다.

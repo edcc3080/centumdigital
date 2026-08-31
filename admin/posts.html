@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>게시글 관리 | 센텀디지털캠프 관리자</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="index.html">센텀디지털캠프<small>ADMINISTRATION</small></a>
+    <nav class="admin-nav"><a href="index.html" class="">▦ 대시보드</a>
+<a href="posts.html" class="active">📝 게시글 관리</a>
+<a href="write.html" class="">✏️ 새 글 작성</a>
+<a href="suggestions.html" class="">💡 건의함 관리</a></nav>
+    <div class="admin-sidebar-bottom">
+      <button class="a-btn a-neutral" style="width:100%" data-logout>로그아웃</button>
+    </div>
+  </aside>
+  <section class="admin-main">
+    <div class="mobile-admin-menu"><a href="index.html">▦ 대시보드</a>
+<a href="posts.html">📝 게시글 관리</a>
+<a href="write.html">✏️ 새 글 작성</a>
+<a href="suggestions.html">💡 건의함 관리</a></div>
+    <div class="admin-top">
+      <h1>게시글 관리</h1>
+      <div class="admin-user">관리자 <strong data-admin-name>-</strong></div>
+    </div>
+    <div class="admin-content">
+<div class="admin-page-head">
+  <div><h2>게시글 관리</h2><p>공지사항, 후기, 작품, 갤러리 글을 관리합니다.</p></div>
+  <a class="a-btn a-primary" href="write.html">＋ 새 글 작성</a>
+</div>
+<div class="toolbar">
+  <input id="searchText" type="search" placeholder="제목 검색">
+  <select id="categoryFilter"><option value="">전체 카테고리</option></select>
+  <select id="publishFilter"><option value="">전체 상태</option><option value="true">공개</option><option value="false">임시저장</option></select>
+</div>
+<div class="panel">
+  <div id="postsTable"><div class="empty">불러오는 중...</div></div>
+</div>
+</div>
+  </section>
+</div>
+<script type="module" src="posts.js"></script>
+</body>
+</html>

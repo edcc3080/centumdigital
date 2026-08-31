@@ -531,6 +531,108 @@
     }
 
 
+    /* HERO 하단 외부 바로가기 */
+    .hero-external-links {
+      margin-top: 17px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+
+    .hero-external-link {
+      min-height: 40px;
+
+      padding: 7px 13px 7px 9px;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 9px;
+
+      color: #475569;
+
+      background:
+        rgba(255,255,255,0.68);
+
+      border:
+        1px solid rgba(148,163,184,0.35);
+
+      border-radius: 10px;
+
+      font-size: 12.5px;
+      font-weight: 650;
+
+      backdrop-filter:
+        blur(8px);
+
+      transition:
+        transform 0.2s,
+        border-color 0.2s,
+        background 0.2s,
+        color 0.2s;
+    }
+
+
+    .hero-external-link:hover {
+      transform:
+        translateY(-2px);
+
+      color: #1d4ed8;
+
+      background: #ffffff;
+
+      border-color: #93c5fd;
+    }
+
+
+    .external-icon {
+      width: 26px;
+      height: 26px;
+
+      flex-shrink: 0;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 8px;
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+
+    .external-icon.blog {
+      color: #ffffff;
+
+      background: #22c55e;
+    }
+
+
+    .external-icon.work24 {
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #0ea5e9
+        );
+    }
+
+
+    .external-arrow {
+      margin-left: 2px;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+    }
+
+
     /* ==================================================
        모집중 과정 카드
     ================================================== */
@@ -1004,7 +1106,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4, 1fr);
 
       gap: 20px;
     }
@@ -1314,6 +1416,11 @@
         justify-content: center;
       }
 
+
+      .hero-external-links {
+        justify-content: center;
+      }
+
       .recruit-card {
         max-width: 650px;
         margin: 20px auto 0;
@@ -1392,6 +1499,19 @@
       .hero-primary,
       .hero-secondary {
         width: 100%;
+      }
+
+
+      .hero-external-links {
+        width: 100%;
+
+        flex-direction: column;
+      }
+
+      .hero-external-link {
+        width: 100%;
+
+        justify-content: center;
       }
 
       .recruit-card {
@@ -1549,33 +1669,33 @@
 
           <li class="nav-item">
 
-            <a href="card.html">
+            <a href="국민내일배움카드/card.html">
               국민내일배움카드
             </a>
 
             <div class="dropdown">
 
-              <a href="card.html">
+              <a href="국민내일배움카드/card.html">
                 국민내일배움카드 안내
               </a>
 
-              <a href="card-target.html">
+              <a href="국민내일배움카드/target.html">
                 지원대상
               </a>
 
-              <a href="card-issue.html">
+              <a href="국민내일배움카드/issue.html">
                 카드 발급방법
               </a>
 
-              <a href="card-courses.html">
+              <a href="국민내일배움카드/courses.html">
                 훈련과정 안내
               </a>
 
-              <a href="card-apply.html">
+              <a href="국민내일배움카드/apply.html">
                 수강신청 방법
               </a>
 
-              <a href="card-faq.html">
+              <a href="국민내일배움카드/faq.html">
                 자주 묻는 질문
               </a>
 
@@ -1589,33 +1709,33 @@
 
           <li class="nav-item">
 
-            <a href="voucher.html">
+            <a href="평생교육이용권/voucher.html">
               평생교육이용권
             </a>
 
             <div class="dropdown">
 
-              <a href="voucher.html">
+              <a href="평생교육이용권/voucher.html">
                 평생교육이용권 안내
               </a>
 
-              <a href="voucher-target.html">
+              <a href="평생교육이용권/target.html">
                 신청대상
               </a>
 
-              <a href="voucher-apply.html">
+              <a href="평생교육이용권/apply.html">
                 신청방법
               </a>
 
-              <a href="voucher-use.html">
+              <a href="평생교육이용권/use.html">
                 이용방법
               </a>
 
-              <a href="voucher-courses.html">
+              <a href="평생교육이용권/courses.html">
                 수강가능 과정
               </a>
 
-              <a href="voucher-faq.html">
+              <a href="평생교육이용권/faq.html">
                 자주 묻는 질문
               </a>
 
@@ -1629,29 +1749,29 @@
 
           <li class="nav-item">
 
-            <a href="notice.html">
+            <a href="공지사항/notice.html">
               공지사항
             </a>
 
             <div class="dropdown">
 
-              <a href="notice.html">
+              <a href="공지사항/notice.html">
                 전체 공지
               </a>
 
-              <a href="notice-open.html">
+              <a href="공지사항/open.html">
                 개강 안내
               </a>
 
-              <a href="notice-recruit.html">
+              <a href="공지사항/recruit.html">
                 모집중인 과정
               </a>
 
-              <a href="notice-schedule.html">
+              <a href="공지사항/schedule.html">
                 교육 일정
               </a>
 
-              <a href="notice-data.html">
+              <a href="공지사항/data.html">
                 자료실
               </a>
 
@@ -1665,30 +1785,34 @@
 
           <li class="nav-item">
 
-            <a href="community.html">
+            <a href="커뮤니티/community.html">
               커뮤니티
             </a>
 
             <div class="dropdown">
 
-              <a href="community-review.html">
+              <a href="커뮤니티/review.html">
                 수강생 후기
               </a>
 
-              <a href="community-work.html">
+              <a href="커뮤니티/work.html">
                 수강생 작품
               </a>
 
-              <a href="community-job.html">
+              <a href="커뮤니티/job.html">
                 취업 · 창업 이야기
               </a>
 
-              <a href="community-gallery.html">
+              <a href="커뮤니티/gallery.html">
                 포토갤러리
               </a>
 
-              <a href="community-qna.html">
+              <a href="커뮤니티/qna.html">
                 질문과 답변
+              </a>
+
+              <a href="커뮤니티/suggestion.html">
+                건의함
               </a>
 
             </div>
@@ -1730,7 +1854,7 @@
           <li class="nav-item">
 
             <a
-              href="consult.html"
+              href="수강상담/consult.html"
               class="consult-btn"
             >
               수강상담
@@ -1738,19 +1862,19 @@
 
             <div class="dropdown">
 
-              <a href="consult.html">
+              <a href="수강상담/consult.html">
                 온라인 수강상담
               </a>
 
-              <a href="consult-course.html">
+              <a href="수강상담/course.html">
                 나에게 맞는 과정 찾기
               </a>
 
-              <a href="consult-phone.html">
+              <a href="수강상담/phone.html">
                 전화상담 안내
               </a>
 
-              <a href="consult-visit.html">
+              <a href="수강상담/visit.html">
                 방문상담 안내
               </a>
 
@@ -1823,64 +1947,88 @@
       </div>
 
 
-      <a href="card.html">
+      <a href="국민내일배움카드/card.html">
         국민내일배움카드
       </a>
 
       <div class="mobile-sub">
 
-        <a href="card.html">
+        <a href="국민내일배움카드/card.html">
           제도 안내
         </a>
 
-        <a href="card-target.html">
+        <a href="국민내일배움카드/target.html">
           지원대상
         </a>
 
-        <a href="card-issue.html">
+        <a href="국민내일배움카드/issue.html">
           카드 발급방법
         </a>
 
-        <a href="card-courses.html">
+        <a href="국민내일배움카드/courses.html">
           훈련과정 안내
         </a>
 
       </div>
 
 
-      <a href="voucher.html">
+      <a href="평생교육이용권/voucher.html">
         평생교육이용권
       </a>
 
       <div class="mobile-sub">
 
-        <a href="voucher.html">
+        <a href="평생교육이용권/voucher.html">
           이용권 안내
         </a>
 
-        <a href="voucher-target.html">
+        <a href="평생교육이용권/target.html">
           신청대상
         </a>
 
-        <a href="voucher-apply.html">
+        <a href="평생교육이용권/apply.html">
           신청방법
         </a>
 
-        <a href="voucher-use.html">
+        <a href="평생교육이용권/use.html">
           이용방법
         </a>
 
       </div>
 
 
-      <a href="notice.html">
+      <a href="공지사항/notice.html">
         공지사항
       </a>
 
 
-      <a href="community.html">
+      <a href="커뮤니티/community.html">
         커뮤니티
       </a>
+
+      <div class="mobile-sub">
+
+        <a href="커뮤니티/review.html">
+          수강생 후기
+        </a>
+
+        <a href="커뮤니티/work.html">
+          수강생 작품
+        </a>
+
+        <a href="커뮤니티/gallery.html">
+          포토갤러리
+        </a>
+
+        <a href="커뮤니티/qna.html">
+          질문과 답변
+        </a>
+
+        <a href="커뮤니티/suggestion.html">
+          건의함
+        </a>
+
+      </div>
 
 
       <a href="교육원소개/contact.html">
@@ -1888,7 +2036,7 @@
       </a>
 
 
-      <a href="consult.html">
+      <a href="수강상담/consult.html">
         수강상담
       </a>
 
@@ -1945,18 +2093,72 @@
         <div class="hero-buttons">
 
           <a
-            href="card-courses.html"
+            href="국민내일배움카드/courses.html"
             class="hero-primary"
           >
             모집중인 과정 보기
           </a>
 
           <a
-            href="consult.html"
+            href="수강상담/consult.html"
             class="hero-secondary"
           >
             수강상담 신청
           </a>
+
+        </div>
+
+
+        <!-- 블로그 · 고용24 바로가기 -->
+
+        <div class="hero-external-links">
+
+
+          <a
+            class="hero-external-link"
+            href="https://blog.naver.com/edcc3080"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="센텀디지털캠프 네이버 블로그 새 창에서 열기"
+          >
+
+            <span class="external-icon blog">
+              N
+            </span>
+
+            <span>
+              센텀디지털캠프 블로그
+            </span>
+
+            <span class="external-arrow">
+              ↗
+            </span>
+
+          </a>
+
+
+          <a
+            class="hero-external-link"
+            href="https://www.work24.go.kr/hr/a/a/1100/trnnCrsInf.do?dghtSe=A&traingMthCd=A&endDate=20270830&trng_prd=A&pageSize=10&startDate_datepicker=2026-08-30&topMenuYn=&tracseId=AIG20250000501475&totamtSuptYn=A&crseTracseSeNum=&keyword=&area=00%7C%EC%A0%84%EA%B5%AD+%EC%A0%84%EC%B2%B4&orderKey=2&kdgLinkYn=&srchType=all_type&crseTracseSe=A%7C%ED%9B%88%EB%A0%A8%EC%9C%A0%ED%98%95+%EC%A0%84%EC%B2%B4&tranRegister=&trng_type=A&mberId=&pageId=2&noTrngPay=Y&endDate_datepicker=2027-08-30&monthGubun=&pageOrder=2ASC&startTrngPay=&startDate=20260830&endTrngPay=&tracseTme=4&keyword1=&keyword2=&orderBy=ASC&currentTab=1&pop=&pageRow=10&ncsSearchKeyword=&keywordTrngNm=%EC%84%BC%ED%85%80%EB%94%94%EC%A7%80%ED%84%B8%EC%BA%A0%ED%94%84&keywordType=1&gb=&kDgtlYn=&mberSe=&max_trng=&totTraingTime=A&i2=A&areaSearchKeyword=&programMenuIdentification=EBG020000000310&min_trng=&pageIndex=1&chkNoTrngPay=&bgrlInstYn=&crseTracseSeKDT=&ncs=&gvrnInstt=&selectNCSKeyword=&compareArgArr=&action=trnnCrsInfPost.do"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="고용24 훈련찾기 새 창에서 열기"
+          >
+
+            <span class="external-icon work24">
+              24
+            </span>
+
+            <span>
+              고용24 훈련검색
+            </span>
+
+            <span class="external-arrow">
+              ↗
+            </span>
+
+          </a>
+
 
         </div>
 
@@ -2080,7 +2282,7 @@
 
 
       <a
-        href="card.html"
+        href="국민내일배움카드/card.html"
         class="quick-item"
       >
 
@@ -2101,7 +2303,7 @@
 
 
       <a
-        href="voucher.html"
+        href="평생교육이용권/voucher.html"
         class="quick-item"
       >
 
@@ -2122,7 +2324,7 @@
 
 
       <a
-        href="notice.html"
+        href="공지사항/notice.html"
         class="quick-item"
       >
 
@@ -2143,7 +2345,7 @@
 
 
       <a
-        href="community.html"
+        href="커뮤니티/community.html"
         class="quick-item"
       >
 
@@ -2185,7 +2387,7 @@
 
 
       <a
-        href="consult.html"
+        href="수강상담/consult.html"
         class="quick-item"
       >
 
@@ -2263,7 +2465,7 @@
             업무 활용 능력을 배웁니다.
           </p>
 
-          <a href="card-courses.html">
+          <a href="국민내일배움카드/courses.html">
             자세히 보기 →
           </a>
 
@@ -2287,7 +2489,7 @@
             실습 중심으로 배웁니다.
           </p>
 
-          <a href="card-courses.html">
+          <a href="국민내일배움카드/courses.html">
             자세히 보기 →
           </a>
 
@@ -2311,7 +2513,7 @@
             유튜브 영상을 제작합니다.
           </p>
 
-          <a href="card-courses.html">
+          <a href="국민내일배움카드/courses.html">
             자세히 보기 →
           </a>
 
@@ -2381,7 +2583,7 @@
         </p>
 
 
-        <a href="card.html">
+        <a href="국민내일배움카드/card.html">
           자세히 알아보기 →
         </a>
 
@@ -2410,7 +2612,7 @@
         </p>
 
 
-        <a href="voucher.html">
+        <a href="평생교육이용권/voucher.html">
           자세히 알아보기 →
         </a>
 
@@ -2462,7 +2664,7 @@
 
 
         <a
-          href="community-review.html"
+          href="커뮤니티/review.html"
           class="community-card"
         >
 
@@ -2484,7 +2686,7 @@
 
 
         <a
-          href="community-work.html"
+          href="커뮤니티/work.html"
           class="community-card"
         >
 
@@ -2506,7 +2708,7 @@
 
 
         <a
-          href="community-gallery.html"
+          href="커뮤니티/gallery.html"
           class="community-card"
         >
 
@@ -2521,6 +2723,27 @@
           <p>
             센텀디지털캠프의
             교육 현장과 다양한 활동을 만나보세요.
+          </p>
+
+        </a>
+
+
+        <a
+          href="커뮤니티/suggestion.html"
+          class="community-card"
+        >
+
+          <div class="community-icon">
+            💡
+          </div>
+
+          <h3>
+            건의함
+          </h3>
+
+          <p>
+            시설, 교육과정, 강사, 상담 등
+            더 나은 교육을 위한 의견을 들려주세요.
           </p>
 
         </a>
@@ -2569,7 +2792,7 @@
         </div>
 
 
-        <a href="consult.html">
+        <a href="수강상담/consult.html">
           수강상담 신청 →
         </a>
 
@@ -2606,27 +2829,31 @@
           교육원소개
         </a>
 
-        <a href="card.html">
+        <a href="국민내일배움카드/card.html">
           국민내일배움카드
         </a>
 
-        <a href="voucher.html">
+        <a href="평생교육이용권/voucher.html">
           평생교육이용권
         </a>
 
-        <a href="notice.html">
+        <a href="공지사항/notice.html">
           공지사항
         </a>
 
-        <a href="community.html">
+        <a href="커뮤니티/community.html">
           커뮤니티
+        </a>
+
+        <a href="커뮤니티/suggestion.html">
+          건의함
         </a>
 
         <a href="교육원소개/contact.html">
           오시는길
         </a>
 
-        <a href="consult.html">
+        <a href="수강상담/consult.html">
           수강상담
         </a>
 
