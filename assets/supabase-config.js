@@ -9,8 +9,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   3. 절대로 service_role key를 넣지 마세요.
 */
 
-export const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
-export const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+export const SUPABASE_URL = "https://msbqheljruwfnbccsyev.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_js1DVorSOGpE-krQH-7X7w_46do4pjV";
 
 export const isSupabaseConfigured =
   !SUPABASE_URL.includes("YOUR_PROJECT_ID") &&
