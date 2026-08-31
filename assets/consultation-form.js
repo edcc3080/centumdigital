@@ -8,6 +8,7 @@ function showMessage(text, type = "info") {
   messageBox.textContent = text;
   messageBox.dataset.type = type;
   messageBox.hidden = false;
+  messageBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function normalizePhone(value = "") {
@@ -15,15 +16,17 @@ function normalizePhone(value = "") {
 }
 
 if (form) {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
     if (!isSupabaseConfigured) {
       showMessage("상담 접수 서버 연결을 확인해 주세요.", "error");
       return;
     }
 
-    if (form.querySelector('[name="website"]')?.value) return;
+    // 간단한 봇 방지용 숨김 입력칸
+    const website = form.querySelector('[name="website"]')?.value || "";
+    if (website) return;
 
     const name = document.getElementById("consultName").value.trim();
     const phone = normalizePhone(document.getElementById("consultPhone").value);
@@ -38,32 +41,47 @@ if (form) {
     }
 
     if (!/^01\d{8,9}$/.test(phone)) {
-      showMessage("연락처를 정확하게 입력해 주세요.", "error");
+      showMessage("연락처를 정확하게 입력해 주세요. 예: 010-1234-5678", "error");
       return;
     }
 
-    const button = form.querySelector('button[type="submit"]');
-    button.disabled = true;
-    button.textContent = "접수 중...";
+    if (message.length > 3000) {
+      showMessage("상담 내용은 3,000자 이내로 입력해 주세요.", "error");
+      return;
+    }
 
-    const { error } = await supabase.from("consultations").insert({
-      name,
-      phone,
-      interest,
-      contact_method: contactMethod || "전화 상담",
-      message: message || null
-    });
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
 
-    button.disabled = false;
-    button.textContent = "상담 신청하기";
+    submitButton.disabled = true;
+    submitButton.textContent = "접수 중...";
+
+    const { error } = await supabase
+      .from("consultations")
+      .insert({
+        name,
+        phone,
+        interest,
+        contact_method: contactMethod || "전화 상담",
+        message: message || null
+      });
+
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
 
     if (error) {
-      console.error(error);
-      showMessage("상담 접수 중 오류가 발생했습니다. 051-710-0775로 문의해 주세요.", "error");
+      console.error("consultation insert error:", error);
+      showMessage(
+        "상담 접수 중 오류가 발생했습니다. 051-710-0775로 문의해 주세요.",
+        "error"
+      );
       return;
     }
 
     form.reset();
-    showMessage("수강상담이 접수되었습니다. 확인 후 연락드리겠습니다.", "success");
+    showMessage(
+      "수강상담이 정상적으로 접수되었습니다. 확인 후 연락드리겠습니다.",
+      "success"
+    );
   });
 }

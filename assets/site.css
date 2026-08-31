@@ -552,3 +552,59 @@ footer{background:#111827;color:#94a3b8}
   .post-detail-article h1{font-size:27px}
   .post-detail-gallery{grid-template-columns:1fr}
 }
+
+
+/* ==========================================================
+   수강상담 실제 접수
+========================================================== */
+
+.consult-consent-label{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  cursor:pointer;
+  line-height:1.65;
+}
+
+.consult-consent-label input{
+  width:auto !important;
+  min-width:16px;
+  margin-top:5px;
+}
+
+.consult-consent-label small{
+  display:block;
+  margin-top:4px;
+  color:#94a3b8;
+  font-size:12.5px;
+  font-weight:500;
+}
+
+.consult-honeypot{
+  position:absolute !important;
+  left:-10000px !important;
+  width:1px !important;
+  height:1px !important;
+  overflow:hidden !important;
+}
+
+.consultation-message{
+  margin-top:16px;
+  padding:14px 16px;
+  border-radius:11px;
+  font-size:15px;
+  font-weight:650;
+  line-height:1.7;
+}
+
+.consultation-message[data-type="success"]{
+  color:#047857;
+  background:#ecfdf5;
+  border:1px solid #a7f3d0;
+}
+
+.consultation-message[data-type="error"]{
+  color:#be123c;
+  background:#fff1f2;
+  border:1px solid #fecdd3;
+}

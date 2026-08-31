@@ -20,6 +20,12 @@ export const SUGGESTION_STATUS = {
   done: "처리 완료"
 };
 
+export const CONSULTATION_STATUS = {
+  new: "새 상담",
+  contacting: "상담 중",
+  done: "상담 완료"
+};
+
 export function esc(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
