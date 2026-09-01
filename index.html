@@ -1848,6 +1848,70 @@
       background: #fbfdff;
     }
 
+
+
+    /* 현재 모집중인 모든 회차 : 세로 스크롤 */
+    .home-course-list {
+      max-height: 505px;
+      overflow-y: auto;
+      padding-right: 7px;
+      scroll-behavior: smooth;
+    }
+
+    .home-course-list::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .home-course-list::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 999px;
+    }
+
+    .home-course-list::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+
+    .home-course-entry {
+      display: block;
+      color: inherit;
+    }
+
+    .home-course-entry-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .home-course-round-label {
+      flex-shrink: 0;
+      padding: 4px 8px;
+      color: #2563eb;
+      background: #eff6ff;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 850;
+    }
+
+    .home-course-detail-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2563eb;
+      font-size: 12.5px;
+      font-weight: 850;
+    }
+
+    .home-course-mini:hover .home-course-detail-link {
+      text-decoration: underline;
+    }
+
+    @media(max-width:900px){
+      .home-course-list {
+        max-height: 560px;
+      }
+    }
+
 </style>
 
 </head>
@@ -3143,6 +3207,11 @@
     isSupabaseConfigured
   } from "./assets/supabase-config.js";
 
+  import {
+    COURSE_MAP,
+    courseDetailHref
+  } from "./assets/course-catalog.js";
+
   const noticeRoot =
     document.getElementById("homeNoticeList");
 
@@ -3314,7 +3383,7 @@
       await supabase
         .from("recruiting_courses")
         .select(
-          "id,title,support_type,start_date,end_date,schedule_text,summary,work24_url,detail_url,display_order"
+          "id,course_key,title,round_label,support_type,start_date,end_date,schedule_text,summary,work24_url,display_order"
         )
         .eq(
           "is_recruiting",
@@ -3359,8 +3428,16 @@
         const period =
           coursePeriod(row);
 
+        const courseKey =
+          COURSE_MAP[row.course_key]
+            ? row.course_key
+            : "other";
+
         const detailUrl =
-          safeLink(row.detail_url);
+          courseDetailHref(
+            courseKey,
+            row.id
+          );
 
         const work24Url =
           safeLink(row.work24_url);
@@ -3368,92 +3445,95 @@
         return `
           <article class="home-course-mini">
 
-            <small>
-              ${escapeHTML(
-                row.support_type ||
-                "교육과정"
-              )}
-            </small>
+            <a
+              class="home-course-entry"
+              href="${escapeHTML(detailUrl)}"
+            >
 
-            <h3>
-              ${escapeHTML(row.title)}
-            </h3>
+              <div class="home-course-entry-top">
+
+                <small>
+                  ${escapeHTML(
+                    row.support_type ||
+                    "국민내일배움카드"
+                  )}
+                </small>
+
+                ${
+                  row.round_label
+                    ? `
+                      <span class="home-course-round-label">
+                        ${escapeHTML(row.round_label)}
+                      </span>
+                    `
+                    : ""
+                }
+
+              </div>
+
+              <h3>
+                ${escapeHTML(row.title)}
+              </h3>
+
+              ${
+                period ||
+                row.schedule_text
+                  ? `
+                    <div class="home-course-meta">
+
+                      ${
+                        period
+                          ? `
+                            <span>
+                              ${escapeHTML(period)}
+                            </span>
+                          `
+                          : ""
+                      }
+
+                      ${
+                        row.schedule_text
+                          ? `
+                            <span>
+                              ${escapeHTML(row.schedule_text)}
+                            </span>
+                          `
+                          : ""
+                      }
+
+                    </div>
+                  `
+                  : ""
+              }
+
+              ${
+                row.summary
+                  ? `
+                    <p>
+                      ${escapeHTML(row.summary)}
+                    </p>
+                  `
+                  : ""
+              }
+
+              <span class="home-course-detail-link">
+                과정 설명 · 모집회차 보기 →
+              </span>
+
+            </a>
 
             ${
-              period ||
-              row.schedule_text
-                ? `
-                  <div class="home-course-meta">
-
-                    ${
-                      period
-                        ? `
-                          <span>
-                            ${escapeHTML(period)}
-                          </span>
-                        `
-                        : ""
-                    }
-
-                    ${
-                      row.schedule_text
-                        ? `
-                          <span>
-                            ${escapeHTML(row.schedule_text)}
-                          </span>
-                        `
-                        : ""
-                    }
-
-                  </div>
-                `
-                : ""
-            }
-
-            ${
-              row.summary
-                ? `
-                  <p>
-                    ${escapeHTML(row.summary)}
-                  </p>
-                `
-                : ""
-            }
-
-            ${
-              detailUrl ||
               work24Url
                 ? `
                   <div class="home-course-actions">
-
-                    ${
-                      detailUrl
-                        ? `
-                          <a
-                            class="home-course-btn detail"
-                            href="${escapeHTML(detailUrl)}"
-                          >
-                            과정 자세히 보기
-                          </a>
-                        `
-                        : ""
-                    }
-
-                    ${
-                      work24Url
-                        ? `
-                          <a
-                            class="home-course-btn work24"
-                            href="${escapeHTML(work24Url)}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            고용24 수강신청
-                          </a>
-                        `
-                        : ""
-                    }
-
+                    <a
+                      class="home-course-btn work24"
+                      href="${escapeHTML(work24Url)}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      고용24 바로 신청
+                    </a>
                   </div>
                 `
                 : ""

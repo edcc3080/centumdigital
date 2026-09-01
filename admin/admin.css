@@ -237,3 +237,40 @@ button{cursor:pointer}
     grid-template-columns:1fr;
   }
 }
+
+
+.course-admin-guide{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  margin-bottom:18px;
+  padding:14px 16px;
+  color:#475569;
+  background:#eff6ff;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.course-admin-guide strong{
+  flex-shrink:0;
+  color:#1d4ed8;
+}
+
+.course-panel-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.course-round-label{
+  display:inline-flex;
+  margin-bottom:7px;
+  padding:4px 8px;
+  color:#1d4ed8;
+  background:#eff6ff;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:850;
+}

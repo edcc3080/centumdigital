@@ -3,39 +3,77 @@ import {
   requireAdmin,
   bindLogout,
   esc,
-  fmtDate,
   toast
 } from "./admin-common.js";
+
+import {
+  COURSE_CATALOG,
+  COURSE_MAP
+} from "../assets/course-catalog.js";
+
 
 const { session } = await requireAdmin();
 bindLogout();
 
+
 const form = document.getElementById("courseForm");
 const listRoot = document.getElementById("courseAdminList");
-const filterEl = document.getElementById("courseFilter");
+const statusFilter = document.getElementById("courseFilter");
+const typeFilter = document.getElementById("courseTypeFilter");
+const courseKeySelect = document.getElementById("courseKey");
+const titleInput = document.getElementById("courseTitle");
+const customTitleWrap = document.getElementById("customTitleWrap");
 
 let rows = [];
 
 
+function buildCourseOptions() {
+
+  COURSE_CATALOG.forEach(course => {
+
+    const option = document.createElement("option");
+    option.value = course.key;
+    option.textContent =
+      course.key === "other"
+        ? "기타"
+        : course.title;
+
+    courseKeySelect.appendChild(option);
+
+
+    const filterOption = document.createElement("option");
+    filterOption.value = course.key;
+    filterOption.textContent =
+      course.key === "other"
+        ? "기타 과정"
+        : course.shortLabel;
+
+    typeFilter.appendChild(filterOption);
+  });
+}
+
+
 function todayLocal() {
-  const now = new Date();
 
-  const parts = new Intl.DateTimeFormat(
-    "en-CA",
-    {
-      timeZone: "Asia/Seoul",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }
-  ).formatToParts(now);
+  const parts =
+    new Intl.DateTimeFormat(
+      "en-CA",
+      {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }
+    )
+    .formatToParts(new Date());
 
-  const map = Object.fromEntries(
-    parts.map(part => [
-      part.type,
-      part.value
-    ])
-  );
+  const map =
+    Object.fromEntries(
+      parts.map(part => [
+        part.type,
+        part.value
+      ])
+    );
 
   return `${map.year}-${map.month}-${map.day}`;
 }
@@ -93,6 +131,38 @@ function periodText(row) {
 }
 
 
+function selectedCourse() {
+  return COURSE_MAP[courseKeySelect.value] || null;
+}
+
+
+function syncTitleField() {
+
+  const course = selectedCourse();
+
+  if (!course) {
+    customTitleWrap.hidden = true;
+    titleInput.required = false;
+    titleInput.value = "";
+    return;
+  }
+
+  const isOther =
+    course.key === "other";
+
+  customTitleWrap.hidden = !isOther;
+  titleInput.required = isOther;
+
+  if (!isOther) {
+    titleInput.value = course.title;
+  } else if (
+    titleInput.value === COURSE_MAP.other.title
+  ) {
+    titleInput.value = "";
+  }
+}
+
+
 function resetForm() {
 
   form.reset();
@@ -100,23 +170,21 @@ function resetForm() {
   document.getElementById("courseId")
     .value = "";
 
-  document.getElementById("supportType")
-    .value = "국민내일배움카드";
-
   document.getElementById("displayOrder")
     .value = "0";
-
-  document.getElementById("detailUrl")
-    .value = "국민내일배움카드/courses.html";
 
   document.getElementById("isRecruiting")
     .checked = true;
 
   document.getElementById("courseFormTitle")
-    .textContent = "새 과정 등록";
+    .textContent = "새 회차 등록";
 
   document.getElementById("saveCourseBtn")
-    .textContent = "과정 저장";
+    .textContent = "회차 저장";
+
+  customTitleWrap.hidden = true;
+  titleInput.required = false;
+  titleInput.value = "";
 }
 
 
@@ -125,11 +193,19 @@ function fillForm(row) {
   document.getElementById("courseId")
     .value = row.id;
 
-  document.getElementById("courseTitle")
-    .value = row.title || "";
+  courseKeySelect.value =
+    row.course_key || "other";
 
-  document.getElementById("supportType")
-    .value = row.support_type || "국민내일배움카드";
+  syncTitleField();
+
+  if (
+    (row.course_key || "other") === "other"
+  ) {
+    titleInput.value = row.title || "";
+  }
+
+  document.getElementById("roundLabel")
+    .value = row.round_label || "";
 
   document.getElementById("displayOrder")
     .value = row.display_order ?? 0;
@@ -149,20 +225,16 @@ function fillForm(row) {
   document.getElementById("work24Url")
     .value = row.work24_url || "";
 
-  document.getElementById("detailUrl")
-    .value = row.detail_url || "";
-
   document.getElementById("isRecruiting")
     .checked = Boolean(row.is_recruiting);
 
   document.getElementById("courseFormTitle")
-    .textContent = "과정 수정";
+    .textContent = "회차 수정";
 
   document.getElementById("saveCourseBtn")
     .textContent = "수정 저장";
 
-  document.getElementById("courseTitle")
-    .focus();
+  courseKeySelect.focus();
 
   window.scrollTo({
     top: 0,
@@ -173,16 +245,21 @@ function fillForm(row) {
 
 function filteredRows() {
 
-  const filter = filterEl.value;
+  const status = statusFilter.value;
+  const courseKey = typeFilter.value;
 
-  if (!filter) {
-    return rows;
-  }
+  return rows.filter(row => {
 
-  return rows.filter(
-    row =>
-      statusInfo(row).key === filter
-  );
+    const matchStatus =
+      !status ||
+      statusInfo(row).key === status;
+
+    const matchCourse =
+      !courseKey ||
+      row.course_key === courseKey;
+
+    return matchStatus && matchCourse;
+  });
 }
 
 
@@ -192,7 +269,7 @@ function renderList() {
 
   if (!filtered.length) {
     listRoot.innerHTML =
-      '<div class="empty">등록된 과정이 없습니다.</div>';
+      '<div class="empty">등록된 회차가 없습니다.</div>';
     return;
   }
 
@@ -200,6 +277,9 @@ function renderList() {
     filtered.map(row => {
 
       const status = statusInfo(row);
+      const course =
+        COURSE_MAP[row.course_key] ||
+        COURSE_MAP.other;
 
       return `
         <article class="course-admin-item">
@@ -208,7 +288,11 @@ function renderList() {
 
             <div>
               <span class="badge purple">
-                ${esc(row.support_type)}
+                ${esc(
+                  row.course_key === "other"
+                    ? "기타"
+                    : course.shortLabel
+                )}
               </span>
 
               <span class="badge ${status.className}">
@@ -222,9 +306,22 @@ function renderList() {
 
           </div>
 
+
           <h4>
             ${esc(row.title)}
           </h4>
+
+
+          ${
+            row.round_label
+              ? `
+                <div class="course-round-label">
+                  ${esc(row.round_label)}
+                </div>
+              `
+              : ""
+          }
+
 
           <p class="course-admin-period">
             ${esc(periodText(row))}
@@ -234,6 +331,7 @@ function renderList() {
                 : ""
             }
           </p>
+
 
           ${
             row.summary
@@ -245,6 +343,7 @@ function renderList() {
               : ""
           }
 
+
           <div class="course-admin-link-state">
 
             ${
@@ -254,6 +353,7 @@ function renderList() {
             }
 
           </div>
+
 
           <div class="course-admin-actions">
 
@@ -316,10 +416,11 @@ function renderList() {
         "click",
         () => {
 
-          const row = rows.find(
-            item =>
-              item.id === button.dataset.edit
-          );
+          const row =
+            rows.find(
+              item =>
+                item.id === button.dataset.edit
+            );
 
           if (row) fillForm(row);
         }
@@ -336,23 +437,25 @@ function renderList() {
         "click",
         async () => {
 
-          const row = rows.find(
-            item =>
-              item.id === button.dataset.toggle
-          );
+          const row =
+            rows.find(
+              item =>
+                item.id === button.dataset.toggle
+            );
 
           if (!row) return;
 
-          const { error } = await supabase
-            .from("recruiting_courses")
-            .update({
-              is_recruiting:
-                !row.is_recruiting,
+          const { error } =
+            await supabase
+              .from("recruiting_courses")
+              .update({
+                is_recruiting:
+                  !row.is_recruiting,
 
-              updated_at:
-                new Date().toISOString()
-            })
-            .eq("id", row.id);
+                updated_at:
+                  new Date().toISOString()
+              })
+              .eq("id", row.id);
 
           if (error) {
             console.error(error);
@@ -381,31 +484,34 @@ function renderList() {
         "click",
         async () => {
 
-          const row = rows.find(
-            item =>
-              item.id === button.dataset.delete
-          );
+          const row =
+            rows.find(
+              item =>
+                item.id === button.dataset.delete
+            );
 
           if (!row) return;
 
-          const ok = confirm(
-            `"${row.title}" 과정을 삭제하시겠습니까?`
-          );
+          const ok =
+            confirm(
+              `"${row.title}" ${row.round_label || "회차"}를 삭제하시겠습니까?`
+            );
 
           if (!ok) return;
 
-          const { error } = await supabase
-            .from("recruiting_courses")
-            .delete()
-            .eq("id", row.id);
+          const { error } =
+            await supabase
+              .from("recruiting_courses")
+              .delete()
+              .eq("id", row.id);
 
           if (error) {
             console.error(error);
-            alert("과정을 삭제하지 못했습니다.");
+            alert("회차를 삭제하지 못했습니다.");
             return;
           }
 
-          toast("과정을 삭제했습니다.");
+          toast("회차를 삭제했습니다.");
 
           resetForm();
           await load();
@@ -421,30 +527,31 @@ async function load() {
   listRoot.innerHTML =
     '<div class="empty">불러오는 중...</div>';
 
-  const { data, error } = await supabase
-    .from("recruiting_courses")
-    .select("*")
-    .order(
-      "display_order",
-      { ascending: true }
-    )
-    .order(
-      "start_date",
-      {
-        ascending: true,
-        nullsFirst: false
-      }
-    )
-    .order(
-      "created_at",
-      { ascending: false }
-    );
+  const { data, error } =
+    await supabase
+      .from("recruiting_courses")
+      .select("*")
+      .order(
+        "display_order",
+        { ascending: true }
+      )
+      .order(
+        "start_date",
+        {
+          ascending: true,
+          nullsFirst: false
+        }
+      )
+      .order(
+        "created_at",
+        { ascending: false }
+      );
 
   if (error) {
     console.error(error);
 
     listRoot.innerHTML =
-      '<div class="empty">과정 목록을 불러오지 못했습니다.</div>';
+      '<div class="empty">회차 목록을 불러오지 못했습니다.</div>';
 
     return;
   }
@@ -465,15 +572,34 @@ form.addEventListener(
         .value
         .trim();
 
-    const title =
-      document.getElementById("courseTitle")
-        .value
-        .trim();
+    const courseKey =
+      courseKeySelect.value;
 
-    const supportType =
-      document.getElementById("supportType")
+    const course =
+      COURSE_MAP[courseKey];
+
+    if (!course) {
+      alert("과정을 선택해 주세요.");
+      return;
+    }
+
+
+    let title =
+      courseKey === "other"
+        ? titleInput.value.trim()
+        : course.title;
+
+
+    if (!title) {
+      alert("기타 과정명을 입력해 주세요.");
+      return;
+    }
+
+
+    const roundLabel =
+      document.getElementById("roundLabel")
         .value
-        .trim();
+        .trim() || null;
 
     const startDate =
       document.getElementById("startDate")
@@ -498,11 +624,6 @@ form.addEventListener(
         .value
         .trim() || null;
 
-    const detailUrl =
-      document.getElementById("detailUrl")
-        .value
-        .trim() || null;
-
     const isRecruiting =
       document.getElementById("isRecruiting")
         .checked;
@@ -512,12 +633,6 @@ form.addEventListener(
         document.getElementById("displayOrder")
           .value || 0
       );
-
-
-    if (!title || !supportType) {
-      alert("과정명과 지원구분을 확인해 주세요.");
-      return;
-    }
 
 
     if (
@@ -539,9 +654,15 @@ form.addEventListener(
     }
 
 
+    const detailUrl =
+      `국민내일배움카드/course-detail.html?course=${encodeURIComponent(courseKey)}`;
+
+
     const payload = {
+      course_key: courseKey,
       title,
-      support_type: supportType,
+      round_label: roundLabel,
+      support_type: "국민내일배움카드",
       start_date: startDate,
       end_date: endDate,
       schedule_text: scheduleText,
@@ -571,20 +692,22 @@ form.addEventListener(
 
     if (id) {
 
-      ({ error } = await supabase
-        .from("recruiting_courses")
-        .update(payload)
-        .eq("id", id));
+      ({ error } =
+        await supabase
+          .from("recruiting_courses")
+          .update(payload)
+          .eq("id", id));
 
     } else {
 
-      ({ error } = await supabase
-        .from("recruiting_courses")
-        .insert({
-          ...payload,
-          author_id:
-            session.user.id
-        }));
+      ({ error } =
+        await supabase
+          .from("recruiting_courses")
+          .insert({
+            ...payload,
+            author_id:
+              session.user.id
+          }));
 
     }
 
@@ -597,12 +720,12 @@ form.addEventListener(
 
       alert(
         id
-          ? "과정 수정 중 오류가 발생했습니다."
-          : "과정 등록 중 오류가 발생했습니다."
+          ? "회차 수정 중 오류가 발생했습니다."
+          : "회차 등록 중 오류가 발생했습니다."
       );
 
       saveBtn.textContent =
-        id ? "수정 저장" : "과정 저장";
+        id ? "수정 저장" : "회차 저장";
 
       return;
     }
@@ -610,8 +733,8 @@ form.addEventListener(
 
     toast(
       id
-        ? "과정을 수정했습니다."
-        : "새 과정을 등록했습니다."
+        ? "회차를 수정했습니다."
+        : "새 회차를 등록했습니다."
     );
 
     resetForm();
@@ -620,14 +743,18 @@ form.addEventListener(
 );
 
 
+courseKeySelect.addEventListener(
+  "change",
+  syncTitleField
+);
+
+
 document.getElementById("newCourseBtn")
   .addEventListener(
     "click",
     () => {
       resetForm();
-
-      document.getElementById("courseTitle")
-        .focus();
+      courseKeySelect.focus();
     }
   );
 
@@ -639,11 +766,18 @@ document.getElementById("resetCourseBtn")
   );
 
 
-filterEl.addEventListener(
+statusFilter.addEventListener(
   "change",
   renderList
 );
 
 
+typeFilter.addEventListener(
+  "change",
+  renderList
+);
+
+
+buildCourseOptions();
 resetForm();
 load();

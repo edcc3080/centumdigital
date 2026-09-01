@@ -28,11 +28,7 @@
     </nav>
 
     <div class="admin-sidebar-bottom">
-      <button
-        class="a-btn a-neutral"
-        style="width:100%"
-        data-logout
-      >
+      <button class="a-btn a-neutral" style="width:100%" data-logout>
         로그아웃
       </button>
     </div>
@@ -53,14 +49,11 @@
 
 
     <div class="admin-top">
-
       <h1>모집중인 교육과정 관리</h1>
 
       <div class="admin-user">
-        관리자
-        <strong data-admin-name>-</strong>
+        관리자 <strong data-admin-name>-</strong>
       </div>
-
     </div>
 
 
@@ -69,21 +62,26 @@
       <div class="admin-page-head">
 
         <div>
-          <h2>현재 모집 과정</h2>
+          <h2>과정별 회차 관리</h2>
           <p>
-            과정 정보를 저장하면 메인페이지의
-            ‘현재 모집중인 교육과정’에 자동으로 표시됩니다.
+            과정명은 아래 목록에서 선택하고,
+            회차·기간·시간·고용24 링크만 등록하면 됩니다.
           </p>
         </div>
 
-        <button
-          class="a-btn a-primary"
-          id="newCourseBtn"
-          type="button"
-        >
-          ＋ 새 과정 등록
+        <button class="a-btn a-primary" id="newCourseBtn" type="button">
+          ＋ 새 회차 등록
         </button>
 
+      </div>
+
+
+      <div class="course-admin-guide">
+        <strong>관리 방법</strong>
+        <span>
+          같은 과정이 여러 번 모집되면 새 회차를 계속 추가하세요.
+          홈페이지 과정 상세페이지에서는 현재 모집중인 회차들이 자동으로 함께 표시됩니다.
+        </span>
       </div>
 
 
@@ -92,31 +90,26 @@
         <div class="panel">
 
           <div class="panel-head">
-            <h3>등록된 과정</h3>
+            <h3>등록된 회차</h3>
 
-            <select
-              id="courseFilter"
-              class="course-filter"
-              aria-label="모집 상태 필터"
-            >
-              <option value="">전체</option>
-              <option value="recruiting">모집중</option>
-              <option value="closed">모집종료</option>
-              <option value="ended">기간종료</option>
-            </select>
+            <div class="course-panel-filter">
+              <select id="courseTypeFilter" class="course-filter" aria-label="과정 필터">
+                <option value="">모든 과정</option>
+              </select>
+
+              <select id="courseFilter" class="course-filter" aria-label="모집 상태 필터">
+                <option value="">전체 상태</option>
+                <option value="recruiting">모집중</option>
+                <option value="closed">모집종료</option>
+                <option value="ended">기간종료</option>
+              </select>
+            </div>
           </div>
 
           <div class="panel-body">
-
-            <div
-              id="courseAdminList"
-              class="course-admin-list"
-            >
-              <div class="empty">
-                불러오는 중...
-              </div>
+            <div id="courseAdminList" class="course-admin-list">
+              <div class="empty">불러오는 중...</div>
             </div>
-
           </div>
 
         </div>
@@ -125,62 +118,55 @@
         <div class="panel">
 
           <div class="panel-head">
-            <h3 id="courseFormTitle">새 과정 등록</h3>
+            <h3 id="courseFormTitle">새 회차 등록</h3>
           </div>
 
           <div class="panel-body">
 
             <form id="courseForm">
 
-              <input
-                id="courseId"
-                type="hidden"
-              >
-
+              <input id="courseId" type="hidden">
 
               <div class="form-grid">
 
 
                 <div class="form-field full">
+                  <label for="courseKey">과정 선택 *</label>
 
-                  <label for="courseTitle">
-                    과정명 *
-                  </label>
+                  <select id="courseKey" required>
+                    <option value="">▼ 과정을 선택해 주세요</option>
+                  </select>
+
+                  <div class="form-help">
+                    자주 운영하는 5개 과정과 기타 중에서 선택합니다.
+                  </div>
+                </div>
+
+
+                <div class="form-field full" id="customTitleWrap" hidden>
+                  <label for="courseTitle">기타 과정명 *</label>
 
                   <input
                     id="courseTitle"
                     maxlength="180"
-                    required
-                    placeholder="예: 생성형 AI와 ChatGPT 활용 실무"
+                    placeholder="기타를 선택했을 때만 과정명을 입력해 주세요"
                   >
-
                 </div>
 
 
                 <div class="form-field">
+                  <label for="roundLabel">회차명</label>
 
-                  <label for="supportType">
-                    지원구분 *
-                  </label>
-
-                  <select
-                    id="supportType"
-                    required
+                  <input
+                    id="roundLabel"
+                    maxlength="100"
+                    placeholder="예: 2026년 4회차 / 9월 야간반"
                   >
-                    <option>국민내일배움카드</option>
-                    <option>평생교육이용권</option>
-                    <option>일반과정</option>
-                    <option>기타</option>
-                  </select>
-
                 </div>
 
 
                 <div class="form-field">
-
-                  <label for="displayOrder">
-                    노출 순서
-                  </label>
+                  <label for="displayOrder">노출 순서</label>
 
                   <input
                     id="displayOrder"
@@ -190,80 +176,52 @@
                   >
 
                   <div class="form-help">
-                    숫자가 작은 과정부터 먼저 보입니다.
+                    숫자가 작은 회차가 먼저 표시됩니다.
                   </div>
-
                 </div>
 
 
                 <div class="form-field">
-
-                  <label for="startDate">
-                    교육 시작일
-                  </label>
-
-                  <input
-                    id="startDate"
-                    type="date"
-                  >
-
+                  <label for="startDate">교육 시작일</label>
+                  <input id="startDate" type="date">
                 </div>
 
 
                 <div class="form-field">
-
-                  <label for="endDate">
-                    교육 종료일
-                  </label>
-
-                  <input
-                    id="endDate"
-                    type="date"
-                  >
+                  <label for="endDate">교육 종료일</label>
+                  <input id="endDate" type="date">
 
                   <div class="form-help">
-                    종료일이 지나면 메인에서 자동으로 숨겨집니다.
+                    종료일이 지나면 홈페이지에서 자동으로 숨겨집니다.
                   </div>
-
                 </div>
 
 
                 <div class="form-field full">
-
-                  <label for="scheduleText">
-                    교육 요일 · 시간
-                  </label>
+                  <label for="scheduleText">교육 요일 · 시간</label>
 
                   <input
                     id="scheduleText"
                     maxlength="150"
                     placeholder="예: 목·금 18:30~21:30"
                   >
-
                 </div>
 
 
                 <div class="form-field full">
-
-                  <label for="courseSummary">
-                    간단 소개
-                  </label>
+                  <label for="courseSummary">회차 안내</label>
 
                   <textarea
                     id="courseSummary"
                     class="course-summary-textarea"
                     maxlength="500"
-                    placeholder="메인페이지 카드에 표시할 짧은 설명"
+                    placeholder="예: 야간반 / 실습 중심 / 개강 확정 등 회차에 필요한 짧은 안내"
                   ></textarea>
-
                 </div>
 
 
                 <div class="form-field full">
-
-                  <label for="work24Url">
-                    고용24 수강신청 링크
-                  </label>
+                  <label for="work24Url">고용24 수강신청 링크</label>
 
                   <input
                     id="work24Url"
@@ -273,29 +231,8 @@
                   >
 
                   <div class="form-help">
-                    입력하면 메인에 ‘고용24 수강신청’ 버튼이 자동으로 생깁니다.
+                    입력하면 홈페이지에 ‘고용24 바로 신청’ 버튼이 나타납니다.
                   </div>
-
-                </div>
-
-
-                <div class="form-field full">
-
-                  <label for="detailUrl">
-                    홈페이지 상세보기 링크
-                  </label>
-
-                  <input
-                    id="detailUrl"
-                    maxlength="1000"
-                    value="국민내일배움카드/courses.html"
-                    placeholder="예: 국민내일배움카드/courses.html"
-                  >
-
-                  <div class="form-help">
-                    비워두면 ‘과정 자세히 보기’ 버튼을 표시하지 않습니다.
-                  </div>
-
                 </div>
 
 
@@ -303,16 +240,12 @@
 
                   <label class="course-check-label">
 
-                    <input
-                      id="isRecruiting"
-                      type="checkbox"
-                      checked
-                    >
+                    <input id="isRecruiting" type="checkbox" checked>
 
                     <span>
                       현재 모집중
                       <small>
-                        체크를 해제하면 메인페이지에서 바로 숨겨집니다.
+                        체크를 해제하면 홈페이지의 모집 회차에서 바로 숨겨집니다.
                       </small>
                     </span>
 
@@ -326,19 +259,11 @@
 
               <div class="form-actions">
 
-                <button
-                  class="a-btn a-primary"
-                  id="saveCourseBtn"
-                  type="submit"
-                >
-                  과정 저장
+                <button class="a-btn a-primary" id="saveCourseBtn" type="submit">
+                  회차 저장
                 </button>
 
-                <button
-                  class="a-btn a-neutral"
-                  id="resetCourseBtn"
-                  type="button"
-                >
+                <button class="a-btn a-neutral" id="resetCourseBtn" type="button">
                   입력 초기화
                 </button>
 
@@ -358,11 +283,7 @@
 
 </div>
 
-
-<script
-  type="module"
-  src="courses.js"
-></script>
+<script type="module" src="courses.js"></script>
 
 </body>
 </html>

@@ -608,3 +608,486 @@ footer{background:#111827;color:#94a3b8}
   background:#fff1f2;
   border:1px solid #fecdd3;
 }
+
+
+/* ==========================================================
+   국민내일배움카드 : 과정 카탈로그
+========================================================== */
+
+.training-catalog-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-bottom:26px;
+}
+
+.training-catalog-card{
+  display:block;
+  padding:27px;
+  color:inherit;
+  background:#fff;
+  border:1px solid #e3e8ef;
+  border-radius:18px;
+  box-shadow:0 7px 22px rgba(15,23,42,.035);
+  transition:.24s ease;
+}
+
+.training-catalog-card:hover{
+  transform:translateY(-3px);
+  border-color:#bfdbfe;
+  box-shadow:0 15px 32px rgba(37,99,235,.08);
+}
+
+.training-catalog-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:17px;
+}
+
+.training-catalog-icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f4f8ff;
+  border:1px solid #dbeafe;
+  border-radius:14px;
+  font-size:24px;
+}
+
+.training-recruit-badge{
+  padding:6px 9px;
+  color:#047857;
+  background:#ecfdf5;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:850;
+}
+
+.training-recruit-badge.muted{
+  color:#64748b;
+  background:#f1f5f9;
+}
+
+.training-catalog-card small{
+  display:block;
+  margin-bottom:7px;
+  color:#2563eb;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.65px;
+}
+
+.training-catalog-card h3{
+  margin:0 0 11px;
+  color:#172033;
+  font-size:19px;
+  line-height:1.55;
+  letter-spacing:-.45px;
+}
+
+.training-catalog-card p{
+  margin:0;
+  color:#64748b;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.training-card-more{
+  display:inline-block;
+  margin-top:16px;
+  color:#2563eb;
+  font-size:13.5px;
+  font-weight:850;
+}
+
+.course-page-loading{
+  grid-column:1/-1;
+  padding:60px 20px;
+  color:#94a3b8;
+  text-align:center;
+  border:1px dashed #dbe3ee;
+  border-radius:16px;
+}
+
+
+/* ==========================================================
+   과정 상세 + 현재 모집회차
+========================================================== */
+
+.course-detail-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.22fr) minmax(330px,.78fr);
+  gap:28px;
+  align-items:start;
+}
+
+.course-description-panel{
+  padding:34px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+  box-shadow:0 8px 26px rgba(15,23,42,.035);
+}
+
+.course-detail-eyebrow{
+  margin-bottom:9px;
+  color:#2563eb;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.course-description-panel > h2{
+  margin:0 0 17px;
+  color:#111827;
+  font-size:27px;
+  line-height:1.45;
+  letter-spacing:-.8px;
+}
+
+.course-detail-overview{
+  margin:0;
+  color:#475569;
+  font-size:16.5px;
+  line-height:1.95;
+}
+
+.course-detail-info-block{
+  margin-top:29px;
+  padding-top:25px;
+  border-top:1px solid #e8edf3;
+}
+
+.course-detail-info-block h3{
+  margin:0 0 14px;
+  color:#1e293b;
+  font-size:18px;
+}
+
+.course-detail-list{
+  display:grid;
+  gap:9px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.course-detail-list li{
+  position:relative;
+  padding-left:23px;
+  color:#475569;
+  font-size:15.5px;
+  line-height:1.75;
+}
+
+.course-detail-list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#2563eb;
+  font-weight:900;
+}
+
+.course-detail-note{
+  margin-top:28px;
+  padding:16px 18px;
+  color:#64748b;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  font-size:13.5px;
+  line-height:1.75;
+}
+
+.course-description-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:24px;
+}
+
+
+.course-rounds-panel{
+  position:sticky;
+  top:115px;
+  padding:25px;
+  background:linear-gradient(180deg,#f8fbff,#fff);
+  border:1px solid #dbe5f1;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(15,23,42,.045);
+}
+
+.course-rounds-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:17px;
+}
+
+.course-rounds-head small{
+  display:block;
+  margin-bottom:4px;
+  color:#2563eb;
+  font-size:10.5px;
+  font-weight:900;
+  letter-spacing:.8px;
+}
+
+.course-rounds-head h2{
+  margin:0;
+  color:#111827;
+  font-size:22px;
+  letter-spacing:-.5px;
+}
+
+.course-round-count{
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  color:#fff;
+  background:#2563eb;
+  border-radius:50%;
+  font-size:14px;
+  font-weight:900;
+}
+
+.course-round-list{
+  display:grid;
+  gap:12px;
+  max-height:590px;
+  overflow-y:auto;
+  padding-right:4px;
+}
+
+.course-round-card{
+  padding:18px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:15px;
+}
+
+.course-round-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:9px;
+}
+
+.course-round-status{
+  padding:4px 8px;
+  color:#047857;
+  background:#ecfdf5;
+  border-radius:999px;
+  font-size:10.5px;
+  font-weight:900;
+}
+
+.course-round-number{
+  color:#2563eb;
+  font-size:11px;
+  font-weight:850;
+}
+
+.course-round-card h3{
+  margin:0 0 12px;
+  color:#172033;
+  font-size:15.5px;
+  line-height:1.55;
+}
+
+.course-round-meta{
+  display:grid;
+  gap:7px;
+  margin:0;
+}
+
+.course-round-meta div{
+  display:grid;
+  grid-template-columns:68px 1fr;
+  gap:8px;
+}
+
+.course-round-meta dt{
+  color:#94a3b8;
+  font-size:11.5px;
+  font-weight:750;
+}
+
+.course-round-meta dd{
+  margin:0;
+  color:#475569;
+  font-size:12.5px;
+  font-weight:700;
+  line-height:1.55;
+}
+
+.course-round-summary{
+  margin:12px 0 0;
+  padding-top:11px;
+  color:#64748b;
+  border-top:1px solid #eef2f7;
+  font-size:12.5px;
+  line-height:1.7;
+}
+
+.course-round-actions{
+  margin-top:13px;
+}
+
+.course-work24-btn{
+  width:100%;
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:#2563eb;
+  border-radius:9px;
+  font-size:13px;
+  font-weight:900;
+}
+
+.course-work24-btn:hover{
+  background:#1d4ed8;
+}
+
+.course-work24-btn.muted{
+  color:#475569;
+  background:#eef2f7;
+}
+
+.course-round-empty{
+  padding:35px 15px;
+  color:#64748b;
+  text-align:center;
+  background:#fff;
+  border:1px dashed #cbd5e1;
+  border-radius:14px;
+  font-size:13.5px;
+  line-height:1.75;
+}
+
+.course-round-empty strong{
+  display:block;
+  margin-bottom:6px;
+  color:#334155;
+  font-size:15px;
+}
+
+.course-round-contact{
+  margin-top:16px;
+  padding:17px;
+  background:#eff6ff;
+  border-radius:13px;
+}
+
+.course-round-contact strong{
+  display:block;
+  margin-bottom:5px;
+  color:#1e3a8a;
+  font-size:14px;
+}
+
+.course-round-contact p{
+  margin:0 0 7px;
+  color:#64748b;
+  font-size:12.5px;
+  line-height:1.65;
+}
+
+.course-round-contact a{
+  color:#2563eb;
+  font-size:19px;
+  font-weight:900;
+}
+
+
+@media(max-width:980px){
+
+  .training-catalog-grid{
+    grid-template-columns:1fr;
+  }
+
+  .course-detail-layout{
+    grid-template-columns:1fr;
+  }
+
+  .course-rounds-panel{
+    position:static;
+  }
+
+  .course-round-list{
+    max-height:none;
+  }
+
+}
+
+
+@media(max-width:620px){
+
+  .training-catalog-card,
+  .course-description-panel,
+  .course-rounds-panel{
+    padding:22px 18px;
+  }
+
+  .course-description-panel > h2{
+    font-size:22px;
+  }
+
+  .course-detail-overview{
+    font-size:15.5px;
+  }
+
+}
+
+
+/* ==========================================================
+   관리자 과정 회차 보조
+========================================================== */
+
+.course-admin-guide{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  margin-bottom:18px;
+  padding:14px 16px;
+  color:#475569;
+  background:#eff6ff;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.course-admin-guide strong{
+  flex-shrink:0;
+  color:#1d4ed8;
+}
+
+.course-panel-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.course-round-label{
+  display:inline-flex;
+  margin-bottom:7px;
+  padding:4px 8px;
+  color:#1d4ed8;
+  background:#eff6ff;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:850;
+}
