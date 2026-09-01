@@ -76,6 +76,15 @@ document.getElementById("statNewConsultations")
     );
 
 
+document.getElementById("statRecruitingCourses")
+  .textContent =
+    await count(
+      "recruiting_courses",
+      query =>
+        query.eq("is_recruiting", true)
+    );
+
+
 const { data: posts } = await supabase
   .from("posts")
   .select(

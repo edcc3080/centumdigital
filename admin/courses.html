@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>모집중인 교육과정 관리 | 센텀디지털캠프 관리자</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-shell">
+
+  <aside class="admin-sidebar">
+
+    <a class="admin-brand" href="index.html">
+      센텀디지털캠프
+      <small>ADMINISTRATION</small>
+    </a>
+
+    <nav class="admin-nav">
+      <a href="index.html">▦ 대시보드</a>
+      <a href="posts.html">📝 게시글 관리</a>
+      <a href="write.html">✏️ 새 글 작성</a>
+      <a href="courses.html" class="active">📚 모집중인 교육과정 관리</a>
+      <a href="suggestions.html">💡 건의함 관리</a>
+      <a href="consultations.html">☎ 수강상담 관리</a>
+    </nav>
+
+    <div class="admin-sidebar-bottom">
+      <button
+        class="a-btn a-neutral"
+        style="width:100%"
+        data-logout
+      >
+        로그아웃
+      </button>
+    </div>
+
+  </aside>
+
+
+  <section class="admin-main">
+
+    <div class="mobile-admin-menu">
+      <a href="index.html">▦ 대시보드</a>
+      <a href="posts.html">📝 게시글</a>
+      <a href="write.html">✏️ 글 작성</a>
+      <a href="courses.html">📚 모집과정</a>
+      <a href="suggestions.html">💡 건의함</a>
+      <a href="consultations.html">☎ 수강상담</a>
+    </div>
+
+
+    <div class="admin-top">
+
+      <h1>모집중인 교육과정 관리</h1>
+
+      <div class="admin-user">
+        관리자
+        <strong data-admin-name>-</strong>
+      </div>
+
+    </div>
+
+
+    <div class="admin-content">
+
+      <div class="admin-page-head">
+
+        <div>
+          <h2>현재 모집 과정</h2>
+          <p>
+            과정 정보를 저장하면 메인페이지의
+            ‘현재 모집중인 교육과정’에 자동으로 표시됩니다.
+          </p>
+        </div>
+
+        <button
+          class="a-btn a-primary"
+          id="newCourseBtn"
+          type="button"
+        >
+          ＋ 새 과정 등록
+        </button>
+
+      </div>
+
+
+      <div class="course-admin-layout">
+
+        <div class="panel">
+
+          <div class="panel-head">
+            <h3>등록된 과정</h3>
+
+            <select
+              id="courseFilter"
+              class="course-filter"
+              aria-label="모집 상태 필터"
+            >
+              <option value="">전체</option>
+              <option value="recruiting">모집중</option>
+              <option value="closed">모집종료</option>
+              <option value="ended">기간종료</option>
+            </select>
+          </div>
+
+          <div class="panel-body">
+
+            <div
+              id="courseAdminList"
+              class="course-admin-list"
+            >
+              <div class="empty">
+                불러오는 중...
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="panel">
+
+          <div class="panel-head">
+            <h3 id="courseFormTitle">새 과정 등록</h3>
+          </div>
+
+          <div class="panel-body">
+
+            <form id="courseForm">
+
+              <input
+                id="courseId"
+                type="hidden"
+              >
+
+
+              <div class="form-grid">
+
+
+                <div class="form-field full">
+
+                  <label for="courseTitle">
+                    과정명 *
+                  </label>
+
+                  <input
+                    id="courseTitle"
+                    maxlength="180"
+                    required
+                    placeholder="예: 생성형 AI와 ChatGPT 활용 실무"
+                  >
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="supportType">
+                    지원구분 *
+                  </label>
+
+                  <select
+                    id="supportType"
+                    required
+                  >
+                    <option>국민내일배움카드</option>
+                    <option>평생교육이용권</option>
+                    <option>일반과정</option>
+                    <option>기타</option>
+                  </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="displayOrder">
+                    노출 순서
+                  </label>
+
+                  <input
+                    id="displayOrder"
+                    type="number"
+                    value="0"
+                    step="1"
+                  >
+
+                  <div class="form-help">
+                    숫자가 작은 과정부터 먼저 보입니다.
+                  </div>
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="startDate">
+                    교육 시작일
+                  </label>
+
+                  <input
+                    id="startDate"
+                    type="date"
+                  >
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="endDate">
+                    교육 종료일
+                  </label>
+
+                  <input
+                    id="endDate"
+                    type="date"
+                  >
+
+                  <div class="form-help">
+                    종료일이 지나면 메인에서 자동으로 숨겨집니다.
+                  </div>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                  <label for="scheduleText">
+                    교육 요일 · 시간
+                  </label>
+
+                  <input
+                    id="scheduleText"
+                    maxlength="150"
+                    placeholder="예: 목·금 18:30~21:30"
+                  >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                  <label for="courseSummary">
+                    간단 소개
+                  </label>
+
+                  <textarea
+                    id="courseSummary"
+                    class="course-summary-textarea"
+                    maxlength="500"
+                    placeholder="메인페이지 카드에 표시할 짧은 설명"
+                  ></textarea>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                  <label for="work24Url">
+                    고용24 수강신청 링크
+                  </label>
+
+                  <input
+                    id="work24Url"
+                    type="url"
+                    maxlength="3000"
+                    placeholder="https://www.work24.go.kr/..."
+                  >
+
+                  <div class="form-help">
+                    입력하면 메인에 ‘고용24 수강신청’ 버튼이 자동으로 생깁니다.
+                  </div>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                  <label for="detailUrl">
+                    홈페이지 상세보기 링크
+                  </label>
+
+                  <input
+                    id="detailUrl"
+                    maxlength="1000"
+                    value="국민내일배움카드/courses.html"
+                    placeholder="예: 국민내일배움카드/courses.html"
+                  >
+
+                  <div class="form-help">
+                    비워두면 ‘과정 자세히 보기’ 버튼을 표시하지 않습니다.
+                  </div>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                  <label class="course-check-label">
+
+                    <input
+                      id="isRecruiting"
+                      type="checkbox"
+                      checked
+                    >
+
+                    <span>
+                      현재 모집중
+                      <small>
+                        체크를 해제하면 메인페이지에서 바로 숨겨집니다.
+                      </small>
+                    </span>
+
+                  </label>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="a-btn a-primary"
+                  id="saveCourseBtn"
+                  type="submit"
+                >
+                  과정 저장
+                </button>
+
+                <button
+                  class="a-btn a-neutral"
+                  id="resetCourseBtn"
+                  type="button"
+                >
+                  입력 초기화
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<script
+  type="module"
+  src="courses.js"
+></script>
+
+</body>
+</html>

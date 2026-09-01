@@ -1689,10 +1689,6 @@
 
     .home-course-mini {
       position: relative;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      align-items: center;
       padding: 20px 21px;
       background: linear-gradient(135deg,#ffffff,#f8fbff);
       border: 1px solid #dfe7f1;
@@ -1782,6 +1778,75 @@
       }
     }
 
+
+
+
+    .home-course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin: 7px 0 5px;
+      color: #64748b;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .home-course-meta span {
+      position: relative;
+    }
+
+    .home-course-meta span + span::before {
+      content: "·";
+      margin-right: 10px;
+      color: #cbd5e1;
+    }
+
+    .home-course-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+      padding-top: 13px;
+      border-top: 1px solid #e9eef5;
+    }
+
+    .home-course-btn {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12.5px;
+      font-weight: 850;
+      transition: 0.2s;
+    }
+
+    .home-course-btn.detail {
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+    }
+
+    .home-course-btn.work24 {
+      color: #ffffff;
+      background: #2563eb;
+      border: 1px solid #2563eb;
+    }
+
+    .home-course-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .home-course-empty {
+      padding: 48px 15px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+      border: 1px dashed #dbe3ee;
+      border-radius: 14px;
+      background: #fbfdff;
+    }
 
 </style>
 
@@ -2671,55 +2736,13 @@
             </a>
           </div>
 
-          <div class="home-course-list">
-
-            <a
-              class="home-course-mini"
-              href="국민내일배움카드/courses.html"
-            >
-              <div>
-                <small>국민내일배움카드</small>
-                <h3>생성형 AI · ChatGPT 활용 실무</h3>
-                <p>
-                  ChatGPT와 생성형 AI를 활용해
-                  업무와 콘텐츠 제작 역량을 배웁니다.
-                </p>
-              </div>
-              <span class="home-course-arrow">→</span>
-            </a>
-
-
-            <a
-              class="home-course-mini"
-              href="국민내일배움카드/courses.html"
-            >
-              <div>
-                <small>국민내일배움카드</small>
-                <h3>스마트스토어 · 전자상거래 실무</h3>
-                <p>
-                  상품등록부터 상세페이지,
-                  스마트스토어 운영까지 실습합니다.
-                </p>
-              </div>
-              <span class="home-course-arrow">→</span>
-            </a>
-
-
-            <a
-              class="home-course-mini"
-              href="국민내일배움카드/courses.html"
-            >
-              <div>
-                <small>국민내일배움카드</small>
-                <h3>생성형 AI를 활용한 유튜브 영상편집</h3>
-                <p>
-                  AI와 영상편집 도구를 활용해
-                  직접 유튜브 콘텐츠를 제작합니다.
-                </p>
-              </div>
-              <span class="home-course-arrow">→</span>
-            </a>
-
+          <div
+            id="homeCourseList"
+            class="home-course-list"
+          >
+            <div class="home-course-empty">
+              모집중인 교육과정을 불러오는 중입니다.
+            </div>
           </div>
 
         </div>
@@ -3212,7 +3235,239 @@
       `).join("");
   }
 
+
+  const courseRoot =
+    document.getElementById("homeCourseList");
+
+
+  function formatCourseDate(value) {
+
+    if (!value) return "";
+
+    const [year, month, day] =
+      String(value).split("-");
+
+    if (!year || !month || !day) {
+      return value;
+    }
+
+    return `${year}.${month}.${day}`;
+  }
+
+
+  function coursePeriod(row) {
+
+    if (
+      row.start_date &&
+      row.end_date
+    ) {
+      return `${formatCourseDate(row.start_date)} ~ ${formatCourseDate(row.end_date)}`;
+    }
+
+    if (row.start_date) {
+      return `${formatCourseDate(row.start_date)} 시작`;
+    }
+
+    if (row.end_date) {
+      return `${formatCourseDate(row.end_date)}까지`;
+    }
+
+    return "";
+  }
+
+
+  function safeLink(value) {
+
+    if (!value) return "";
+
+    const text = String(value).trim();
+
+    if (
+      text.startsWith("http://") ||
+      text.startsWith("https://") ||
+      text.startsWith("./") ||
+      text.startsWith("../") ||
+      !text.includes(":")
+    ) {
+      return text;
+    }
+
+    return "";
+  }
+
+
+  async function loadHomeCourses() {
+
+    if (!courseRoot) return;
+
+
+    if (!isSupabaseConfigured) {
+
+      courseRoot.innerHTML =
+        '<div class="home-course-empty">교육과정 서버 연결 전입니다.</div>';
+
+      return;
+    }
+
+
+    const { data, error } =
+      await supabase
+        .from("recruiting_courses")
+        .select(
+          "id,title,support_type,start_date,end_date,schedule_text,summary,work24_url,detail_url,display_order"
+        )
+        .eq(
+          "is_recruiting",
+          true
+        )
+        .order(
+          "display_order",
+          { ascending: true }
+        )
+        .order(
+          "start_date",
+          {
+            ascending: true,
+            nullsFirst: false
+          }
+        );
+
+
+    if (error) {
+
+      console.error(error);
+
+      courseRoot.innerHTML =
+        '<div class="home-course-empty">모집과정을 불러오지 못했습니다.</div>';
+
+      return;
+    }
+
+
+    if (!data || data.length === 0) {
+
+      courseRoot.innerHTML =
+        '<div class="home-course-empty">현재 등록된 모집중 과정이 없습니다.</div>';
+
+      return;
+    }
+
+
+    courseRoot.innerHTML =
+      data.map(row => {
+
+        const period =
+          coursePeriod(row);
+
+        const detailUrl =
+          safeLink(row.detail_url);
+
+        const work24Url =
+          safeLink(row.work24_url);
+
+        return `
+          <article class="home-course-mini">
+
+            <small>
+              ${escapeHTML(
+                row.support_type ||
+                "교육과정"
+              )}
+            </small>
+
+            <h3>
+              ${escapeHTML(row.title)}
+            </h3>
+
+            ${
+              period ||
+              row.schedule_text
+                ? `
+                  <div class="home-course-meta">
+
+                    ${
+                      period
+                        ? `
+                          <span>
+                            ${escapeHTML(period)}
+                          </span>
+                        `
+                        : ""
+                    }
+
+                    ${
+                      row.schedule_text
+                        ? `
+                          <span>
+                            ${escapeHTML(row.schedule_text)}
+                          </span>
+                        `
+                        : ""
+                    }
+
+                  </div>
+                `
+                : ""
+            }
+
+            ${
+              row.summary
+                ? `
+                  <p>
+                    ${escapeHTML(row.summary)}
+                  </p>
+                `
+                : ""
+            }
+
+            ${
+              detailUrl ||
+              work24Url
+                ? `
+                  <div class="home-course-actions">
+
+                    ${
+                      detailUrl
+                        ? `
+                          <a
+                            class="home-course-btn detail"
+                            href="${escapeHTML(detailUrl)}"
+                          >
+                            과정 자세히 보기
+                          </a>
+                        `
+                        : ""
+                    }
+
+                    ${
+                      work24Url
+                        ? `
+                          <a
+                            class="home-course-btn work24"
+                            href="${escapeHTML(work24Url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            고용24 수강신청
+                          </a>
+                        `
+                        : ""
+                    }
+
+                  </div>
+                `
+                : ""
+            }
+
+          </article>
+        `;
+
+      }).join("");
+  }
+
+
   loadHomeNotices();
+  loadHomeCourses();
 </script>
 
 </body>
