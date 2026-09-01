@@ -1912,6 +1912,211 @@
       }
     }
 
+
+
+    /* ==================================================
+       HERO 상단 모집회차 자동 순환
+    ================================================== */
+
+    .recruit-card {
+      min-height: 435px;
+    }
+
+    .recruit-heading {
+      align-items: flex-start;
+    }
+
+    .hero-recruit-subtitle {
+      margin-top: 5px;
+      color: #94a3b8;
+      font-size: 11.5px;
+      line-height: 1.55;
+    }
+
+    .hero-recruit-list {
+      position: relative;
+      min-height: 222px;
+      overflow: hidden;
+    }
+
+    .hero-recruit-page {
+      display: grid;
+      gap: 0;
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity .28s ease,
+        transform .28s ease;
+    }
+
+    .hero-recruit-list.is-changing .hero-recruit-page {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+
+    .hero-recruit-page.is-entering {
+      animation:
+        heroRecruitEnter .42s
+        cubic-bezier(.2,.75,.25,1)
+        both;
+    }
+
+    @keyframes heroRecruitEnter {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-recruit-row {
+      display: block;
+      padding: 14px 0 13px;
+      border-bottom: 1px solid #e2e8f0;
+      transition:
+        padding-left .2s ease,
+        background .2s ease;
+    }
+
+    .hero-recruit-row:first-child {
+      padding-top: 7px;
+    }
+
+    .hero-recruit-row:hover {
+      padding-left: 7px;
+    }
+
+    .hero-recruit-row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .hero-recruit-row small {
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .hero-recruit-arrow {
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 900;
+      transition: transform .2s ease;
+    }
+
+    .hero-recruit-row:hover .hero-recruit-arrow {
+      transform: translateX(3px);
+    }
+
+    .hero-recruit-row strong {
+      display: block;
+      overflow: hidden;
+      color: #111827;
+      font-size: 14.3px;
+      font-weight: 800;
+      line-height: 1.45;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .hero-recruit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 10.8px;
+      line-height: 1.55;
+    }
+
+    .hero-recruit-meta span + span::before {
+      content: "·";
+      margin-right: 8px;
+      color: #cbd5e1;
+    }
+
+    .hero-recruit-controls {
+      min-height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 9px;
+    }
+
+    .hero-recruit-dots {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hero-recruit-dot {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition:
+        width .2s ease,
+        background .2s ease;
+    }
+
+    .hero-recruit-dot.active {
+      width: 18px;
+      background: #2563eb;
+    }
+
+    .hero-recruit-all {
+      color: #64748b;
+      font-size: 10.8px;
+      font-weight: 800;
+    }
+
+    .hero-recruit-all:hover {
+      color: #2563eb;
+    }
+
+    .hero-recruit-loading,
+    .hero-recruit-empty {
+      min-height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 10px;
+      color: #94a3b8;
+      text-align: center;
+      font-size: 12.5px;
+      line-height: 1.7;
+    }
+
+    .phone-box {
+      display: block;
+    }
+
+    .phone-box:hover {
+      color: #ffffff;
+      background: #172033;
+      transform: translateY(-1px);
+    }
+
+    @media(max-width: 900px) {
+      .recruit-card {
+        min-height: auto;
+      }
+
+      .hero-recruit-list {
+        min-height: 220px;
+      }
+    }
+
 </style>
 
 </head>
@@ -2504,68 +2709,75 @@
 
 
 
-      <!-- 오른쪽 -->
+      <!-- 오른쪽 : 현재 모집중인 회차 자동 순환 -->
 
-      <div class="recruit-card">
+      <div
+        class="recruit-card"
+        id="heroRecruitCard"
+      >
 
 
         <div class="recruit-heading">
 
-          <h2>
-            현재 모집중인 과정
-          </h2>
+          <div>
+            <h2>
+              현재 모집중인 과정
+            </h2>
 
-          <span class="recruit-status">
-            모집중
+            <p class="hero-recruit-subtitle">
+              회차를 누르면 과정 상세와 신청정보를 확인할 수 있습니다.
+            </p>
+          </div>
+
+          <span
+            class="recruit-status"
+            id="heroRecruitStatus"
+          >
+            불러오는 중
           </span>
 
         </div>
 
 
 
-        <div class="course-row">
+        <div
+          class="hero-recruit-list"
+          id="heroRecruitList"
+          aria-live="polite"
+        >
 
-          <small>
-            국민내일배움카드
-          </small>
-
-          <strong>
-            생성형 AI · ChatGPT 활용 실무
-          </strong>
-
-        </div>
-
-
-
-        <div class="course-row">
-
-          <small>
-            국민내일배움카드
-          </small>
-
-          <strong>
-            스마트스토어 · 전자상거래 실무
-          </strong>
+          <div class="hero-recruit-loading">
+            현재 모집중인 회차를 불러오는 중입니다.
+          </div>
 
         </div>
 
 
 
-        <div class="course-row">
+        <div class="hero-recruit-controls">
 
-          <small>
-            국민내일배움카드
-          </small>
+          <div
+            class="hero-recruit-dots"
+            id="heroRecruitDots"
+            aria-label="모집 회차 페이지 선택"
+          ></div>
 
-          <strong>
-            생성형 AI를 활용한 유튜브 영상편집
-          </strong>
+          <a
+            class="hero-recruit-all"
+            href="국민내일배움카드/courses.html"
+          >
+            전체 과정 보기 →
+          </a>
 
         </div>
 
 
 
-        <div class="phone-box">
+        <a
+          class="phone-box"
+          href="tel:051-710-0775"
+          aria-label="센텀디지털캠프 전화 문의 051-710-0775"
+        >
 
           <small>
             문의
@@ -2575,7 +2787,7 @@
             051-710-0775
           </strong>
 
-        </div>
+        </a>
 
 
       </div>
@@ -3305,6 +3517,447 @@
   }
 
 
+  const heroRecruitRoot =
+    document.getElementById("heroRecruitList");
+
+  const heroRecruitStatus =
+    document.getElementById("heroRecruitStatus");
+
+  const heroRecruitDots =
+    document.getElementById("heroRecruitDots");
+
+  const heroRecruitCard =
+    document.getElementById("heroRecruitCard");
+
+  let heroRecruitPages = [];
+  let heroRecruitPageIndex = 0;
+  let heroRecruitTimer = null;
+
+
+  function seoulToday() {
+
+    const parts =
+      new Intl.DateTimeFormat(
+        "en-CA",
+        {
+          timeZone: "Asia/Seoul",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }
+      ).formatToParts(new Date());
+
+    const map =
+      Object.fromEntries(
+        parts.map(part => [
+          part.type,
+          part.value
+        ])
+      );
+
+    return `${map.year}-${map.month}-${map.day}`;
+  }
+
+
+  function splitIntoPages(rows, size = 3) {
+
+    const pages = [];
+
+    for (
+      let index = 0;
+      index < rows.length;
+      index += size
+    ) {
+      pages.push(
+        rows.slice(index, index + size)
+      );
+    }
+
+    return pages;
+  }
+
+
+  function renderHeroDots() {
+
+    if (!heroRecruitDots) return;
+
+    if (heroRecruitPages.length <= 1) {
+      heroRecruitDots.innerHTML = "";
+      return;
+    }
+
+    heroRecruitDots.innerHTML =
+      heroRecruitPages.map((_, index) => `
+        <button
+          class="hero-recruit-dot ${
+            index === heroRecruitPageIndex
+              ? "active"
+              : ""
+          }"
+          type="button"
+          aria-label="${index + 1}번째 모집 회차 보기"
+          data-hero-page="${index}"
+        ></button>
+      `).join("");
+
+    heroRecruitDots
+      .querySelectorAll("[data-hero-page]")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const nextIndex =
+              Number(button.dataset.heroPage);
+
+            stopHeroRecruitRotation();
+            changeHeroRecruitPage(nextIndex);
+            startHeroRecruitRotation();
+          }
+        );
+
+      });
+  }
+
+
+  function heroRowHTML(row) {
+
+    const courseKey =
+      COURSE_MAP[row.course_key]
+        ? row.course_key
+        : "other";
+
+    const detailUrl =
+      courseDetailHref(
+        courseKey,
+        row.id
+      );
+
+    const period =
+      coursePeriod(row);
+
+    const label =
+      row.round_label ||
+      row.support_type ||
+      "국민내일배움카드";
+
+    return `
+      <a
+        class="hero-recruit-row"
+        href="${escapeHTML(detailUrl)}"
+        title="${escapeHTML(row.title)}"
+      >
+
+        <div class="hero-recruit-row-top">
+
+          <small>
+            ${escapeHTML(label)}
+          </small>
+
+          <span class="hero-recruit-arrow">
+            →
+          </span>
+
+        </div>
+
+        <strong>
+          ${escapeHTML(row.title)}
+        </strong>
+
+        ${
+          period ||
+          row.schedule_text
+            ? `
+              <div class="hero-recruit-meta">
+
+                ${
+                  period
+                    ? `
+                      <span>
+                        ${escapeHTML(period)}
+                      </span>
+                    `
+                    : ""
+                }
+
+                ${
+                  row.schedule_text
+                    ? `
+                      <span>
+                        ${escapeHTML(row.schedule_text)}
+                      </span>
+                    `
+                    : ""
+                }
+
+              </div>
+            `
+            : ""
+        }
+
+      </a>
+    `;
+  }
+
+
+  function renderHeroRecruitPage(
+    pageIndex,
+    animate = true
+  ) {
+
+    if (
+      !heroRecruitRoot ||
+      !heroRecruitPages.length
+    ) {
+      return;
+    }
+
+    heroRecruitPageIndex =
+      (
+        pageIndex +
+        heroRecruitPages.length
+      ) % heroRecruitPages.length;
+
+    const page =
+      heroRecruitPages[
+        heroRecruitPageIndex
+      ];
+
+    const update = () => {
+
+      heroRecruitRoot.innerHTML = `
+        <div
+          class="hero-recruit-page ${
+            animate
+              ? "is-entering"
+              : ""
+          }"
+        >
+          ${page.map(heroRowHTML).join("")}
+        </div>
+      `;
+
+      heroRecruitRoot
+        .classList
+        .remove("is-changing");
+
+      renderHeroDots();
+    };
+
+
+    if (
+      animate &&
+      heroRecruitRoot
+        .querySelector(".hero-recruit-page")
+    ) {
+
+      heroRecruitRoot
+        .classList
+        .add("is-changing");
+
+      window.setTimeout(
+        update,
+        260
+      );
+
+    } else {
+      update();
+    }
+  }
+
+
+  function changeHeroRecruitPage(nextIndex) {
+
+    if (
+      heroRecruitPages.length <= 1
+    ) {
+      return;
+    }
+
+    renderHeroRecruitPage(
+      nextIndex,
+      true
+    );
+  }
+
+
+  function stopHeroRecruitRotation() {
+
+    if (heroRecruitTimer) {
+      window.clearInterval(
+        heroRecruitTimer
+      );
+
+      heroRecruitTimer = null;
+    }
+  }
+
+
+  function startHeroRecruitRotation() {
+
+    stopHeroRecruitRotation();
+
+    if (
+      heroRecruitPages.length <= 1
+    ) {
+      return;
+    }
+
+    heroRecruitTimer =
+      window.setInterval(
+        () => {
+
+          changeHeroRecruitPage(
+            heroRecruitPageIndex + 1
+          );
+
+        },
+        4600
+      );
+  }
+
+
+  async function loadHeroRecruitingCourses() {
+
+    if (!heroRecruitRoot) return;
+
+
+    if (!isSupabaseConfigured) {
+
+      heroRecruitRoot.innerHTML =
+        '<div class="hero-recruit-empty">모집정보 서버 연결 전입니다.</div>';
+
+      if (heroRecruitStatus) {
+        heroRecruitStatus.textContent =
+          "연결 확인";
+      }
+
+      return;
+    }
+
+
+    const today =
+      seoulToday();
+
+
+    const { data, error } =
+      await supabase
+        .from("recruiting_courses")
+        .select(
+          "id,course_key,title,round_label,support_type,start_date,end_date,schedule_text,display_order"
+        )
+        .eq(
+          "is_recruiting",
+          true
+        )
+        .or(
+          `end_date.is.null,end_date.gte.${today}`
+        )
+        .order(
+          "display_order",
+          { ascending: true }
+        )
+        .order(
+          "start_date",
+          {
+            ascending: true,
+            nullsFirst: false
+          }
+        );
+
+
+    if (error) {
+
+      console.error(error);
+
+      heroRecruitRoot.innerHTML =
+        '<div class="hero-recruit-empty">모집 회차를 불러오지 못했습니다.</div>';
+
+      if (heroRecruitStatus) {
+        heroRecruitStatus.textContent =
+          "확인 필요";
+      }
+
+      return;
+    }
+
+
+    const rows =
+      data || [];
+
+
+    if (!rows.length) {
+
+      heroRecruitPages = [];
+
+      heroRecruitRoot.innerHTML =
+        '<div class="hero-recruit-empty">현재 모집중인 회차가 없습니다.<br>새로운 개강 일정을 준비 중입니다.</div>';
+
+      if (heroRecruitStatus) {
+        heroRecruitStatus.textContent =
+          "모집 준비중";
+      }
+
+      if (heroRecruitDots) {
+        heroRecruitDots.innerHTML = "";
+      }
+
+      return;
+    }
+
+
+    heroRecruitPages =
+      splitIntoPages(
+        rows,
+        3
+      );
+
+    heroRecruitPageIndex = 0;
+
+
+    if (heroRecruitStatus) {
+      heroRecruitStatus.textContent =
+        `${rows.length}개 회차 모집중`;
+    }
+
+
+    renderHeroRecruitPage(
+      0,
+      false
+    );
+
+    startHeroRecruitRotation();
+  }
+
+
+  if (heroRecruitCard) {
+
+    heroRecruitCard.addEventListener(
+      "mouseenter",
+      stopHeroRecruitRotation
+    );
+
+    heroRecruitCard.addEventListener(
+      "mouseleave",
+      startHeroRecruitRotation
+    );
+
+    heroRecruitCard.addEventListener(
+      "focusin",
+      stopHeroRecruitRotation
+    );
+
+    heroRecruitCard.addEventListener(
+      "focusout",
+      startHeroRecruitRotation
+    );
+
+  }
+
+
+
+
   const courseRoot =
     document.getElementById("homeCourseList");
 
@@ -3388,6 +4041,9 @@
         .eq(
           "is_recruiting",
           true
+        )
+        .or(
+          `end_date.is.null,end_date.gte.${seoulToday()}`
         )
         .order(
           "display_order",
@@ -3546,6 +4202,7 @@
   }
 
 
+  loadHeroRecruitingCourses();
   loadHomeNotices();
   loadHomeCourses();
 </script>
